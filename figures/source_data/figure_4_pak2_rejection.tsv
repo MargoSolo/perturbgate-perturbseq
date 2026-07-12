@@ -1,0 +1,11 @@
+side	step	detail	verdict
+technical	on-target knockdown	both guides ~83–86% KD	PASS
+technical	guide reproducibility	concordance 0.85, 100% direction	PASS
+technical	donor reproducibility	112-gene programme donor + LODO robust	PASS
+technical	real responder population	Mixscape responder fraction 76.5%	PASS
+technical	reproducible programme	frozen 112-gene responder signature	PASS
+therapeutic	inflammatory direction restored	NF-κB Δ=−0.011, p=0.05, negligible	FAIL
+therapeutic	disease-state reversal	+0.010, p=0.297 (n.s.); 41st pctile	FAIL
+therapeutic	external JIA enrichment	UP & DOWN co-elevate: activation confound	FAIL
+therapeutic	partial-inhibition sufficiency	both guides strong: not established	NOT_ESTABLISHED
+therapeutic	safer druggable escape	0/10 pass veto stack	FAIL

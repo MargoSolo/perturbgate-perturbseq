@@ -1,0 +1,12 @@
+track	reversal	range
+primary raw-count vector	0.1606	
+adjusted-vector sensitivity	0.147	
+RICTOR guide 1	0.141	
+RICTOR guide 2	0.1781	
+disease-donor LODO (11)	0.15912752727780982	(np.float64(0.1538089702492528), np.float64(0.1670583216538427))
+responder-only mean	0.054	
+condition: Rest	0.1532	
+condition: Stim8hr	0.0916	
+condition: Stim48hr	0.0422	
+confound-removed (cc+act+broad)	0.0967007240817705	
+matched-null substrate	0.1314	

@@ -1,0 +1,4 @@
+target	primary_reversal	primary_pearson_p	matched_substrate_reversal	matched_percentile	matched_empirical_p
+RICTOR	0.1606	1.8e-63	0.1314	96.5	0.0398
+PAK2	0.01	0.297	-0.0308	41.3	0.672
+RIPK1	0.0377	8.68e-05	-0.0293	42.2	0.672
