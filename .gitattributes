@@ -1,0 +1,6 @@
+# Normalise line endings so the repo is stable across OSes.
+* text=auto eol=lf
+*.png binary
+*.svg text eol=lf
+*.parquet binary
+*.gz binary

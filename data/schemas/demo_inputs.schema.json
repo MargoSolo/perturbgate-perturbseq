@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TargetGate demo input schemas",
+  "tables": {
+    "disease_vector_activated_memory": {
+      "file": "data/demo/disease_vector_activated_memory.tsv.gz",
+      "required_columns": [
+        "gene",
+        "symbol",
+        "mean_logfc",
+        "donor_consistency",
+        "disease_sign"
+      ]
+    },
+    "kd_meta": {
+      "file": "data/demo/kd_meta_{RICTOR,PAK2,RIPK1}.tsv.gz",
+      "required_columns": [
+        "gene",
+        "lfc"
+      ]
+    }
+  }
+}

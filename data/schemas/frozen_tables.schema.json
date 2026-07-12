@@ -1,0 +1,178 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TargetGate frozen table schemas",
+  "description": "Required columns and controlled vocabularies for the frozen public tables in results/frozen/. Enforced by src/targetgate/schemas.py and tests/test_schemas.py.",
+  "controlled_vocabularies": {
+    "evidence_depth": [
+      "DEEP",
+      "SCREEN_ONLY",
+      "SHORTLIST_VETTED"
+    ],
+    "final_evidence_class": [
+      "COMPARATOR_ONLY",
+      "EXPLORATORY_SINGLE_STATE_HIT",
+      "NONSPECIFIC_BROAD_REVERSER",
+      "NOT_ADVANCED_FROM_SCREEN",
+      "REJECTED_AFTER_DEEP_VALIDATION",
+      "RETAINED_MECHANISM_HYPOTHESIS",
+      "SAFETY_CONSTRAINED"
+    ]
+  },
+  "tables": {
+    "primary_comparison": {
+      "file": "results/frozen/primary_comparison.tsv",
+      "required_columns": [
+        "target",
+        "final_public_label",
+        "primary_reversal",
+        "primary_pearson_p",
+        "primary_spearman_reversal",
+        "gsea_reversal",
+        "guide_1_reversal",
+        "guide_2_reversal",
+        "disease_lodo_positive",
+        "disease_lodo_total",
+        "responder_support",
+        "condition_rest",
+        "condition_stim8",
+        "condition_stim48",
+        "matched_substrate_reversal",
+        "matched_percentile",
+        "matched_empirical_p",
+        "matched_ci_low",
+        "matched_ci_high",
+        "confound_resistant",
+        "safety_summary",
+        "modality_summary",
+        "final_decision",
+        "principal_limitation"
+      ],
+      "non_null_columns": [
+        "target",
+        "final_public_label",
+        "primary_reversal",
+        "final_decision"
+      ],
+      "min_rows": 3,
+      "allowed_values": {}
+    },
+    "all_perturbations_authoritative_reversal": {
+      "file": "results/frozen/all_perturbations_authoritative_reversal.tsv",
+      "required_columns": [
+        "perturbation_id",
+        "gene_symbol",
+        "reversal_score",
+        "global_rank",
+        "global_percentile",
+        "effect_magnitude",
+        "breadth",
+        "donor_sign_consistency",
+        "guide_concordance",
+        "on_target_knockdown",
+        "broad_effect_flag",
+        "essentiality_flag",
+        "safety_flag",
+        "modality_flag",
+        "screen_level_status",
+        "evidence_depth",
+        "deep_validation_status",
+        "primary_rejection_or_nonadvance_reason",
+        "final_evidence_class",
+        "source_artifact"
+      ],
+      "non_null_columns": [
+        "perturbation_id",
+        "gene_symbol",
+        "reversal_score",
+        "global_rank",
+        "evidence_depth"
+      ],
+      "min_rows": 900,
+      "allowed_values": {
+        "evidence_depth": [
+          "DEEP",
+          "SCREEN_ONLY",
+          "SHORTLIST_VETTED"
+        ]
+      }
+    },
+    "candidate_funnel": {
+      "file": "results/frozen/candidate_funnel.tsv",
+      "required_columns": [
+        "stage_id",
+        "stage_name",
+        "scope",
+        "denominator_definition",
+        "n_entering",
+        "n_advanced",
+        "n_not_advanced",
+        "n_rejected",
+        "n_unresolved",
+        "principal_reason_categories",
+        "source_artifact",
+        "generating_command"
+      ],
+      "non_null_columns": [
+        "stage_id",
+        "stage_name",
+        "scope",
+        "n_entering",
+        "source_artifact"
+      ],
+      "min_rows": 4,
+      "allowed_values": {}
+    },
+    "rejection_ledger": {
+      "file": "results/frozen/rejection_ledger.tsv",
+      "required_columns": [
+        "perturbation_id",
+        "gene_symbol",
+        "evidence_depth",
+        "decision_scope",
+        "last_gate_reached",
+        "rejection_reason",
+        "final_evidence_class"
+      ],
+      "non_null_columns": [
+        "perturbation_id",
+        "gene_symbol",
+        "evidence_depth",
+        "final_evidence_class"
+      ],
+      "min_rows": 10,
+      "allowed_values": {
+        "evidence_depth": [
+          "DEEP",
+          "SCREEN_ONLY",
+          "SHORTLIST_VETTED"
+        ]
+      }
+    },
+    "gate_matrix": {
+      "file": "results/frozen/gate_matrix.tsv",
+      "required_columns": [
+        "row_label"
+      ],
+      "non_null_columns": [],
+      "min_rows": 4,
+      "allowed_values": {}
+    },
+    "matched_null": {
+      "file": "results/frozen/matched_null.tsv",
+      "required_columns": [
+        "target",
+        "observed_reversal",
+        "empirical_p",
+        "percentile",
+        "n_null"
+      ],
+      "non_null_columns": [
+        "target",
+        "observed_reversal",
+        "empirical_p"
+      ],
+      "min_rows": 3,
+      "allowed_values": {}
+    }
+  }
+}
