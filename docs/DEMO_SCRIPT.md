@@ -35,9 +35,10 @@ claims failed.
 | 0:20–0:45 | Challenge and dataset | Dataset card |
 | 0:45–1:10 | Figure 1 — attrition | `figures/figure_1_target_attrition.png` |
 | 1:10–1:40 | PAK2 — "real but wrong" | `figures/figure_4_pak2_rejection.png` |
-| 1:40–2:15 | RICTOR validation | `figures/figure_2_directionality_and_null.png` + terminal |
-| 2:15–2:35 | Translation boundary | `docs/TRANSLATIONAL_REVIEW_STATUS.md` |
-| 2:35–2:55 | Reproducibility | Terminal (`make demo`, `make verify`) |
+| 1:40–2:08 | RICTOR validation (internal +0.161) | `figures/figure_2_directionality_and_null.png` + terminal |
+| 2:08–2:30 | External concordance (GSE160097, +0.165) | `figures/supplementary_external_jia_concordance.png` + terminal |
+| 2:30–2:42 | Translation boundary | `docs/TRANSLATIONAL_REVIEW_STATUS.md` |
+| 2:42–2:55 | Reproducibility | Terminal (`make demo`, `make external-gse160097`, `make verify`) |
 | 2:55–3:00 | Closing line | Title card |
 
 ### Pre-recording checklist
@@ -191,11 +192,45 @@ column -t -s $'\t' results/frozen/matched_null.tsv
 
 ---
 
-## 2:15–2:35 — The translation boundary
+## 2:08–2:30 — External concordance (GSE160097)
 
 **Voiceover:**
-> This is where we stop, on purpose. RICTOR is a disease-reversing mechanism node with a modality
-> gap. It is not a validated drug target. Systemic RICTOR inhibition is not shown to be safe, no
+> To test whether that reversal was specific to one cohort, we scored the same frozen RICTOR
+> signature against an external public JIA dataset — GSE160097 — of FACS-sorted memory CD4 T cells
+> from paired synovial fluid and blood. We rebuilt the synovial-fluid-minus-blood direction from
+> raw counts, aggregated within donor pairs, and applied the identical reversal function. The
+> external reversal was +0.165 — essentially the internal +0.161. All six leave-one-donor-pair-out
+> folds stayed positive, and the paired bootstrap excluded zero. PAK2 and RIPK1 stayed near zero.
+> The signal was carried by an inflammatory effector programme — CXCR6, interferon-gamma,
+> granzymes — not a generic egress module. This is external same-disease concordance in a cohort
+> with no detected donor overlap. It is not a RICTOR perturbation experiment, and not therapeutic
+> validation.
+
+**Screen:** [`figures/supplementary_external_jia_concordance.png`](../figures/supplementary_external_jia_concordance.png),
+then a terminal running `make external-gse160097`.
+
+**Commands (run live):**
+```
+make external-gse160097
+```
+
+**Caption:**
+`External JIA cohort GSE160097: RICTOR external reversal +0.165 (internal +0.161).`
+`6/6 paired leave-one-donor-pair-out positive; paired bootstrap 95% CI +0.113..+0.191. PAK2/RIPK1 near zero.`
+`External same-disease concordance, no detected donor overlap — not perturbation or therapeutic replication.`
+
+> Note for the reader: say "external", never "independent" (the internal and external JIA cohorts
+> share the Charité/DRFZ Berlin ecosystem; cohort-independence is NOT_FULLY_VERIFIABLE). Do not
+> imply RICTOR was perturbed in GSE160097. Do not reference any other external dataset.
+
+---
+
+## 2:30–2:42 — The translation boundary
+
+**Voiceover:**
+> This is where we stop, on purpose — even with the external concordance, the biology is stronger
+> but the translational readiness is unchanged. RICTOR is a disease-reversing mechanism node with
+> a modality gap. It is not a validated drug target. Systemic RICTOR inhibition is not shown to be safe, no
 > selective small-molecule modality exists, and synovium-versus-blood is not disease-versus-
 > healthy. The point of PerturbGate is to hand a downstream biologist a hypothesis with its
 > boundary already drawn — the mechanism, the caveats, and the specific evidence that is still
@@ -215,25 +250,28 @@ sed -n '1,40p' docs/TRANSLATIONAL_REVIEW_STATUS.md
 
 ---
 
-## 2:35–2:55 — Reproducibility
+## 2:42–2:55 — Reproducibility
 
 **Voiceover:**
 > All of this is reproducible. `make demo` runs on a laptop in minutes from compact committed
 > inputs — no server, no private data — and recomputes the RICTOR, PAK2, and RIPK1 reversals,
-> regenerating the tables and figures against golden values. `make verify` is the composite gate:
-> it rebuilds the demo outputs and figures, revalidates schemas, golden values, claims, and
-> labels, runs the tests, and scans the whole repository for any forbidden private content.
+> regenerating the tables and figures against golden values. `make external-gse160097` recomputes
+> the external +0.165 offline. `make verify` is the composite gate: it rebuilds the demo and
+> external outputs and figures, revalidates schemas, golden values, claims, and labels, runs the
+> tests, and scans the whole repository for any forbidden private content.
 
-**Screen:** terminal. Run the demo, let it finish, then run verify (or show its tail if long).
+**Screen:** terminal. Run the demo, then the external recompute, then verify (or show its tail if long).
 
 **Commands (run live):**
 ```
 make demo
+make external-gse160097
 make verify
 ```
 
 **Caption:**
 `make demo — laptop, minutes, no server or private data; recomputes reversals + figures vs golden values.`
+`make external-gse160097 — recomputes the external +0.165 offline.`
 `make verify — checksums, schemas, golden values, claims, labels, tests, and a private-content audit.`
 
 ---
@@ -290,15 +328,17 @@ For a version cut with no audio, these captions in sequence carry the story:
 5. ...but failed therapeutic validation (reversal +0.010, p=0.297, 41st-percentile null; enrichment activation-confounded). Rejected, with the record kept.
 6. RICTOR reversal +0.161 (p=1.8e-63); both guides positive; 11/11 LODO folds positive (+0.154..+0.167); positive in all 3 conditions.
 7. Matched null: 96.5th percentile, but 7/200 controls exceed RICTOR (empirical p~0.040). Seven strong checks + a nominal null exceedance — boundary reported.
-8. RICTOR is a disease-reversing mechanism node with a modality gap — not a validated drug target.
-9. Reproducible: make demo (laptop, minutes) and make verify (composite gate + private-content audit).
-10. PerturbGate does not just report which hypothesis survived. It records why the competing claims failed.
+8. External JIA cohort GSE160097: RICTOR external reversal +0.165 (internal +0.161); 6/6 paired leave-one-donor-pair-out positive; paired bootstrap 95% CI +0.113..+0.191; PAK2/RIPK1 near zero. External same-disease concordance, no detected donor overlap.
+9. RICTOR is a disease-reversing mechanism node with a modality gap — not a validated drug target. Stronger biology, unchanged translational stop.
+10. Reproducible: make demo (laptop, minutes), make external-gse160097 (offline), and make verify (composite gate + private-content audit).
+11. PerturbGate does not just report which hypothesis survived. It records why the competing claims failed.
 
 ---
 
 ## Related documentation
 
 - [RESULTS.md](RESULTS.md) — full result tables and the three controlled labels.
+- [EXTERNAL_CONCORDANCE_GSE160097.md](EXTERNAL_CONCORDANCE_GSE160097.md) — the external GSE160097 concordance beat (2:08–2:30), cohort-independence audit, and download route.
 - [METHODS.md](METHODS.md) — disease vector, pseudobulk, reversal metric, matched-null design.
 - [DECISION_TRAIL.md](DECISION_TRAIL.md) — the branching decision map behind Figure 1.
 - [TRANSLATIONAL_REVIEW_STATUS.md](TRANSLATIONAL_REVIEW_STATUS.md) and [LIMITATIONS.md](LIMITATIONS.md) — the translation boundary.

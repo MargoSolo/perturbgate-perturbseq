@@ -1,0 +1,4 @@
+gene_class	n_genes	frac_abs_contribution	reversal_after_removal	delta_vs_base
+egress_quiescence_residency	11	0.0071	0.16365	-0.00127
+inflamed_effector_Tph	19	0.0469	0.14523	-0.01969
+__BASE__	14806	1.0	0.16492	0.0

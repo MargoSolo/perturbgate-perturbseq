@@ -9,8 +9,9 @@ mechanism hypotheses.
 Our first lead, PAK2, was technically reproducible but failed therapeutic
 directionality and was rejected.
 
-RICTOR survived a stricter validation workflow as a modest disease-reversing
-mechanism hypothesis, but not yet as a validated drug target.
+RICTOR survived the internal evidence gates and showed the same directional
+reversal in an external paired JIA synovial-fluid-versus-blood memory-CD4 cohort,
+while remaining a mechanism hypothesis and **not** a validated drug target.
 
 [![CI](https://github.com/MargoSolo/perturbgate-perturbseq/actions/workflows/ci.yml/badge.svg)](https://github.com/MargoSolo/perturbgate-perturbseq/actions/workflows/ci.yml)
 ![python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
@@ -41,7 +42,10 @@ laptop with no private data.*
    / [`results/frozen/primary_comparison.tsv`](results/frozen/primary_comparison.tsv).
 4. **Run `make demo`** — recomputes RICTOR's **+0.161** disease reversal from
    compact committed inputs in under two minutes and validates the golden values.
-5. **Inspect the complete decision trail** —
+5. **Run `make external-gse160097`** — recomputes the **external** RICTOR reversal
+   **+0.165** on an external paired JIA cohort (GSE160097) and validates it
+   ([External same-disease concordance](#external-same-disease-concordance)).
+6. **Inspect the complete decision trail** —
    [docs/DECISION_TRAIL.md](docs/DECISION_TRAIL.md) and the
    [rejection ledger](results/frozen/rejection_ledger.tsv).
 
@@ -87,6 +91,44 @@ tissue-retention and cytotoxic-effector genes, without detectable collapse of th
 Treg-identity score in this dataset.* This is a **computational mechanism
 hypothesis, not functional validation.**
 
+## External same-disease concordance
+
+We tested the frozen RICTOR-knockdown vector in GSE160097, a public paired
+synovial-fluid and peripheral-blood memory-T-cell dataset from patients with
+JIA.
+
+The primary analysis used FACS-sorted conventional memory CD4 T cells and raw
+UMI counts, aggregated within donor pairs before constructing the
+synovial-fluid-minus-blood disease vector.
+
+Results:
+
+- internal RICTOR reversal: +0.161
+- external RICTOR reversal: +0.165
+- paired leave-one-donor-out: 6/6 positive
+- paired bootstrap median: +0.160
+- paired bootstrap 95% interval: +0.113 to +0.191
+- PAK2: approximately +0.002
+- RIPK1: approximately −0.007
+
+The external signal was diffuse, survived removal of the strongest contributing
+genes, and was not explained by the KLF2/SELL/S1PR1/TCF7 egress module.
+
+This supports external same-disease, paired-compartment transcriptional
+concordance. It is not an external RICTOR perturbation experiment, therapeutic
+validation, or evidence that RICTOR is already an advanceable drug target.
+
+> **Cohort-independence:** `NO_OVERLAP_DETECTED_BUT_NOT_FULLY_VERIFIABLE`. GSE160097
+> is *an external public JIA cohort with no detected donor overlap* — reported as
+> "external", not "independent", because it shares the Charité/DRFZ Berlin
+> institutional ecosystem with the internal atlas and both datasets are
+> de-identified. Reproduce with `make external-gse160097`; full audit and the
+> official-download route in
+> [docs/EXTERNAL_CONCORDANCE_GSE160097.md](docs/EXTERNAL_CONCORDANCE_GSE160097.md)
+> ([evidence summary](docs/EXTERNAL_EVIDENCE_SUMMARY.md) ·
+> [curated artifacts](results/external_validation/gse160097/) ·
+> [supplementary figure](figures/supplementary_external_jia_concordance.png)).
+
 ## 3. Evidence and the negative result
 
 **Target attrition through evidence gates** — ranking is not validation.
@@ -109,6 +151,18 @@ row can pass every biological gate yet carry a `TRANSLATIONAL_GAP` in modality
 (RICTOR), or pass technical gates and fail directionality (PAK2).
 
 ![Gate matrix](figures/figure_3_gate_matrix.png)
+
+RICTOR now also carries an **external-evidence** gate, which does **not** move the
+translational stop:
+
+| Gate | RICTOR |
+|---|---|
+| **External same-disease concordance** (GSE160097) | **PASS** |
+| Selective modality | NONE VALIDATED |
+| Human-genetic efficacy | NO SUPPORT |
+| Loss constraint | SAFETY HEADWIND |
+| Systemic safety | CELL-TYPE CONFLICT |
+| Translational readiness | STOP |
 
 **PAK2 rejection case study — the negative result that matters.** PAK2 had strong
 on-target knockdown, guide and donor reproducibility, a real responder population,
@@ -153,8 +207,9 @@ cd perturbgate-perturbseq
 
 make setup     # install the package (+ dev tools)
 make demo      # Level 1: recompute the headline reversal from compact inputs (< 2 min)
-make verify    # schemas + golden values + claims + funnel + superseded guard + audit
+make verify    # schemas + golden values + claims + funnel + superseded guard + external + audit
 make reproduce # Level 2: recompute robustness from public derived matrices (< 5 min)
+make external-gse160097  # external same-disease concordance (GSE160097): +0.165, offline (< 30 s)
 make full      # Level 3: reconstruct from open raw data (server-scale)
 ```
 
@@ -168,6 +223,7 @@ make full      # Level 3: reconstruct from open raw data (server-scale)
 | `make figures` | `python -m perturbgate.cli figures` |
 | `make verify` | `python -m perturbgate.cli verify` |
 | `make manifest` | `python -m perturbgate.cli manifest` |
+| `make external-gse160097` | `python -m perturbgate.external.gse160097` |
 | `make test` | `python -m pytest` |
 | `make lint` | `python -m ruff check src scripts tests` |
 | `make privacy-audit` | `python scripts/public_readiness_audit.py` |
@@ -232,6 +288,10 @@ PerturbGate is **not**:
 > - that a **selective RICTOR modality** currently exists;
 > - that synovium-vs-blood is equivalent to disease-vs-healthy tissue;
 > - that the adjusted-vector sensitivity analysis is **independent biological replication**;
+> - that the external GSE160097 concordance is an **independent RICTOR perturbation
+>   experiment**, **therapeutic replication**, **causal replication**, or an
+>   **independent cohort** (it is external same-disease concordance in a cohort with
+>   *no detected donor overlap*, sharing the Charité/DRFZ Berlin ecosystem);
 > - that PAK2 is an **anti-inflammatory target**;
 > - that **all 924 perturbations** underwent deep candidate validation;
 > - that the **nominal matched-null significance** is definitive.
@@ -288,13 +348,16 @@ sensitivity rather than independent replication) are unchanged:
 
 ## Ongoing study and manuscript plan
 
-This repository is the **frozen hackathon release** of an ongoing study. Planned
-extensions — independent same-tissue disease validation, partial-inhibition /
-titration analyses, deeper translational safety and modality assessment, and,
-where feasible, experimental validation — are intended to form a full scientific
-manuscript. Future analyses will be versioned separately and will **not** silently
-alter the frozen hackathon conclusions
-([MANUSCRIPT_ROADMAP.md](docs/MANUSCRIPT_ROADMAP.md)).
+This repository is the **frozen hackathon release** of an ongoing study. It now
+includes an **external same-disease, paired-compartment concordance** test in a
+public JIA cohort (GSE160097; RICTOR **+0.165** vs internal **+0.161**), reported
+as external concordance with no detected donor overlap — not causal, perturbation,
+or therapeutic replication. Remaining planned extensions — a disease-vs-healthy
+(not compartment) contrast, partial-inhibition / titration analyses, deeper
+translational safety and modality assessment, and, where feasible, experimental
+validation — are intended to form a full scientific manuscript. Future analyses
+will be versioned separately and will **not** silently alter the frozen hackathon
+conclusions ([MANUSCRIPT_ROADMAP.md](docs/MANUSCRIPT_ROADMAP.md)).
 
 ## Video assets
 
@@ -319,6 +382,8 @@ Institutes).
 [Methods](docs/METHODS.md) · [Results](docs/RESULTS.md) ·
 [Decision trail](docs/DECISION_TRAIL.md) · [Failure modes](docs/FAILURE_MODES.md) ·
 [Claims & evidence](docs/CLAIMS_AND_EVIDENCE.md) ·
+[External concordance (GSE160097)](docs/EXTERNAL_CONCORDANCE_GSE160097.md) ·
+[External evidence summary](docs/EXTERNAL_EVIDENCE_SUMMARY.md) ·
 [Superseded results](docs/SUPERSEDED_RESULTS.md) ·
 [Analysis contract](docs/ANALYSIS_CONTRACT.md) · [Technical note](docs/TECHNICAL_NOTE.md) ·
 [Reproducibility](docs/REPRODUCIBILITY.md) ·

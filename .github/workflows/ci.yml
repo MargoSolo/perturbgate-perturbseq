@@ -55,6 +55,9 @@ jobs:
       - name: Results manifest
         run: python -m perturbgate.cli manifest
 
+      - name: External same-disease concordance (GSE160097, offline)
+        run: python -m perturbgate.external.gse160097
+
       - name: Public-readiness / privacy audit
         run: python scripts/public_readiness_audit.py
 

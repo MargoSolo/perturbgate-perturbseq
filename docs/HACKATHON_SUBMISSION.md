@@ -6,26 +6,31 @@ from the Marson and Pritchard laboratories.*
 
 ---
 
-## Primary written summary (submission text, ~165 words)
+## Primary written summary (submission text, ~195 words)
 
-PerturbGate is an open-data, reproducible analysis for evaluating drug-target
-hypotheses from a genome-scale primary human CD4 T-cell Perturb-seq screen. Rather
-than treating the strongest perturbation effect as a target, we combined
-responder-aware effects, guide and donor robustness, donor-paired disease-state
-reversal, matched-perturbation calibration, and translational safety and modality
-checks.
+PerturbGate is an open-data, reproducible analysis for converting genome-scale
+human CD4 Perturb-seq hits into evidence-gated mechanism hypotheses. Our first
+lead, PAK2, produced a real cellular phenotype but failed therapeutic-direction
+testing and was rejected. RICTOR survived responder, guide, donor, condition,
+confound, and matched-null checks as a disease-reversing mechanism hypothesis.
 
-Our initial lead, PAK2, produced a real and reproducible cellular phenotype but
-failed therapeutic-direction testing and was rejected. A separate pre-specified
-analysis retained RICTOR as a modest disease-reversing mechanism hypothesis: both
-guides agreed, all 11 leave-one-disease-donor-out analyses remained positive, and
-the signal persisted across conditions and after confound removal. Its matched-null
-evidence was promising but statistically marginal, and selective pharmacology,
-safety and independent disease-tissue replication remain unresolved.
+We then tested the frozen RICTOR signature in GSE160097, an external paired JIA
+synovial-fluid-versus-blood memory-CD4 cohort. The external reversal score was
++0.165, closely matching the internal +0.161 estimate. All six
+leave-one-donor-pair-out analyses remained positive, and paired-bootstrap
+uncertainty excluded zero. PAK2 and RIPK1 remained near zero. The signal was
+driven by an inflammatory effector programme rather than a generic
+egress-associated module.
 
-PerturbGate matters because Perturb-seq studies often stop at hit ranking. This
-project makes candidate attrition, negative results, superseded claims and
-claim-to-evidence provenance explicit, reproducible and auditable.
+RICTOR nevertheless remains a mechanism node, not a validated drug target:
+selective pharmacology, human-genetic efficacy support, systemic safety, and
+experimental validation remain unresolved. PerturbGate makes both candidate
+retention and rejection explicit, reproducible, and auditable.
+
+*(External concordance is reported as an external public JIA cohort with no
+detected donor overlap — not an independent cohort, causal/perturbation
+replication, or therapeutic validation. See
+[EXTERNAL_CONCORDANCE_GSE160097.md](EXTERNAL_CONCORDANCE_GSE160097.md).)*
 
 ---
 

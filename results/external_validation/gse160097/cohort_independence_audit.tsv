@@ -1,0 +1,13 @@
+dimension	internal_disease_cohort	gse160097_external_cohort	status
+accession	CELLxGENE dataset 612b7bff (collection 10eb236d); GEO GSE278962/278968/278969	GEO GSE160097	DISJOINT
+publication	Knight et al. 2026 (DOI 10.64898/2026.05.01.716870)	Maschmeyer et al. 2020 (PMID 33296081)	DISJOINT
+lab_group	Romagnani group (Charite, Berlin)	Mashreghi/Radbruch (DRFZ, Berlin)	DIFFERENT_GROUPS
+institution_ecosystem	Charite / Berlin	DRFZ / Charite / Berlin	SHARED_ECOSYSTEM_RISK
+donor_id_namespace	2518-xxx / 2519-xxx (14 donors)	'JIA patient 1..7' (7 donors)	DISJOINT_NAMESPACE
+treatment_status	treatment-naive JIA (per atlas title)	not stated treatment-naive	DIFFERENT
+assay_design	integrated multi-lineage single-cell atlas (innate + global)	FACS-sorted memory T (CD4 Tcon/Treg, CD8) 10x + TCR	DIFFERENT
+approx_sampling_era	~2022-2025	~2018-2019	DIFFERENT
+shared_donor_identifier_found	-	-	NONE
+atlas_lists_gse160097_as_source	checked: CELLxGENE collection 10eb236d datasets + links	not referenced	NO
+individual_patient_verifiability	de-identified	de-identified	NOT_CROSS_MATCHABLE
+VERDICT			NO_OVERLAP_DETECTED_BUT_NOT_FULLY_VERIFIABLE

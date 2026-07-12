@@ -144,15 +144,26 @@ translational-readiness state is tracked in
 [TRANSLATIONAL_REVIEW_STATUS.md](TRANSLATIONAL_REVIEW_STATUS.md); the honest
 scope limits are in [LIMITATIONS.md](LIMITATIONS.md).
 
-### B.1 Independent same-tissue disease validation (RA / OA / JIA)
+### B.1 Same-tissue disease validation (RA / OA / JIA)
 
-The disease vector is a single JIA synovium-vs-blood contrast (activated-memory
-CD4, raw-count donor-paired pseudobulk, 11 paired donors, 12,071 genes,
-md5 `2b18d92684db1f70b637e1f098374c7e`). A manuscript needs the RICTOR reversal
-re-tested against **independent** synovial CD4 datasets — additional JIA cohorts
-and, critically, adult rheumatoid arthritis (RA) and osteoarthritis (OA) as a
-disease-specificity contrast — computed with the identical pipeline and the same
-sign convention. The pre-registered success measure is a positive reversal point
+The internal disease vector is a single JIA synovium-vs-blood contrast
+(activated-memory CD4, raw-count donor-paired pseudobulk, 11 paired donors,
+12,071 genes, md5 `2b18d92684db1f70b637e1f098374c7e`).
+
+**Status (completed, external same-disease):** the RICTOR reversal has now been
+re-tested with the identical pipeline and sign convention against an **external
+public JIA cohort with no detected donor overlap** (GSE160097; FACS-sorted memory
+CD4, raw-count donor-paired SF-minus-blood, 6 donor pairs): external reversal
+**+0.165** vs internal **+0.161**, 6/6 paired leave-one-donor-pair-out positive,
+paired bootstrap 95% interval excluding zero
+([EXTERNAL_CONCORDANCE_GSE160097.md](EXTERNAL_CONCORDANCE_GSE160097.md)). This is
+external same-disease *concordance* (cohort-independence
+`NO_OVERLAP_DETECTED_BUT_NOT_FULLY_VERIFIABLE`), not causal/perturbation replication.
+
+**Still required:** a **disease-vs-healthy** (not compartment) contrast; a
+disease-specificity contrast (e.g. osteoarthritis vs an inflammatory arthritis);
+and additional cohorts — computed with the identical pipeline and the same sign
+convention. The pre-registered success measure is a positive reversal point
 estimate with a reported effect size and confidence interval in each independent
 tissue, not merely a p-value. OA in particular tests whether the direction is
 inflammatory-arthritis-specific rather than generic synovial residency.
