@@ -19,6 +19,12 @@ mechanism hypothesis, but not yet as a validated drug target.
 ![data](https://img.shields.io/badge/data-open%20(MIT%20%2B%20CC--BY--4.0)-brightgreen)
 ![release](https://img.shields.io/badge/release-v1.0--hackathon-orange)
 
+> **Platforms.** Developed and validated on Linux/Windows; CI runs on
+> `ubuntu-latest` (Python 3.10/3.11/3.12) and `macos-latest` (Apple Silicon,
+> Python 3.11). macOS is **expected to work on macOS, pending platform test** —
+> we do not claim macOS support by inspection alone; the claim is upgraded only
+> when macOS CI is green. See [docs/MACOS_QUICKSTART.md](docs/MACOS_QUICKSTART.md).
+
 ---
 
 ## Judge quickstart
@@ -145,8 +151,23 @@ make reproduce # Level 2: recompute robustness from public derived matrices (< 5
 make full      # Level 3: reconstruct from open raw data (server-scale)
 ```
 
-No `make`? Every target is a plain command, e.g. `python -m perturbgate.cli demo`
-(see [REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md)).
+**No `make`?** Every target has a plain-Python equivalent (macOS/Windows/Linux):
+
+| Make target | Plain command |
+|---|---|
+| `make setup` | `python -m pip install -e ".[dev]"` |
+| `make demo` | `python -m perturbgate.cli demo` |
+| `make reproduce` | `python -m perturbgate.cli reproduce` |
+| `make figures` | `python -m perturbgate.cli figures` |
+| `make verify` | `python -m perturbgate.cli verify` |
+| `make manifest` | `python -m perturbgate.cli manifest` |
+| `make test` | `python -m pytest` |
+| `make lint` | `python -m ruff check src scripts tests` |
+| `make privacy-audit` | `python scripts/public_readiness_audit.py` |
+| `make full` | `python scripts/run_full_pipeline.py` (server-scale) |
+
+macOS users: see [docs/MACOS_QUICKSTART.md](docs/MACOS_QUICKSTART.md) (incl. Apple
+Silicon notes and how to serve the Explorer with `python -m http.server`).
 
 | Level | Command | Needs | Time | What it proves |
 |---|---|---|---|---|
