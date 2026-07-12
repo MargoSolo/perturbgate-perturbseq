@@ -1,0 +1,8 @@
+# Snakemake config for TargetGate.
+# Levels 1-2 need nothing here. Level 3 reads open data via the SERVER_* env vars
+# documented in configs/full.yaml; no path or cluster name is hardcoded.
+seed: 0
+levels:
+  demo: configs/demo.yaml
+  reproduce: configs/reproduce.yaml
+  full: configs/full.yaml

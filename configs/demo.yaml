@@ -1,0 +1,28 @@
+# Level 1 — Demo / artifact reproducibility.
+# Runs on a normal laptop in minutes, no server, no private data, no credentials.
+# Recomputes the headline reversal from compact, legally redistributable inputs.
+level: 1
+name: demo
+description: >-
+  Regenerate the main public tables, claim ledger and figures from compact frozen
+  inputs; recompute RICTOR/PAK2/RIPK1 disease-state reversal and validate the
+  headline values against the frozen golden numbers.
+inputs:
+  disease_vector: data/demo/disease_vector_activated_memory.tsv.gz
+  kd_meta:
+    RICTOR: data/demo/kd_meta_RICTOR.tsv.gz
+    PAK2: data/demo/kd_meta_PAK2.tsv.gz
+    RIPK1: data/demo/kd_meta_RIPK1.tsv.gz
+  matched_null_values: results/frozen/rictor_matched_null_values.tsv
+outputs:
+  - results/demo/reversal_recomputed.tsv
+  - results/demo/matched_null_recomputed.json
+  - results/demo/demo_summary.json
+  - figures/*.png
+  - figures/*.svg
+tolerance: 1.0e-3          # |recomputed - frozen golden| must be within this
+seed: 0
+resources:
+  ram_gb: 2
+  runtime_minutes: "< 2"
+  server_required: false

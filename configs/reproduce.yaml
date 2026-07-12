@@ -1,0 +1,30 @@
+# Level 2 — Analytical reproduction.
+# Recomputes robustness summaries from public derived matrices and compares to
+# the frozen values with a documented floating-point tolerance.
+level: 2
+name: reproduce
+description: >-
+  Recompute the decision-critical RICTOR robustness axes (guide-separate reversal
+  and leave-one-disease-donor-out) from the shipped Level-2 derived matrices, then
+  compare to the frozen tables.
+inputs:
+  pseudobulk_counts: data/reproduce/pseudobulk_counts.parquet
+  pseudobulk_meta: data/reproduce/pseudobulk_meta.tsv
+  disease_perdonor: data/reproduce/disease_perdonor_logfc_activated_memory.tsv.gz
+  disease_vector: data/demo/disease_vector_activated_memory.tsv.gz
+  kd_meta_overall: data/demo/kd_meta_RICTOR.tsv.gz
+outputs:
+  - results/reproduced/rictor_guides.tsv
+  - results/reproduced/rictor_lodo.tsv
+compare_to:
+  rictor_guides: results/frozen/rictor_guides.tsv
+tolerance: 5.0e-3
+not_reproduced_here:
+  # Requires additional public inputs (Level 3); documented honestly.
+  condition_level: "needs the per-condition responder-DE meta vectors"
+  matched_null: "needs the genome-scale effect-vector substrate (~124 MB)"
+seed: 0
+resources:
+  ram_gb: 4
+  runtime_minutes: "< 5"
+  server_required: false

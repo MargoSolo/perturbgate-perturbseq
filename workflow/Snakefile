@@ -1,0 +1,71 @@
+# TargetGate — Snakemake orchestration (optional; the Makefile is the primary UI).
+# Mirrors the reproducibility levels. No compute-environment or cluster name is
+# referenced anywhere; server-scale execution is configured via the generic
+# `profiles/server/` profile and SERVER_* environment variables.
+#
+#   snakemake -s workflow/Snakefile demo
+#   snakemake -s workflow/Snakefile verify
+#   snakemake -s workflow/Snakefile full --profile workflow/profiles/server
+
+configfile: "workflow/config/config.yaml"
+
+PY = "python -m targetgate.cli"
+
+
+rule all:
+    input:
+        "results/demo/demo_summary.json",
+        "results/frozen/results_manifest.json",
+
+
+rule demo:
+    message: "Level 1: recompute headline reversal from compact inputs + figures"
+    output:
+        "results/demo/demo_summary.json",
+        "results/demo/reversal_recomputed.tsv",
+    shell:
+        "{PY} demo"
+
+
+rule figures:
+    message: "Regenerate all figures + source data"
+    input:
+        "results/frozen/primary_comparison.tsv",
+    output:
+        "figures/figure_1_target_attrition.png",
+        "figures/figure_2_directionality_and_null.png",
+    shell:
+        "{PY} figures"
+
+
+rule manifest:
+    message: "Write the results manifest (sha256 + provenance)"
+    output:
+        "results/frozen/results_manifest.json",
+    shell:
+        "{PY} manifest"
+
+
+rule reproduce:
+    message: "Level 2: recompute robustness from public derived matrices"
+    input:
+        "data/reproduce/pseudobulk_counts.parquet",
+    output:
+        "results/reproduced/rictor_guides.tsv",
+    shell:
+        "{PY} reproduce"
+
+
+rule verify:
+    message: "Schemas + golden values + claims + funnel + superseded guard"
+    input:
+        "results/demo/demo_summary.json",
+        "results/frozen/results_manifest.json",
+    shell:
+        "{PY} verify && python scripts/public_readiness_audit.py"
+
+
+rule full:
+    message: "Level 3: open-data reconstruction (server-scale; see configs/full.yaml)"
+    shell:
+        "python scripts/run_full_pipeline.py"

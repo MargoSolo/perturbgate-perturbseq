@@ -1,0 +1,18 @@
+# Generic server (batch) profile for Level-3 reconstruction.
+#
+# This profile is intentionally executor-agnostic: it does NOT name a scheduler,
+# queue, account, or cluster. Configure your own executor (e.g. a Snakemake
+# executor plugin) and resources for your compute environment. The high-memory
+# stages are the disease-vector build and the genome-scale effect-vector build.
+jobs: 8
+default-resources:
+  - mem_mb=16000
+  - runtime=120
+set-resources:
+  - build_disease_vector:mem_mb=131072
+  - build_effect_vectors:mem_mb=131072
+# Point these at your environment (see configs/full.yaml); no internal path is
+# baked into this repository:
+#   export SERVER_DATA_ROOT=...      # genome-scale effect-vector substrate
+#   export SERVER_RESULTS_ROOT=...   # write reconstructed results
+#   export SERVER_INPUTS_ROOT=...    # responder-DE inputs
