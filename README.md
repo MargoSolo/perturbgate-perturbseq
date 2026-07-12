@@ -12,18 +12,17 @@ directionality and was rejected.
 RICTOR survived a stricter validation workflow as a modest disease-reversing
 mechanism hypothesis, but not yet as a validated drug target.
 
-<!-- Badges go live once the repository is pushed and CI runs. -->
 [![CI](https://github.com/MargoSolo/perturbgate-perturbseq/actions/workflows/ci.yml/badge.svg)](https://github.com/MargoSolo/perturbgate-perturbseq/actions/workflows/ci.yml)
 ![python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
 ![license](https://img.shields.io/badge/code_license-MIT-green)
 ![data](https://img.shields.io/badge/data-open%20(MIT%20%2B%20CC--BY--4.0)-brightgreen)
 ![release](https://img.shields.io/badge/release-v1.0--hackathon-orange)
 
-> **Platforms.** Developed and validated on Linux/Windows; CI runs on
-> `ubuntu-latest` (Python 3.10/3.11/3.12) and `macos-latest` (Apple Silicon,
-> Python 3.11). macOS is **expected to work on macOS, pending platform test** —
-> we do not claim macOS support by inspection alone; the claim is upgraded only
-> when macOS CI is green. See [docs/MACOS_QUICKSTART.md](docs/MACOS_QUICKSTART.md).
+> **Platforms.** CI is green on `ubuntu-latest` (Python 3.10/3.11/3.12) and
+> `macos-latest` (Apple Silicon, Python 3.11) — macOS is **verified on macOS CI**,
+> not claimed by inspection alone (install, tests, demo, reproduce, verify, audit
+> and a byte-stability check all pass). See
+> [docs/MACOS_QUICKSTART.md](docs/MACOS_QUICKSTART.md).
 
 ---
 

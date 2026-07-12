@@ -1,9 +1,9 @@
 # macOS quickstart
 
-**Status: expected to work on macOS (including Apple Silicon), pending platform
-test.** We do not claim macOS support by inspection alone. Continuous integration
-runs on `macos-latest` (Apple Silicon / arm64, Python 3.11); the claim is upgraded
-to "verified" only when that macOS CI job is green. See
+**Status: verified on macOS CI** (`macos-latest`, Apple Silicon / arm64, Python
+3.11). We do not claim macOS support by inspection alone — this status reflects a
+green macOS CI run in which install, unit tests, `demo`, `reproduce`, `verify`,
+the privacy audit, and a text-artifact byte-stability check all passed. See
 [the CI workflow](../.github/workflows/ci.yml) and the repository's Actions tab.
 
 This repository was developed on Linux/Windows. Everything below is standard,
@@ -118,5 +118,5 @@ inspection.
 | line endings | all text committed as LF (`.gitattributes`; generators write LF explicitly) |
 | Makefile on macOS | works with the system GNU make; every target also has a plain-Python equivalent |
 
-If the macOS CI job is green, this status is upgraded from "expected to work,
-pending platform test" to "verified on macOS CI".
+The macOS CI job is green, so this status is **"verified on macOS CI"** rather
+than "expected to work, pending platform test".
