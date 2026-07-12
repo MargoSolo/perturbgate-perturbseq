@@ -79,6 +79,14 @@ matched controls exist, 7 of which exceed RICTOR (empirical p ≈ 0.040; finite-
 95% CI extends to ≈ 0.07). We therefore report *seven strong convergence checks
 plus a borderline matched null* — never "8/8 decisive criteria".
 
+**Novelty boundary.** We do **not** claim that RICTOR/mTORC2 regulation of T-cell
+differentiation, Tfh, Treg, or autoimmunity is novel. The narrow claim is: *RICTOR-
+specific perturbation in primary human CD4 T cells directionally reverses a
+donor-paired inflamed-joint activated-memory transcriptional programme involving
+tissue-retention and cytotoxic-effector genes, without detectable collapse of the
+Treg-identity score in this dataset.* This is a **computational mechanism
+hypothesis, not functional validation.**
+
 ## 3. Evidence and the negative result
 
 **Target attrition through evidence gates** — ranking is not validation.
@@ -239,15 +247,43 @@ Claude Code and Claude Science were used not simply to write code, but to:
 - distinguish repeated Monte Carlo draws from 200 independent matched controls;
 - preserve negative and superseded results instead of rationalizing them.
 
+In the translational audit, **Claude Science identified and verified two
+RICTOR-relevant retraction chains, distinguished vendor-labelled compounds from
+validated target engagement, detected neighbour-gene pQTL misattribution, and
+preserved a human-genetics efficacy null rather than converting it into support.**
+
 All public claims resolve to data artifacts, primary literature or official
 databases, not to AI output. Full detail: [CLAUDE_USAGE.md](docs/CLAUDE_USAGE.md).
 
-## Limitations
+## Translational stop signal
 
-The matched-null margin is thin (finite pool of 200); synovium-vs-blood is a
-disease *surrogate*, not disease-vs-healthy tissue; the adjusted-vector analysis
-is same-cohort sensitivity, not independent replication; RICTOR's modality,
-safety and human-genetic direction are unresolved. Full list in
+Two explicit axes. **Biological evidence:** retained disease-reversing mechanism
+hypothesis. **Translational readiness:** stopped —
+`NOT_ADVANCEABLE_WITH_CURRENT_EVIDENCE_AND_MODALITIES`.
+
+RICTOR passed the internal disease-reversal gates but did not pass the
+translational-readiness gate.
+
+- No validated RICTOR-selective small molecule, degrader, glue, peptide, or
+  clinical modality was identified.
+- Human genetics provides no efficacy support for lowering RICTOR and indicates
+  strong loss-of-function constraint.
+- Systemic safety is complicated by opposing immune-cell effects and
+  developmental, metabolic, cardiac, and immune liabilities.
+- Current evidence supports RICTOR as a mechanism hypothesis, not as an
+  advanceable drug target.
+
+> **RICTOR is internally supported as a disease-reversing mechanism hypothesis,
+> but it is not currently advanceable as a conventional drug target because no
+> validated selective modality exists, human genetics provides no efficacy
+> support, and systemic safety is constrained by essentiality and opposing
+> cell-type effects.**
+
+Full audit, evidence tables and the retraction register:
+[docs/TRANSLATIONAL_AUDIT_UPDATE.md](docs/TRANSLATIONAL_AUDIT_UPDATE.md) ·
+[results/translational/](results/translational/). The statistical limitations
+(thin matched-null pool of 200, synovium-vs-blood *surrogate*, same-cohort
+sensitivity rather than independent replication) are unchanged:
 [LIMITATIONS.md](docs/LIMITATIONS.md).
 
 ## Ongoing study and manuscript plan
@@ -285,5 +321,7 @@ Institutes).
 [Claims & evidence](docs/CLAIMS_AND_EVIDENCE.md) ·
 [Superseded results](docs/SUPERSEDED_RESULTS.md) ·
 [Analysis contract](docs/ANALYSIS_CONTRACT.md) · [Technical note](docs/TECHNICAL_NOTE.md) ·
-[Reproducibility](docs/REPRODUCIBILITY.md) · [Translational context](docs/TRANSLATIONAL_CONTEXT.md) ·
+[Reproducibility](docs/REPRODUCIBILITY.md) ·
+[Translational audit update](docs/TRANSLATIONAL_AUDIT_UPDATE.md) ·
+[Translational context](docs/TRANSLATIONAL_CONTEXT.md) ·
 [Claude usage](docs/CLAUDE_USAGE.md) · [Explorer](reports/perturbgate_explorer.html)

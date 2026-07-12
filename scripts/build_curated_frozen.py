@@ -139,39 +139,55 @@ write_tsv(funnel, "candidate_funnel.tsv")
 # =====================================================================
 # 3. gate_matrix.tsv
 # =====================================================================
+# Two explicit axes: biological gates (measurable..confound_resistance) and
+# translational-readiness gates (safety..selective_modality), then a decision per
+# axis. RICTOR's translational cells are updated from the completed translational
+# audit (results/translational/); biological cells are unchanged.
 gate_cols = [
     "measurable_cellular_effect", "responder_support", "guide_concordance",
     "perturbation_donor_robustness", "disease_directionality", "disease_donor_lodo",
-    "matched_null_support", "confound_resistance", "safety_essentiality",
-    "human_genetic_direction", "credible_modality", "final_public_decision",
+    "matched_null_support", "confound_resistance",
+    "systemic_safety", "human_genetic_efficacy", "loss_constraint", "selective_modality",
+    "biological_decision", "translational_decision",
 ]
 gate_rows = [
     dict(row_label="RICTOR", measurable_cellular_effect="PASS", responder_support="PASS",
          guide_concordance="PASS", perturbation_donor_robustness="PASS",
          disease_directionality="PASS", disease_donor_lodo="PASS", matched_null_support="BORDERLINE",
-         confound_resistance="PASS", safety_essentiality="BORDERLINE", human_genetic_direction="NOT_EVALUATED",
-         credible_modality="TRANSLATIONAL_GAP", final_public_decision="RETAINED_MECHANISM_NODE"),
+         confound_resistance="PASS",
+         systemic_safety="CELL_TYPE_CONFLICT", human_genetic_efficacy="NO_SUPPORT",
+         loss_constraint="SAFETY_HEADWIND", selective_modality="NONE_VALIDATED",
+         biological_decision="RETAIN", translational_decision="STOP"),
     dict(row_label="PAK2", measurable_cellular_effect="PASS", responder_support="PASS",
          guide_concordance="PASS", perturbation_donor_robustness="PASS",
          disease_directionality="FAIL", disease_donor_lodo="NOT_EVALUATED", matched_null_support="FAIL",
-         confound_resistance="FAIL", safety_essentiality="PASS", human_genetic_direction="NOT_ESTABLISHED",
-         credible_modality="NOT_ESTABLISHED", final_public_decision="REJECTED"),
+         confound_resistance="FAIL",
+         systemic_safety="PASS", human_genetic_efficacy="NOT_ESTABLISHED",
+         loss_constraint="NOT_EVALUATED", selective_modality="NOT_ESTABLISHED",
+         biological_decision="REJECT", translational_decision="NOT_EVALUATED"),
     dict(row_label="RIPK1", measurable_cellular_effect="PASS", responder_support="NOT_EVALUATED",
          guide_concordance="BORDERLINE", perturbation_donor_robustness="NOT_EVALUATED",
          disease_directionality="FAIL", disease_donor_lodo="NOT_EVALUATED", matched_null_support="FAIL",
-         confound_resistance="NOT_EVALUATED", safety_essentiality="FAIL", human_genetic_direction="PASS",
-         credible_modality="PASS", final_public_decision="COMPARATOR_ONLY"),
+         confound_resistance="NOT_EVALUATED",
+         systemic_safety="FAIL", human_genetic_efficacy="PASS",
+         loss_constraint="NOT_EVALUATED", selective_modality="PASS",
+         biological_decision="COMPARATOR", translational_decision="NOT_EVALUATED"),
     dict(row_label="broad / essential hubs (aggregate)", measurable_cellular_effect="PASS",
          responder_support="NOT_EVALUATED", guide_concordance="PASS", perturbation_donor_robustness="PASS",
          disease_directionality="BORDERLINE", disease_donor_lodo="NOT_EVALUATED", matched_null_support="NOT_EVALUATED",
-         confound_resistance="FAIL", safety_essentiality="FAIL", human_genetic_direction="NOT_EVALUATED",
-         credible_modality="NOT_ESTABLISHED", final_public_decision="SAFETY_CONSTRAINED"),
+         confound_resistance="FAIL",
+         systemic_safety="FAIL", human_genetic_efficacy="NOT_EVALUATED",
+         loss_constraint="NOT_EVALUATED", selective_modality="NOT_ESTABLISHED",
+         biological_decision="SAFETY_CONSTRAINED", translational_decision="NOT_EVALUATED"),
     dict(row_label="immune-directional TFs, no modality (aggregate)", measurable_cellular_effect="PASS",
          responder_support="NOT_EVALUATED", guide_concordance="PASS", perturbation_donor_robustness="PASS",
          disease_directionality="PASS", disease_donor_lodo="NOT_EVALUATED", matched_null_support="NOT_EVALUATED",
-         confound_resistance="BORDERLINE", safety_essentiality="BORDERLINE", human_genetic_direction="PASS",
-         credible_modality="FAIL", final_public_decision="EXPLORATORY_NO_MODALITY"),
+         confound_resistance="BORDERLINE",
+         systemic_safety="BORDERLINE", human_genetic_efficacy="PASS",
+         loss_constraint="NOT_EVALUATED", selective_modality="FAIL",
+         biological_decision="EXPLORATORY_NO_MODALITY", translational_decision="NOT_EVALUATED"),
 ]
+assert list(gate_rows[0].keys())[1:] == gate_cols  # column order guard
 write_tsv(gate_rows, "gate_matrix.tsv")
 
 # =====================================================================

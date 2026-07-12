@@ -45,19 +45,27 @@ retained only as a *mechanism node*, not a validated target.
    only selected leads underwent responder/guide/donor/disease-level deep validation.
    Screen-level status is not a deep-validation verdict.
 
-## Translational
+## Translational — now audited (STOP)
 
-8. **Modality gap (RICTOR).** RICTOR is a core mTORC2 scaffold with **no selective
-   small-molecule modality**. The reversal leans on RICTOR's selective
-   downregulation arm. We do **not** claim a druggable route exists.
+The translational-readiness audit is **complete** and yields a **STOP** verdict,
+`NOT_ADVANCEABLE_WITH_CURRENT_EVIDENCE_AND_MODALITIES`
+([TRANSLATIONAL_AUDIT_UPDATE.md](TRANSLATIONAL_AUDIT_UPDATE.md);
+[verdict + tables](../results/translational/)). This is a limitation of RICTOR as a
+*target*, not of the biological result.
 
-9. **Safety unresolved (RICTOR).** A mild, donor-inconsistent early-toxicity flag is
-   present (apoptosis Δ +0.030, ≤ 33% of strata consistent). T-cell and Treg identity
-   are preserved, but systemic-inhibition safety is not established.
+8. **Modality gap (RICTOR).** No validated RICTOR-selective small molecule, degrader,
+   glue, peptide, or clinical modality exists; the JR-AB2-011 tool compound acts
+   RICTOR-independently (off-target). We do **not** claim a druggable route exists.
 
-10. **Human-genetic direction not evaluated (RICTOR).** Whether human genetics
-    support inhibition in the disease-beneficial direction is unresolved
-    ([TRANSLATIONAL_REVIEW_STATUS.md](TRANSLATIONAL_REVIEW_STATUS.md)).
+9. **Systemic safety constrained (RICTOR).** RICTOR is loss-of-function-intolerant
+   (embryonic-lethal knockout; metabolic/cardiac/developmental liabilities) and its
+   immune effects oppose across cell types (required for effector Th but destabilizes
+   Treg). Systemic-inhibition safety is not established.
+
+10. **No human-genetic efficacy support (RICTOR).** No GWAS/colocalization links
+    RICTOR to RA/SLE/JIA, and the 5p13.1 locus is confounded by neighbour genes
+    (OSMR, FYB1). The one genuinely open item is **independent same-tissue
+    replication**, scoped as a future-validation plan.
 
 ## Scope of what we do not claim
 

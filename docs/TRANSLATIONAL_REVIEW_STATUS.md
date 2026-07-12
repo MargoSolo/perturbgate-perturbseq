@@ -1,19 +1,22 @@
 # Translational review status
 
-**Status: PENDING — not terminal.**
+**Status: COMPLETE (this release).**
 **Scope: RICTOR only.**
-**Effect on the core repository: none (does not block release, reproduction, or the
-frozen results).**
+**Verdict: `NOT_ADVANCEABLE_WITH_CURRENT_EVIDENCE_AND_MODALITIES` (translational STOP).**
+**Effect on the core repository: the frozen biological result is unchanged; this adds a
+second, independent axis.**
 
 This page records the state of the RICTOR *translational* audit. It exists so that the
 retained RICTOR hypothesis is never read as more than it is. The frozen analysis
 establishes a bounded, directionally-robust disease-reversal signal for RICTOR
-knockdown; it does **not** establish that RICTOR is a drug target. Four translational
-questions — **modality**, **safety**, **human-genetic direction**, and **independent
-same-tissue replication** — remain open. None has been resolved, and this document does
-**not** assign a verdict to any of them. It states only what is currently known, what is
-required to close each item, and why the open status is compatible with the repository
-being complete.
+knockdown; it does **not** establish that RICTOR is a drug target. The translational
+audit is now complete: **modality** (no validated selective agent), **human-genetic
+efficacy** (no support; strong loss constraint), and **systemic safety** (essentiality
++ opposing cell-type effects) were assessed and together yield a **STOP** verdict;
+**independent same-tissue replication** remains the one genuinely open item and is
+scoped as a future-validation plan (not causal validation). Full detail with verified
+PMIDs/DOIs: [TRANSLATIONAL_AUDIT_UPDATE.md](TRANSLATIONAL_AUDIT_UPDATE.md) and
+[results/translational/RICTOR_TRANSLATIONAL_VERDICT.md](../results/translational/RICTOR_TRANSLATIONAL_VERDICT.md).
 
 RICTOR's controlled public label already encodes this boundary:
 `DISEASE_REVERSING_MECHANISM_NODE_WITH_MODALITY_GAP`. It is a mechanism-node hypothesis

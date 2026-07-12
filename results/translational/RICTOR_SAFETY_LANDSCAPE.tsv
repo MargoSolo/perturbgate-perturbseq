@@ -1,0 +1,8 @@
+system	model	phenotype	translational_direction	pmid	doi	note
+developmental	whole-body Rictor-null mouse	embryonic lethal (~E11.5)	liability	16962829	10.1016/j.devcel.2006.08.013	Shiota et al. Dev Cell 2006 — mTORC2 essential for fetal growth/viability
+developmental	whole-body Rictor-null mouse	early embryonic lethality	liability	17141160	10.1016/j.devcel.2006.10.007	Guertin et al. Dev Cell 2006 — mTORC2 required for AKT-S473/PKCalpha
+vascular/developmental	endothelial Rictor cKO	lethality (~E12)	liability	26635098	10.1038/srep17705	Aimi et al. Sci Rep 2015 — endothelial Rictor crucial for midgestation
+metabolic	liver-specific Rictor cKO (LiRiKO)	hyperglycemia, hyperinsulinemia, hypolipidemia	liability	22521878	10.1016/j.cmet.2012.03.015	Hagiwara et al. Cell Metab 2012 — hepatic mTORC2 controls glycolysis/lipogenesis
+immune (effector T cells)	T-cell Rictor cKO	impaired Th1 and Th2 differentiation	cell_type_conflict	20620941	10.1016/j.immuni.2010.06.002	Lee et al. Immunity 2010 — inhibiting RICTOR impairs effector Th (opposes disease benefit)
+immune (Treg)	Treg-intrinsic Rictor/Notch axis	RICTOR activity destabilizes Foxp3/Treg (opposing direction)	cell_type_conflict	26437242	10.1038/ni.3288	Charbonnier et al. Nat Immunol 2015 — opposing effect across immune cell types
+cardiac	cardiomyocyte Rictor cKO	contractile dysfunction under pressure overload	liability	26598511	10.1093/cvr/cvv252	Shende et al. Cardiovasc Res 2016 — mTORC2 preserves function under stress

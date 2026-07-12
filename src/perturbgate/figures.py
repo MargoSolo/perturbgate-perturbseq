@@ -31,6 +31,9 @@ STATUS = {
     "PASS": ("✓", OI["green"]), "FAIL": ("✗", OI["vermillion"]),
     "BORDERLINE": ("~", OI["orange"]), "NOT_ESTABLISHED": ("?", OI["grey"]),
     "NOT_EVALUATED": ("–", OI["light"]), "TRANSLATIONAL_GAP": ("△", OI["blue"]),
+    # translational-readiness cell states (audit-informed)
+    "NO_SUPPORT": ("∅", OI["vermillion"]), "SAFETY_HEADWIND": ("▲", OI["orange"]),
+    "NONE_VALIDATED": ("⊘", OI["vermillion"]), "CELL_TYPE_CONFLICT": ("⇄", OI["vermillion"]),
 }
 
 
@@ -219,27 +222,45 @@ def figure_3_gate_matrix() -> list[Path]:
     cols = [c for c in gm.columns if c != "row_label"]
     col_labels = [c.replace("_", " ") for c in cols]
     rows = gm["row_label"].tolist()
-    fig, ax = plt.subplots(figsize=(13, 4.6))
+    text_cols = {"biological_decision", "translational_decision"}
+    decision_color = {"RETAIN": OI["green"], "STOP": OI["vermillion"], "REJECT": OI["vermillion"],
+                      "COMPARATOR": OI["grey"], "SAFETY_CONSTRAINED": OI["orange"],
+                      "EXPLORATORY_NO_MODALITY": OI["grey"], "NOT_EVALUATED": OI["light"]}
+    # group boundaries: biological gates | translational-readiness gates | decisions
+    n_bio, n_trans = 8, 12  # cols[0:8] biological, cols[8:12] translational, cols[12:] decisions
+    fig, ax = plt.subplots(figsize=(15.5, 5.2))
     ax.set_xlim(0, len(cols)); ax.set_ylim(0, len(rows))
     ax.set_xticks(np.arange(len(cols)) + 0.5)
-    ax.set_xticklabels(col_labels, rotation=40, ha="right", fontsize=8.2)
+    ax.set_xticklabels(col_labels, rotation=40, ha="right", fontsize=8.0)
     ax.set_yticks(np.arange(len(rows)) + 0.5)
     ax.set_yticklabels(rows[::-1], fontsize=9)
     for i, (_, r) in enumerate(gm.iterrows()):
         yy = len(rows) - 1 - i
         for j, c in enumerate(cols):
             val = str(r[c])
-            sym, color = STATUS.get(val, ("", OI["light"]))
-            ax.add_patch(plt.Rectangle((j, yy), 1, 1, facecolor=color, edgecolor="white", alpha=0.55))
-            txt = sym if c != "final_public_decision" else val.replace("_", "\n")
-            ax.text(j + 0.5, yy + 0.5, txt, ha="center", va="center",
-                    fontsize=(11 if c != "final_public_decision" else 6.0),
-                    color="black", fontweight="bold" if c != "final_public_decision" else "normal")
-    ax.set_title("Gate matrix — biological evidence vs translational readiness "
-                 "(symbols, not colour alone)", loc="left")
+            if c in text_cols:
+                color = decision_color.get(val, OI["light"])
+                ax.add_patch(plt.Rectangle((j, yy), 1, 1, facecolor=color, edgecolor="white", alpha=0.5))
+                ax.text(j + 0.5, yy + 0.5, val.replace("_", "\n"), ha="center", va="center",
+                        fontsize=6.0, color="black", fontweight="bold")
+            else:
+                sym, color = STATUS.get(val, ("", OI["light"]))
+                ax.add_patch(plt.Rectangle((j, yy), 1, 1, facecolor=color, edgecolor="white", alpha=0.55))
+                ax.text(j + 0.5, yy + 0.5, sym, ha="center", va="center", fontsize=11,
+                        color="black", fontweight="bold")
+    # group dividers + headers
+    for x in (n_bio, n_trans):
+        ax.axvline(x, color=OI["black"], linewidth=2.2)
+    for x0, x1, label in [(0, n_bio, "Biological evidence"),
+                          (n_bio, n_trans, "Translational readiness"),
+                          (n_trans, len(cols), "Decision")]:
+        ax.text((x0 + x1) / 2, len(rows) + 0.15, label, ha="center", va="bottom",
+                fontsize=9.5, fontweight="bold", color=OI["black"])
+    ax.set_title("Gate matrix — two axes: RICTOR is RETAIN biologically but STOP translationally "
+                 "(symbols + text, not colour alone)", loc="left", pad=22)
     handles = [plt.Line2D([0], [0], marker="s", color="w", markerfacecolor=col, markersize=12,
-                          label=f"{sym} {k}") for k, (sym, col) in STATUS.items()]
-    ax.legend(handles=handles, loc="upper left", bbox_to_anchor=(1.005, 1.0), fontsize=8, frameon=False)
+                          label=f"{sym} {k.replace('_', ' ').lower()}") for k, (sym, col) in STATUS.items()]
+    ax.legend(handles=handles, loc="upper left", bbox_to_anchor=(1.005, 1.0), fontsize=7.5, frameon=False)
     ax.set_xticks(np.arange(len(cols) + 1), minor=True)
     ax.grid(which="minor", color="white", linewidth=1.5)
     return _save(fig, "figure_3_gate_matrix")

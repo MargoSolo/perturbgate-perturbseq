@@ -127,6 +127,30 @@ scouting surface, never as an evidence source. Concretely:
 Every output from either surface was treated as a hypothesis to be verified
 against artifacts and primary sources — not as a finding.
 
+### RICTOR translational audit (final release)
+
+In the completed RICTOR translational-readiness audit, **Claude Science identified
+and verified two RICTOR-relevant retraction chains, distinguished vendor-labelled
+compounds from validated target engagement, detected neighbour-gene pQTL
+misattribution, and preserved a human-genetics efficacy null rather than converting
+it into support.** Concretely:
+
+- it flagged that the JR-AB2-011 founding paper (retraction DOI
+  `10.1371/journal.pone.0291490`) and the only RICTOR-ASO human-autoimmune-disease
+  paper (retraction DOI `10.1093/rheumatology/keaf391`) are **both retracted**, and
+  recorded them only as do-not-use entries;
+- it corrected the compound identity (JR-AB2-011 = PubChem CID 138319699, not the
+  precursor CID 613034) and surfaced independent work showing JR-AB2-011 acts
+  RICTOR-independently;
+- it flagged that the RICTOR locus (5p13.1) is confounded by OSMR and FYB1, so any
+  "RICTOR" pQTL/eQTL needs colocalization before use;
+- it kept the Open Targets efficacy null as a null.
+
+Every one of these resolves to PubMed / PubChem / gnomAD / Open Targets, checked by
+`scripts/check_references.py`. See
+[../results/translational/](../results/translational/) and
+[TRANSLATIONAL_AUDIT_UPDATE.md](TRANSLATIONAL_AUDIT_UPDATE.md).
+
 ---
 
 ## How AI assistance maps to evidence

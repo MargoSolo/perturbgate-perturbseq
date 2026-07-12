@@ -58,6 +58,9 @@ jobs:
       - name: Public-readiness / privacy audit
         run: python scripts/public_readiness_audit.py
 
+      - name: DOI / PMID integrity check (translational tables)
+        run: python scripts/check_references.py
+
       - name: Cross-platform byte-stability of text artifacts (LF + content)
         # PNG/SVG rasterization is platform-dependent (font hinting) and is not
         # asserted byte-identical; the frozen tables and figure source data are

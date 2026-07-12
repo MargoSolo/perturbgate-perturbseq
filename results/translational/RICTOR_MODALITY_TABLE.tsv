@@ -1,0 +1,8 @@
+modality_class	example	cid	status	validated_target_engagement	retracted	pmid	doi	retraction_doi	evidence_use	note
+small_molecule (mTORC2 disruptor)	JR-AB2-011	138319699	NOT_VALIDATED	no	True	28453552	10.1371/journal.pone.0176599	10.1371/journal.pone.0291490	do_not_use	founding paper retracted; off-target/RICTOR-independent (PMID 39259491); precursor hit = CID 613034
+antisense oligonucleotide (ASO)	anti-Rictor ASO (SLE)		NOT_VALIDATED	no	True	39656824	10.1093/rheumatology/keae662	10.1093/rheumatology/keaf391	do_not_use	human SLE efficacy figure retracted; not a validated autoimmune modality
+antisense oligonucleotide (research tool, non-autoimmune)	Rictor-ASO (Pten neuropathology / inflammatory pain)		RESEARCH_TOOL_ONLY	partial_knockdown	False	31636454	10.1038/s41591-019-0608-y		cautionary	Chen Nat Med 2019 / Wong JCI 2022 (PMID 35579957) — knockdown tools, not clinical autoimmune modality
+ATP-competitive mTOR kinase inhibitor	PP242/Torin/AZD8055 (dual mTORC1/2)		NOT_SELECTIVE	mTORC2_not_RICTOR_selective	False				context	inhibit mTORC2 kinase activity but also mTORC1; not RICTOR-selective
+targeted degrader (PROTAC / molecular glue)	none known		NONE	no	False				none	no validated RICTOR degrader
+peptide / PPI disruptor	none validated		NONE	no	False				none	no validated RICTOR-selective peptide
+clinical-stage RICTOR-selective agent	none		NONE	no	False				none	no approved or trial-stage RICTOR-selective modality

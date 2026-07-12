@@ -34,7 +34,7 @@ _FS = "".join(("L", "U", "S", "T", "R", "E"))
 FORBIDDEN = [
     ("compute-cluster name", re.compile(_CLUSTER, re.IGNORECASE), None),
     ("cluster filesystem name", re.compile(_FS, re.IGNORECASE), None),
-    ("lustre mount path", re.compile(r"/mnt/lustre", re.IGNORECASE), None),
+    ("parallel-fs mount path", re.compile(r"/mnt/" + _FS, re.IGNORECASE), None),
     ("nlsas filesystem", re.compile(r"nlsas", re.IGNORECASE), None),
     ("private home path", re.compile(r"/home/uvi|uvi/bg/|/home/[a-z]+/", re.IGNORECASE), None),
     ("login-node hostname", re.compile(r"\bft[0-9]\b|\.usc\.es\b", re.IGNORECASE), None),
@@ -73,8 +73,9 @@ def _iter_files():
             continue
         if p.suffix.lower() in TEXT_EXT:
             yield p
-    # Frozen text tables and manifests must also be clean (but not binary demo data).
-    for sub in ("results/frozen", "data"):
+    # Frozen text tables, translational tables, and manifests must also be clean
+    # (but not binary demo data).
+    for sub in ("results/frozen", "results/translational", "data"):
         for p in (REPO / sub).rglob("*"):
             if p.is_file() and p.suffix.lower() in {".tsv", ".csv", ".json", ".md", ".yaml", ".yml"}:
                 yield p

@@ -187,52 +187,53 @@ disease-vs-healthy contrast (the disease vector is synovium-vs-blood).
 
 ## Figure 3 — `figure_3_gate_matrix`
 
-**Title/footer on figure:** *A real perturbation hit is necessary but not sufficient; the
-matrix records where each candidate passes or fails.*
+**Title on figure:** *Gate matrix — two axes: RICTOR is RETAIN biologically but STOP
+translationally (symbols + text, not colour alone).*
 
-**What is shown.** An evidence-gate matrix. **Rows** are the three named candidates plus two
-aggregate row-classes; **columns** are the twelve sequential evidence gates. Each cell
-carries a redundant glyph (see Display conventions) so status is legible without colour.
+**What is shown.** A two-axis evidence-gate matrix. **Rows** are the three named candidates
+plus two aggregate row-classes. **Columns** are grouped into three blocks separated by heavy
+dividers: **Biological evidence** (8 gates), **Translational readiness** (4 gates), and
+**Decision** (biological + translational). Each cell carries a redundant glyph or short text
+so status is legible without colour.
 
-**Rows (denominators).**
-- **RICTOR** (n = 1 candidate) → final decision **RETAINED MECHANISM NODE**.
-- **PAK2** (n = 1) → **REJECTED**.
-- **RIPK1** (n = 1) → **COMPARATOR ONLY**.
-- **broad / essential hubs (aggregate)** → **SAFETY_CONSTRAINED** (examples GNAS, STAT3,
-  SMARCB1, TET2).
-- **immune-directional TFs, no modality (aggregate)** → **EXPLORATORY_NO_MODALITY**
-  (examples KLF13, IRF9, ELF4).
+**Rows.** RICTOR, PAK2, RIPK1, *broad / essential hubs (aggregate)* (e.g. GNAS, STAT3,
+SMARCB1, TET2), *immune-directional TFs, no modality (aggregate)* (e.g. KLF13, IRF9, ELF4).
 
-**Columns (gates).** measurable cellular effect · responder support · guide concordance ·
-perturbation donor robustness · disease directionality · disease-donor LODO · matched-null
-support · confound resistance · safety/essentiality · human genetic direction · credible
-modality · final public decision.
+**Biological-evidence gates.** measurable cellular effect · responder support · guide
+concordance · perturbation-donor robustness · disease directionality · disease-donor LODO ·
+matched-null support · confound resistance.
+
+**Translational-readiness gates.** systemic safety · human-genetic efficacy · loss
+constraint · selective modality.
+
+**Decision columns.** biological decision · translational decision.
 
 **Key cell statuses (verbatim from `results/frozen/gate_matrix.tsv`).**
-- **RICTOR:** PASS on measurable effect, responder support, guide concordance, donor
-  robustness, disease directionality, disease-donor LODO and confound resistance;
-  **BORDERLINE (`~`)** on matched-null support and on safety/essentiality; human genetic
-  direction NOT_EVALUATED (`–`); credible modality **TRANSLATIONAL_GAP (`△`)**.
-- **PAK2:** PASS on the technical gates (measurable effect, responder support, guide
-  concordance, donor robustness) and on safety/essentiality; **FAIL (`✗`)** on disease
-  directionality, matched-null support and confound resistance; human genetic direction and
-  credible modality **NOT_ESTABLISHED (`?`)**.
-- **RIPK1:** PASS on measurable effect and human genetic direction; **BORDERLINE (`~`)** on
-  guide concordance; **FAIL (`✗`)** on disease directionality, matched-null support and
-  safety/essentiality; credible modality PASS (clinical-stage kinase inhibitors exist as a
-  benchmark).
+- **RICTOR (the two-axis case):** biological gates all PASS (`✓`) except matched-null support
+  **BORDERLINE (`~`)**. Translational gates: systemic safety **CELL_TYPE_CONFLICT (`⇄`)**,
+  human-genetic efficacy **NO_SUPPORT (`∅`)**, loss constraint **SAFETY_HEADWIND (`▲`)**,
+  selective modality **NONE_VALIDATED (`⊘`)**. Decisions: biological **RETAIN**,
+  translational **STOP**.
+- **PAK2:** PASS on technical/biological gates but **FAIL (`✗`)** on disease directionality,
+  matched-null support and confound resistance → biological decision **REJECT**
+  (translational not evaluated).
+- **RIPK1:** biological decision **COMPARATOR**; passes human-genetic efficacy and selective
+  modality (clinical-stage kinase inhibitors) but **FAIL** on directionality and systemic
+  safety (LoF immunodeficiency).
 
-**Effect sizes / uncertainty.** The matrix records *gate outcomes*; the underlying effect
-sizes and intervals live in Figure 2, `primary_comparison.tsv` and `matched_null.tsv`. The
-RICTOR matched-null cell is deliberately marked BORDERLINE to reflect the finite-pool
-uncertainty (7/200 exceed; Wilson CI up to ~0.070).
+**New glyphs.** `∅` no support · `▲` safety headwind · `⊘` none validated · `⇄` cell-type
+conflict (in addition to `✓` pass, `✗` fail, `~` borderline, `?` not established, `–` not
+evaluated, `△` translational gap).
 
-**Caveat.** `–` means a gate was **not evaluated** for that row (e.g. RICTOR human genetic
-direction), not that it was failed. RICTOR passing gates is **not** a validated-drug-target
-claim; the credible-modality column is explicitly a translational gap.
+**Interpretation.** The two axes are independent: RICTOR can be **RETAIN** on biological
+evidence and **STOP** on translational readiness simultaneously. `–` means a gate was **not
+evaluated** for that row (the translational block is evaluated only for the deep RICTOR
+audit), not that it was failed. RICTOR passing the biological gates is **not** a
+validated-drug-target claim.
 
 **Source data:** `figures/source_data/figure_3_gate_matrix.tsv`
-(mirrors `results/frozen/gate_matrix.tsv`).
+(mirrors `results/frozen/gate_matrix.tsv`). Translational cells are sourced from the
+completed audit in [../results/translational/](../results/translational/).
 
 ---
 

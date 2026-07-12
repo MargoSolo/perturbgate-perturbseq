@@ -19,6 +19,7 @@ help:
 	@echo "  make lint           run ruff"
 	@echo "  make verify         checksums + schemas + golden values + tests + demo + figures + audit"
 	@echo "  make privacy-audit  scan the whole repo for private/superseded/forbidden content"
+	@echo "  make check-refs     DOI/PMID integrity check on the translational tables"
 	@echo "  make release-check  everything required before public approval"
 
 setup:
@@ -55,9 +56,13 @@ verify: demo figures manifest
 	$(PYTHON) -m perturbgate.cli verify
 	pytest -q
 	$(PYTHON) scripts/public_readiness_audit.py
+	$(PYTHON) scripts/check_references.py
 
 privacy-audit:
 	$(PYTHON) scripts/public_readiness_audit.py
+
+check-refs:
+	$(PYTHON) scripts/check_references.py
 
 release-check: lint verify
 	@echo "release-check complete — review the audit report before public approval."

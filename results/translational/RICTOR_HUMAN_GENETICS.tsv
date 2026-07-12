@@ -1,0 +1,8 @@
+source	metric	value	interpretation	efficacy_support	pmid	url	note
+gnomAD v2.1.1	pLI	~1.0	LoF-intolerant	NA		https://gnomad.broadinstitute.org/gene/ENSG00000164327?dataset=gnomad_r2_1	strong loss-of-function constraint
+gnomAD v2.1.1	LOEUF (oe_lof_upper)	0.155	high constraint (<0.35)	NA		https://gnomad.broadinstitute.org/gene/ENSG00000164327?dataset=gnomad_r2_1	o/e LoF point estimate 0.089
+gnomAD v4	LOEUF (oe_lof_upper)	0.289	high constraint (<0.35)	NA		https://gnomad.broadinstitute.org/gene/ENSG00000164327?dataset=gnomad_r4	pLI 1.0 in v4
+Open Targets v4 — rheumatoid arthritis (MONDO_0008383)	overall association / genetic	0.004 / none	literature text-mining only; no genetic_association	NO		https://platform.opentargets.org/target/ENSG00000164327	no GWAS / colocalization linking RICTOR to RA
+Open Targets v4 — systemic lupus erythematosus (MONDO_0007915)	overall association / genetic	0.025 / none	literature only; no genetic evidence	NO		https://platform.opentargets.org/target/ENSG00000164327	no genetic support
+Open Targets v4 — juvenile idiopathic arthritis (MONDO_0011429)	evidence count	0	no evidence of any type	NO		https://platform.opentargets.org/target/ENSG00000164327	no JIA association
+locus confounding (5p13.1)	neighbour genes	OSMR, FYB1/ADAP	cis-pQTL/eQTL at the RICTOR locus may misattribute to OSMR or FYB1	CAUTION		https://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000164327	OSMR overlaps RICTOR 5' end; FYB1 (T-cell adaptor) immediately downstream; require colocalization
