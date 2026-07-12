@@ -1,0 +1,48 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install (editable + dev)
+        run: python -m pip install -e ".[dev]"
+
+      - name: Lint (ruff)
+        run: ruff check src scripts tests
+
+      - name: Unit tests + schema validation
+        run: pytest -q
+
+      - name: Demo (Level 1, no server data)
+        run: targetgate demo
+
+      - name: Verify (schemas, golden values, claims, funnel, superseded guard)
+        run: targetgate verify
+
+      - name: Results manifest
+        run: targetgate manifest
+
+      - name: Public-readiness / privacy audit
+        run: python scripts/public_readiness_audit.py
