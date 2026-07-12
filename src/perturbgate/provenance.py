@@ -39,6 +39,7 @@ def checksum_tree(root: str | Path, patterns=("*.tsv", "*.json", "*.tsv.gz", "*.
 
 def write_json(obj, path: str | Path) -> None:
     Path(path).parent.mkdir(parents=True, exist_ok=True)
-    with open(path, "w", encoding="utf-8") as fh:
+    # newline="\n" writes LF on every platform so regenerated JSON is byte-stable.
+    with open(path, "w", encoding="utf-8", newline="\n") as fh:
         json.dump(obj, fh, indent=2, ensure_ascii=False)
         fh.write("\n")

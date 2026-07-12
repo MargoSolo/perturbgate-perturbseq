@@ -65,12 +65,13 @@ def _root(var: str, required: bool = True) -> Path | None:
 
 def _write_gz_tsv(df: pd.DataFrame, path: Path) -> None:
     with gzip.open(path, "wt", encoding="utf-8", newline="") as fh:
-        df.to_csv(fh, sep="\t", index=False)
+        df.to_csv(fh, sep="\t", index=False, lineterminator="\n")
     print(f"  wrote {path.relative_to(REPO)}  ({path.stat().st_size/1024:.0f} KB, {len(df)} rows)")
 
 
 def _write_tsv(df: pd.DataFrame, path: Path) -> None:
-    df.to_csv(path, sep="\t", index=False)
+    with open(path, "w", encoding="utf-8", newline="") as fh:  # LF, byte-stable
+        df.to_csv(fh, sep="\t", index=False, lineterminator="\n")
     print(f"  wrote {path.relative_to(REPO)}  ({path.stat().st_size/1024:.0f} KB, {len(df)} rows)")
 
 

@@ -59,13 +59,17 @@ def _save(fig, stem: str) -> list[Path]:
         # metadata Date=None suppresses the non-deterministic timestamp in SVG/PNG.
         meta = {"Date": None} if ext == "svg" else {"Software": None}
         fig.savefig(p, bbox_inches="tight", dpi=200 if ext == "png" else None, metadata=meta)
+        if ext == "svg":  # force LF so the repo stays clean on Windows and Linux
+            p.write_bytes(p.read_bytes().replace(b"\r\n", b"\n"))
         out.append(p)
     plt.close(fig)
     return out
 
 
 def _source(df: pd.DataFrame, stem: str) -> None:
-    df.to_csv(_fig_dir() / "source_data" / f"{stem}.tsv", sep="\t", index=False)
+    # lineterminator + newline="" write LF (not platform CRLF) so source data is byte-stable.
+    with open(_fig_dir() / "source_data" / f"{stem}.tsv", "w", encoding="utf-8", newline="") as fh:
+        df.to_csv(fh, sep="\t", index=False, lineterminator="\n")
 
 
 # =====================================================================

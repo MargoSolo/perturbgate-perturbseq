@@ -24,12 +24,13 @@ NA = ""  # explicit "not applicable / not evaluated" marker in TSVs
 
 def write_tsv(rows: list[dict], name: str) -> None:
     df = pd.DataFrame(rows)
-    df.to_csv(FROZEN / name, sep="\t", index=False)
+    with open(FROZEN / name, "w", encoding="utf-8", newline="") as fh:  # LF, byte-stable
+        df.to_csv(fh, sep="\t", index=False, lineterminator="\n")
     print(f"  wrote results/frozen/{name}  ({len(df)} rows)")
 
 
 def write_json(obj, name: str) -> None:
-    with open(FROZEN / name, "w", encoding="utf-8") as fh:
+    with open(FROZEN / name, "w", encoding="utf-8", newline="\n") as fh:  # LF, byte-stable
         json.dump(obj, fh, indent=2, ensure_ascii=False)
         fh.write("\n")
     print(f"  wrote results/frozen/{name}")
