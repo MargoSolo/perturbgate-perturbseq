@@ -39,6 +39,9 @@ def _style() -> None:
         "font.size": 11, "font.family": "DejaVu Sans", "axes.titlesize": 12,
         "axes.spines.top": False, "axes.spines.right": False, "figure.dpi": 120,
         "svg.fonttype": "none", "axes.titleweight": "bold",
+        # Fixed salt makes SVG element ids deterministic across renders, so
+        # `make demo` does not dirty the committed figures.
+        "svg.hashsalt": "targetgate",
     })
 
 
@@ -53,7 +56,9 @@ def _save(fig, stem: str) -> list[Path]:
     out = []
     for ext in ("png", "svg"):
         p = d / f"{stem}.{ext}"
-        fig.savefig(p, bbox_inches="tight", dpi=200 if ext == "png" else None)
+        # metadata Date=None suppresses the non-deterministic timestamp in SVG/PNG.
+        meta = {"Date": None} if ext == "svg" else {"Software": None}
+        fig.savefig(p, bbox_inches="tight", dpi=200 if ext == "png" else None, metadata=meta)
         out.append(p)
     plt.close(fig)
     return out
