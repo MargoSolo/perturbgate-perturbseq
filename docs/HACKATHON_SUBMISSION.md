@@ -6,40 +6,26 @@ from the Marson and Pritchard laboratories.*
 
 ---
 
-## Project description — what we built or investigated, what we found, and why it matters
+## Primary written summary (submission text, ~165 words)
 
-PerturbGate is an open-data, reproducible pipeline for converting T-cell Perturb-seq
-hits into **evidence-gated mechanism hypotheses**. Built for the challenge to
-identify new drug-target opportunities in a primary human CD4 T-cell Perturb-seq
-dataset from the Marson and Pritchard laboratories, the project combines
-responder-aware perturbation effects, guide and donor robustness, donor-paired
-disease-state reversal, matched-perturbation calibration, confound testing, and
-translational safety and modality gates.
+PerturbGate is an open-data, reproducible analysis for evaluating drug-target
+hypotheses from a genome-scale primary human CD4 T-cell Perturb-seq screen. Rather
+than treating the strongest perturbation effect as a target, we combined
+responder-aware effects, guide and donor robustness, donor-paired disease-state
+reversal, matched-perturbation calibration, and translational safety and modality
+checks.
 
-The first lead, **PAK2**, passed technical validation but failed therapeutic
-validation: its cellular effect was real and reproducible, but it did not reliably
-reverse the disease-associated state (+0.010, p=0.297, not significant), and an
-apparent external JIA enrichment was explained by activation confounding. PAK2 was
-rejected as a target nomination despite being a genuine cellular hit.
+Our initial lead, PAK2, produced a real and reproducible cellular phenotype but
+failed therapeutic-direction testing and was rejected. A separate pre-specified
+analysis retained RICTOR as a modest disease-reversing mechanism hypothesis: both
+guides agreed, all 11 leave-one-disease-donor-out analyses remained positive, and
+the signal persisted across conditions and after confound removal. Its matched-null
+evidence was promising but statistically marginal, and selective pharmacology,
+safety and independent disease-tissue replication remain unresolved.
 
-**RICTOR** survived a stricter, pre-specified rescue analysis as a modest
-disease-reversing mechanism node. On the corrected raw-count donor-paired disease
-vector it reversed the inflamed-joint CD4 direction at +0.161; both guides agreed,
-all 11 leave-one-disease-donor-out analyses stayed positive, the effect held across
-all three conditions and after confound removal, and canonical pathogenic genes
-(CXCL13, CXCR6, CCL4, IFNG, PDCD1) were turned down. Its matched-null position was
-promising but statistically marginal, because only 200 unique matched controls were
-available (7 exceed RICTOR; empirical p ≈ 0.040; finite-pool 95% CI up to ≈ 0.07).
-
-We therefore retain RICTOR as a **mechanism hypothesis, not a validated drug
-target**. Selective pharmacology, safety, human-genetic direction, and independent
-disease-tissue replication remain unresolved.
-
-PerturbGate matters because Perturb-seq workflows often stop at ranking cellular
-hits. This project makes candidate attrition, negative results, superseded claims,
-and claim-to-evidence provenance **explicit, reproducible, and auditable** — and it
-demonstrates a pipeline that can tell a technically valid hit apart from a
-therapeutically relevant one.
+PerturbGate matters because Perturb-seq studies often stop at hit ranking. This
+project makes candidate attrition, negative results, superseded claims and
+claim-to-evidence provenance explicit, reproducible and auditable.
 
 ---
 

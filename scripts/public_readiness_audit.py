@@ -93,9 +93,10 @@ def audit() -> list[str]:
             continue
         lines = text.splitlines()
         for i, line in enumerate(lines, 1):
-            # Context window = this line plus the preceding 3 lines (handles list-style
-            # "We do not claim:" -> bullet, and "superseded:" -> value on the next line).
-            ctx = " ".join(lines[max(0, i - 4):i])
+            # Context window = this line plus the preceding 9 lines, so a list-style
+            # negation header ("We do not claim:" / "PerturbGate is not:") a few bullets
+            # above still counts, and a "superseded:" marker on a nearby line is seen.
+            ctx = " ".join(lines[max(0, i - 10):i])
             for label, rx, _wl in FORBIDDEN:
                 if rx.search(line):
                     findings.append(f"{rel}:{i}: forbidden [{label}]: {line.strip()[:120]}")

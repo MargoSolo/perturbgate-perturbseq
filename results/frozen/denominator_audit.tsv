@@ -1,0 +1,6 @@
+quantity	count	definition
+total_rows_scored	924	perturbations with a usable genome-scale effect vector in the processed release
+biological_target_perturbations	924	rows whose perturbation_id is an ENSG gene id (a gene knockdown)
+unique_target_genes	924	distinct HGNC gene symbols perturbed (no duplicates)
+non_targeting_controls_in_scored_set	0	NTC / safe-harbor / non-targeting rows among the scored perturbations (controls are the baseline effects are measured against, not scored rows)
+deep_validated_candidates	3	RICTOR, PAK2, RIPK1 (carried into candidate-specific deep validation)
