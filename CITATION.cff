@@ -1,0 +1,67 @@
+cff-version: 1.2.0
+title: >-
+  TargetGate: Evidence-Gated Pipeline for T-cell Perturb-seq
+  Mechanism Hypotheses
+message: >-
+  If you use this software or its derived results, please cite this repository
+  and the two upstream datasets (see NOTICE and docs/DATA_LICENSES.md).
+type: software
+authors:
+  - given-names: Margarita
+    family-names: Soloshenko
+version: 1.0.0
+date-released: "2026-07-13"
+license: MIT
+keywords:
+  - perturb-seq
+  - single-cell
+  - drug-target-nomination
+  - T-cell
+  - reproducibility
+  - evidence-gating
+abstract: >-
+  TargetGate is an open-data, reproducible pipeline that turns T-cell Perturb-seq
+  hits into evidence-gated mechanism hypotheses. It combines responder-aware
+  perturbation effects, guide and donor robustness, donor-paired disease-state
+  reversal, matched-perturbation calibration, confound testing, and translational
+  safety and modality gates. PAK2 passed technical validation but failed
+  therapeutic validation and was rejected; RICTOR was retained only as a
+  disease-reversing mechanism node with a modality gap. The main contribution is
+  the auditable, evidence-gated decision process, including candidate attrition,
+  negative results, detected confounds, and superseded interpretations.
+references:
+  - type: article
+    title: >-
+      Genome-scale perturb-seq in primary human CD4+ T cells maps context-specific
+      regulators of T cell programs and human immune traits
+    authors:
+      - family-names: Zhu
+        given-names: R.
+      - family-names: Dann
+        given-names: E.
+      - family-names: Pritchard
+        given-names: J. K.
+      - family-names: Marson
+        given-names: A.
+    year: 2025
+    doi: 10.64898/2025.12.23.696273
+  - type: article
+    title: >-
+      A single-cell atlas of innate immunity in treatment-naive juvenile
+      idiopathic arthritis
+    authors:
+      - family-names: Knight
+        given-names: O. C.
+    year: 2026
+    doi: 10.64898/2026.05.01.716870
+  - type: article
+    title: >-
+      Synovial tissue atlas in juvenile idiopathic arthritis reveals pathogenic
+      niches associated with disease severity
+    authors:
+      - family-names: Bolton
+        given-names: C.
+      - family-names: Mahony
+        given-names: C. B.
+    year: 2025
+    doi: 10.1126/scitranslmed.adt6050

@@ -1,0 +1,57 @@
+TargetGate — Evidence-Gated Pipeline for T-cell Perturb-seq Mechanism Hypotheses
+================================================================================
+
+Original code in this repository is (c) 2026 Margarita Soloshenko, MIT-licensed.
+
+This project does NOT relicense upstream data. The datasets below retain their
+upstream licenses; derived data redistributed here (per-gene aggregate log2 fold
+changes, correlations, ranks — no single-cell or donor-identifiable data) is
+redistributed under those upstream terms, with attribution.
+
+
+1. PRIMARY SCREEN DATASET — Primary Human CD4+ T Cell Perturb-seq
+--------------------------------------------------------------------------------
+Source     : Marson lab (Gladstone/UCSF) and Jonathan Pritchard lab (Stanford),
+             hosted on the CZI Virtual Cells Platform.
+Publication: Zhu R, Dann E, Yan J, Reyes Retana J, Goto R, Guitche RC, et al.,
+             Pritchard JK, Marson A. "Genome-scale perturb-seq in primary human
+             CD4+ T cells maps context-specific regulators of T cell programs and
+             human immune traits." bioRxiv, 2025. DOI 10.64898/2025.12.23.696273
+Accession  : CZI Virtual Cell Models dataset "Primary Human CD4+ T Cell
+             Perturb-seq"; processed data s3://genome-scale-tcell-perturb-seq/;
+             raw sequencing GEO GSE314342 / SRA SRP643211.
+License    : MIT (copyright Emma Dann, 2025), subject also to the CZI Virtual Cell
+             Models Acceptable Use Policy.
+Used for   : perturbation effect vectors and responder-DE knockdown vectors from
+             which the redistributed per-gene aggregate statistics are derived.
+
+
+2. DISEASE-REFERENCE DATASET — JIA synovial single-cell atlas (CD4 T cells)
+--------------------------------------------------------------------------------
+Source     : CZ CELLxGENE Discover, collection
+             10eb236d-d42d-45b8-8363-c2dcf865f388.
+Publication: Knight OC, Giordano C, von Stuckrad ASL, et al. "A single-cell atlas
+             of innate immunity in treatment-naive juvenile idiopathic arthritis."
+             bioRxiv, 2026. DOI 10.64898/2026.05.01.716870
+Companion  : Bolton C, Mahony CB, Clay E, et al. "Synovial tissue atlas in
+             juvenile idiopathic arthritis reveals pathogenic niches associated
+             with disease severity." Sci Transl Med, 2025;17(805):eadt6050.
+             DOI 10.1126/scitranslmed.adt6050 (GEO GSE278962/278968/278969).
+License    : CC-BY-4.0 (CZ CELLxGENE Discover platform license).
+Used for   : the donor-paired synovium-vs-blood disease-direction vector
+             (activated-memory CD4), redistributed as per-gene aggregate log2FC.
+
+
+3. SOFTWARE DEPENDENCIES
+--------------------------------------------------------------------------------
+NumPy (BSD-3-Clause), pandas (BSD-3-Clause), SciPy (BSD-3-Clause),
+Matplotlib (PSF/Matplotlib license), PyArrow (Apache-2.0).
+
+
+4. HACKATHON
+--------------------------------------------------------------------------------
+Built for "Built with Claude: Life Sciences" (Anthropic x Gladstone Institutes),
+Research track, using Claude Code and Claude Science.
+
+Full provenance, accessions and license verification: docs/DATA_LICENSES.md,
+docs/DATA_AVAILABILITY.md, docs/OPEN_DATA_STATEMENT.md, data/public_data_manifest.tsv.

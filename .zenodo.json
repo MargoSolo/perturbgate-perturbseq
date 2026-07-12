@@ -1,0 +1,25 @@
+{
+  "title": "TargetGate: Evidence-Gated Pipeline for T-cell Perturb-seq Mechanism Hypotheses",
+  "description": "Open-data, reproducible pipeline that turns T-cell Perturb-seq hits into evidence-gated mechanism hypotheses. Combines responder-aware perturbation effects, guide/donor robustness, donor-paired disease-state reversal, matched-perturbation calibration, confound testing, and translational safety and modality gates. PAK2 passed technical validation but failed therapeutic validation (rejected); RICTOR retained only as a disease-reversing mechanism node with a modality gap. Frozen hackathon release.",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "MIT",
+  "version": "1.0.0",
+  "keywords": [
+    "perturb-seq",
+    "single-cell",
+    "drug-target-nomination",
+    "T-cell",
+    "reproducibility",
+    "evidence-gating",
+    "juvenile idiopathic arthritis"
+  ],
+  "creators": [
+    { "name": "Soloshenko, Margarita" }
+  ],
+  "related_identifiers": [
+    { "relation": "references", "identifier": "10.64898/2025.12.23.696273", "scheme": "doi" },
+    { "relation": "references", "identifier": "10.64898/2026.05.01.716870", "scheme": "doi" },
+    { "relation": "references", "identifier": "10.1126/scitranslmed.adt6050", "scheme": "doi" }
+  ]
+}

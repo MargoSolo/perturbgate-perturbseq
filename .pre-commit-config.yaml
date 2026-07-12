@@ -1,0 +1,29 @@
+# Pre-commit hooks. Install with: pre-commit install
+# The privacy audit runs on every commit so a private/superseded term can never
+# be committed to the public repository.
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-json
+      - id: check-added-large-files
+        args: ["--maxkb=20000"]   # 20 MB guard; block accidental raw-data commits
+      - id: detect-private-key
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.9
+    hooks:
+      - id: ruff
+        args: ["--fix"]
+
+  - repo: local
+    hooks:
+      - id: public-readiness-audit
+        name: public-readiness / privacy audit
+        entry: python scripts/public_readiness_audit.py
+        language: system
+        pass_filenames: false
+        always_run: true
