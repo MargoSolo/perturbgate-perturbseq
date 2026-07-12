@@ -1,0 +1,144 @@
+[
+  {
+    "claim_id": "CLAIM-RICTOR-01",
+    "exact_public_wording": "RICTOR knockdown reverses the corrected activated-memory JIA synovium-vs-blood disease direction at +0.161 centered-Pearson (r^2 ~ 2.6%); it is retained as a disease-reversing mechanism node with a modality gap, not a validated drug target.",
+    "entity": "RICTOR",
+    "claim_type": "mechanism_hypothesis",
+    "evidence_status": "supported_bounded",
+    "evidence_depth": "DEEP",
+    "supporting_artifacts": [
+      "results/frozen/primary_comparison.tsv",
+      "results/frozen/rictor_guides.tsv",
+      "results/frozen/rictor_lodo.tsv",
+      "results/frozen/rictor_conditions.tsv",
+      "results/frozen/matched_null.tsv",
+      "results/frozen/confound_decomposition.tsv"
+    ],
+    "supporting_metrics": {
+      "primary_reversal": 0.1606,
+      "pearson_p": 1.8e-63,
+      "guides": [
+        0.141,
+        0.1781
+      ],
+      "lodo_positive": "11/11",
+      "conditions": [
+        0.1532,
+        0.0916,
+        0.0422
+      ],
+      "matched_percentile": 96.5,
+      "matched_empirical_p": 0.0398
+    },
+    "denominator": "10832 aligned genes; 11 paired disease donors; 924-perturbation matched pool (k=200)",
+    "uncertainty": "matched-null p 95% CI (Wilson) 0.017-0.070; finite pool of 200 controls",
+    "limitations": [
+      "matched-null is the weakest of the 8 criteria (borderline)",
+      "synovium-vs-blood is not disease-vs-healthy tissue",
+      "no independent same-tissue replication",
+      "mTORC2 scaffold: no selective small-molecule modality (modality gap)"
+    ],
+    "superseded_claims": [
+      "SUP-01"
+    ],
+    "generating_command": "targetgate demo && targetgate verify",
+    "code_version": "1.0.0",
+    "input_checksums": {
+      "disease_vector_md5": "2b18d92684db1f70b637e1f098374c7e"
+    }
+  },
+  {
+    "claim_id": "CLAIM-PAK2-01",
+    "exact_public_wording": "PAK2 is a real, reproducible CD4 T-cell perturbation hit that is NOT therapeutically directional: it does not reverse the disease state (+0.010, p=0.297, n.s.), its apparent external JIA enrichment is activation-confounded, and partial-inhibition sufficiency was not established. PAK2 is rejected as a target nomination.",
+    "entity": "PAK2",
+    "claim_type": "negative_result",
+    "evidence_status": "rejected_after_deep_validation",
+    "evidence_depth": "DEEP",
+    "supporting_artifacts": [
+      "results/frozen/primary_comparison.tsv",
+      "results/frozen/matched_null.tsv",
+      "results/frozen/rejection_ledger.tsv"
+    ],
+    "supporting_metrics": {
+      "primary_reversal": 0.01,
+      "pearson_p": 0.297,
+      "matched_percentile": 41.3,
+      "responder_fraction": 0.765,
+      "guide_concordance": 0.85,
+      "knockdown_pct": "83-86"
+    },
+    "denominator": "10832 aligned genes; responder Mixscape on 11/12 retained subsets; 112-gene frozen programme",
+    "uncertainty": "cellular effect is real and reproducible; therapeutic direction is absent, not merely weak",
+    "limitations": [
+      "112-gene programme is reproducible but weakly coherent",
+      "JIA surrogate is synovium-vs-blood, not adult RA disease-vs-healthy"
+    ],
+    "superseded_claims": [
+      "SUP-02",
+      "SUP-03",
+      "SUP-04",
+      "SUP-05"
+    ],
+    "generating_command": "targetgate demo && targetgate verify",
+    "code_version": "1.0.0",
+    "input_checksums": {
+      "disease_vector_md5": "2b18d92684db1f70b637e1f098374c7e"
+    }
+  },
+  {
+    "claim_id": "CLAIM-RIPK1-01",
+    "exact_public_wording": "RIPK1 is retained only as a comparator that is not directionally supported by this disease-reversal test (+0.038, incoherent GSEA, matched-null 42nd percentile).",
+    "entity": "RIPK1",
+    "claim_type": "comparator",
+    "evidence_status": "not_directionally_supported",
+    "evidence_depth": "DEEP",
+    "supporting_artifacts": [
+      "results/frozen/primary_comparison.tsv",
+      "results/frozen/matched_null.tsv"
+    ],
+    "supporting_metrics": {
+      "primary_reversal": 0.0377,
+      "gsea_reversal": 0.1,
+      "matched_percentile": 42.2
+    },
+    "denominator": "10832 aligned genes; single-condition (Stim48hr) coverage only",
+    "uncertainty": "benchmark comparator; not nominated or rejected by this specific test",
+    "limitations": [
+      "known Screen-8 benchmark, not a candidate from this analysis"
+    ],
+    "superseded_claims": [],
+    "generating_command": "targetgate demo && targetgate verify",
+    "code_version": "1.0.0",
+    "input_checksums": {
+      "disease_vector_md5": "2b18d92684db1f70b637e1f098374c7e"
+    }
+  },
+  {
+    "claim_id": "CLAIM-PROCESS-01",
+    "exact_public_wording": "TargetGate preserves negative and superseded results: candidate attrition, detected confounds, and corrected interpretations are first-class, auditable outputs, not hidden debugging history.",
+    "entity": "pipeline",
+    "claim_type": "process",
+    "evidence_status": "supported",
+    "evidence_depth": "ARTIFACT",
+    "supporting_artifacts": [
+      "results/frozen/candidate_funnel.tsv",
+      "results/frozen/rejection_ledger.tsv",
+      "results/frozen/gate_ablation.tsv",
+      "results/frozen/superseded_claims.json"
+    ],
+    "supporting_metrics": {
+      "perturbations": 924,
+      "funnel_stages": 6,
+      "superseded_claims": 5
+    },
+    "denominator": "924 perturbations; 6 documented decision stages",
+    "uncertainty": "none (process claim)",
+    "limitations": [
+      "counts are traceable to frozen artifacts only; not every perturbation was deep-validated"
+    ],
+    "superseded_claims": [],
+    "generating_command": "targetgate verify",
+    "code_version": "1.0.0",
+    "input_checksums": {}
+  }
+]

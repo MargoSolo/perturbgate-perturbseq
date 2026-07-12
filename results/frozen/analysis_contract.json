@@ -1,0 +1,118 @@
+{
+  "primary_hypothesis": "A perturbation is a candidate mechanism node only if its knockdown reverses a donor-paired disease-state direction and survives guide, donor, condition, matched-null and confound checks.",
+  "primary_disease_vector": {
+    "name": "JIA synovium-vs-blood, activated-memory CD4, raw-count donor-paired pseudobulk",
+    "state": "activated_memory",
+    "md5": "2b18d92684db1f70b637e1f098374c7e",
+    "n_paired_donors": 11,
+    "n_genes": 12071,
+    "residency_regressed": false,
+    "source": "CZ CELLxGENE collection 10eb236d-d42d-45b8-8363-c2dcf865f388 (CC-BY-4.0)"
+  },
+  "primary_state": "activated_memory",
+  "sign_convention": "reversal = -centered_Pearson(KD_log2FC, disease_log2FC); >0 reversing, <0 mimicking",
+  "target_comparison_set": [
+    "RICTOR",
+    "PAK2",
+    "RIPK1"
+  ],
+  "gene_universe": {
+    "primary": "responder-DE donor random-effects meta KD vector, full transcriptome (10832 aligned genes)",
+    "null_substrate": "genome-scale all-cell effect vectors (mean of conditions), 7393-gene intersection"
+  },
+  "representations": {
+    "primary": "responder-resolved donor-RE meta (reversal +0.161)",
+    "conservative": "all-cell effect-vector projection (reversal +0.131, used only for null calibration)"
+  },
+  "rictor_criteria": [
+    "1. centered-Pearson reversal > 0",
+    "2. Spearman reversal > 0",
+    "3. ranked-GSEA reversal in the same direction",
+    "4. both RICTOR guides positive",
+    "5. all disease-donor leave-one-out folds positive",
+    "6. responder-only support",
+    "7. positive in all three conditions",
+    "8. above the matched-perturbation null at the frozen point estimate"
+  ],
+  "matched_null": {
+    "features": [
+      "magnitude",
+      "breadth",
+      "donor_sign_consistency",
+      "guide_sign_concordance",
+      "ontarget_lfc"
+    ],
+    "pool_size": 200,
+    "k_nearest": 200,
+    "unique_matched": 200,
+    "n_exceed_rictor": 7,
+    "empirical_p": 0.0398,
+    "seed_range": [
+      0.032,
+      0.042
+    ],
+    "pooled_mc_p": 0.0339,
+    "wilson_95ci": [
+      0.0171,
+      0.0705
+    ],
+    "mc_bootstrap_95ci": [
+      0.0149,
+      0.0647
+    ],
+    "note": "Criterion 8 is the WEAKEST criterion. Do not write '8/8 decisive'. Preferred: 'RICTOR satisfied seven strong convergence checks and nominally exceeded a matched-perturbation null, with borderline finite-pool uncertainty.'"
+  },
+  "random_seeds": {
+    "scoring": 0,
+    "matched_null": 0,
+    "monte_carlo_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ]
+  },
+  "exclusion_rules": [
+    "genes with non-finite KD or disease log2FC dropped before correlation",
+    "reversal undefined below 200 shared finite genes",
+    "superseded vectors (old +0.43 / 77-gene / residency-removed) never used as primary"
+  ],
+  "final_labels": [
+    "DISEASE_REVERSING_MECHANISM_NODE_WITH_MODALITY_GAP",
+    "REPRODUCIBLE_CELLULAR_HIT_NOT_THERAPEUTICALLY_DIRECTIONAL",
+    "COMPARATOR_NOT_DIRECTIONALLY_SUPPORTED_IN_THIS_ANALYSIS"
+  ],
+  "superseded_analyses": [
+    "SUP-01",
+    "SUP-02",
+    "SUP-03",
+    "SUP-04",
+    "SUP-05"
+  ],
+  "confirmatory_vs_exploratory": {
+    "confirmatory": [
+      "RICTOR 8-criterion bounded rescue (pre-specified)",
+      "PAK2 four-criterion decision gate"
+    ],
+    "exploratory": [
+      "single-state 924-perturbation reversal screen (NO_ROBUST_CANDIDATE)",
+      "old-vector sensitivity analysis (same cohort, not independent replication)"
+    ]
+  }
+}

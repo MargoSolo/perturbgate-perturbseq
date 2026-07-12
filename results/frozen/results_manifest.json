@@ -1,0 +1,30 @@
+{
+  "version": "1.0.0",
+  "frozen": {
+    "all_perturbations_authoritative_reversal.tsv": "f46036e344dd8756f600167f0061177565a93a68c67927fc00b737c29e8a9f47",
+    "analysis_contract.json": "ec02a4e3676aaa805936b99a5d31f0cce1d6ce9fca9c7fd30ddb47483a2002dd",
+    "candidate_funnel.tsv": "765d2d608c0219a7344d724f17abcbef3fa514ee9443fb50fbafc19cfbe30d2e",
+    "claims.json": "5bfe2640f4d175474ba1bed7ad267be5af22af803e42ced5f49f817ea205e9ee",
+    "confound_decomposition.tsv": "4bd556368ce4f1a80aeb08bdce6bb16c61679aa66d805eafda2ab5a51065f8b3",
+    "effectvector_reversal_all.tsv": "d2be93aed68644acc65a62c1b6cec29b675e304588819c696a8f84ae3c19470f",
+    "gate_ablation.tsv": "7d53d6722fd559c9fc7ac3ac26fe7e2ab57183693dd5bce96f1258548b03c523",
+    "gate_matrix.tsv": "dda2b315441069244a2e7f85c9ed4120e81fbee666830e9d1d54dec5566a2367",
+    "leading_edge.tsv": "cd15ec228da8b5044407199ea722dfeaf3f0dc0d295c95a789a69ec5eb61da54",
+    "matched_null.tsv": "0f7e14c09186154477535330af636f7fcf203d700955510e1a55cc32af1365a4",
+    "primary_comparison.tsv": "a18ca58adf12540751b62e72b47b3a5eeac4eb837740d8eb8c33cd3addaecd60",
+    "rejection_ledger.tsv": "a2d356442274b7c46b0c1cc347b18c7e6f031543676fb5b5d5e425b5eaf34971",
+    "rictor_conditions.tsv": "9f684168ad0f19e7cbcd8fc8f80f76d6e31716c6d0a58fdc2cee9e2465462824",
+    "rictor_guides.tsv": "91d2a37ab664ecd3cb2d0c267e50b6a21118ab3603332171321609f64481e295",
+    "rictor_lodo.tsv": "b4b17fc240a9a36561d9cb8f680e5b1beb033278b5a4ec149b03d4d65e5fffd9",
+    "rictor_matched_null_values.tsv": "d85170022e0c131b4ebfd0c9a9dff70338bf67e61c6cbad14d4e8b2c49cf461e",
+    "safety_summary.tsv": "36120cf3d656ee8cd2a873cffc962c1e22fd6cb328bc247ea83c86bad8e4e6dd",
+    "superseded_claims.json": "df00f288dd575901f4bba0248282d43d7a19811a0ad96a8dd48fa5647c694e39"
+  },
+  "demo_inputs": {
+    "disease_vector_activated_memory.tsv.gz": "255d501174d9ee55412204e047f6867d90d137a1972b7b4f0ad00baa0df32228",
+    "kd_meta_PAK2.tsv.gz": "84ff66d6ed8ff614ba171679b57e7fd5ba03d82077ec1b97e602133a0f85eaa3",
+    "kd_meta_RICTOR.tsv.gz": "3f19a00a3bdc7b5ac75cd984526c20fd3b89c8681ba71de1ca06f9f84e5bc0f9",
+    "kd_meta_RIPK1.tsv.gz": "550d49a87f82166e2067e9e9514b07137c84b0d64aaf96b8fec251d3c83add8c"
+  },
+  "note": "sha256 of every frozen artifact and demo input; see docs/REPRODUCIBILITY.md"
+}

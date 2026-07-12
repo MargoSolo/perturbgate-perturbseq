@@ -1,0 +1,52 @@
+[
+  {
+    "id": "SUP-01",
+    "entity": "RICTOR",
+    "old_wording": "RICTOR reversal ~ +0.43",
+    "source_artifact": "old covariate-adjusted / residency-removed 77-gene subset (superseded)",
+    "reason_superseded": "inflated by a frozen-subset gene universe and a responder-only KD representation",
+    "authoritative_replacement": "full-transcriptome responder-resolved centered-Pearson reversal +0.161; conservative all-cell null-substrate projection +0.131",
+    "replacement_artifact": "results/frozen/primary_comparison.tsv;results/frozen/matched_null.tsv",
+    "may_appear_in_readme": false
+  },
+  {
+    "id": "SUP-02",
+    "entity": "PAK2",
+    "old_wording": "PAK2 programme is enriched in JIA joint tissue (positive disease validation)",
+    "source_artifact": "raw synovial enrichment (all modules up)",
+    "reason_superseded": "UP and DOWN modules co-elevate under covariate adjustment + matched-null: generic activation confound",
+    "authoritative_replacement": "not disease-directionally supported (disease_relevant=False)",
+    "replacement_artifact": "results/frozen/primary_comparison.tsv",
+    "may_appear_in_readme": false
+  },
+  {
+    "id": "SUP-03",
+    "entity": "PAK2",
+    "old_wording": "partial PAK2 inhibition is supported / bounded partial support",
+    "source_artifact": "two-guide analysis interpreted as titration",
+    "reason_superseded": "both guides produce similarly strong knockdown (~83-86%); no strong-vs-weak axis",
+    "authoritative_replacement": "partial-inhibition sufficiency NOT_ESTABLISHED",
+    "replacement_artifact": "results/frozen/rejection_ledger.tsv",
+    "may_appear_in_readme": false
+  },
+  {
+    "id": "SUP-04",
+    "entity": "PAK2",
+    "old_wording": "a safer PAK2 neighbour reproduces the programme",
+    "source_artifact": "global-cosine neighbour search (PTEN etc.)",
+    "reason_superseded": "gene-ID namespace mismatch and incomplete essentiality/safety vetoes; corrected search finds none",
+    "authoritative_replacement": "no safer, druggable, immune-directional escape target identified",
+    "replacement_artifact": "results/frozen/rejection_ledger.tsv",
+    "may_appear_in_readme": false
+  },
+  {
+    "id": "SUP-05",
+    "entity": "PAK2",
+    "old_wording": "PAK2-WASF2 is a supported therapeutic axis",
+    "source_artifact": "structural / topology exploration (AF2/AF3)",
+    "reason_superseded": "structural + directional evidence did not establish a high-confidence direct therapeutic interface",
+    "authoritative_replacement": "not a validated therapeutic axis; structural work is not the target-discovery result",
+    "replacement_artifact": "docs/SUPERSEDED_RESULTS.md",
+    "may_appear_in_readme": false
+  }
+]
