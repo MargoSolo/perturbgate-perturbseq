@@ -6,7 +6,7 @@ PYTHON ?= python
 export PYTHONPATH := src
 
 .PHONY: help setup lint test demo reproduce full figures curated manifest verify \
-        privacy-audit release-check clean
+        external-gse160097 privacy-audit release-check clean
 
 help:
 	@echo "PerturbGate targets:"
@@ -49,10 +49,17 @@ figures:
 manifest:
 	$(PYTHON) -m perturbgate.cli manifest
 
+# External same-disease concordance (GSE160097). Offline by default: rebuilds the
+# external reversal, paired LODO/bootstrap and supplementary figure from committed
+# derived aggregates + committed KD vectors and validates the golden external values.
+# Use `PYTHON="python -m perturbgate.external.gse160097 --download"` route for raw GEO rebuild.
+external-gse160097:
+	$(PYTHON) -m perturbgate.external.gse160097
+
 # `make verify` is the composite gate: it regenerates the demo outputs and
 # figures, rewrites the manifest, validates schemas/golden/claims/funnel/
 # superseded labels, runs the tests, and scans for forbidden private terms.
-verify: demo figures manifest
+verify: demo figures manifest external-gse160097
 	$(PYTHON) -m perturbgate.cli verify
 	pytest -q
 	$(PYTHON) scripts/public_readiness_audit.py

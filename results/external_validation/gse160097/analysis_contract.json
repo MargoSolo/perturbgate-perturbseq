@@ -1,0 +1,104 @@
+{
+ "contract_id": "gse160097-jia-concordance-v1",
+ "frozen_utc": "2026-07-13",
+ "status": "FROZEN_BEFORE_ANY_RICTOR_SCORE",
+ "question": {
+  "primary": "Does the frozen RICTOR knockdown effect directionally reverse an independently derived paired JIA synovial-fluid vs peripheral-blood memory CD4 transcriptional contrast (GSE160097)?",
+  "framing": "External, SAME-DISEASE (JIA), same joint-vs-blood axis, observational directional-concordance. Higher-relevance re-test of the original internal axis.",
+  "explicitly_not": [
+   "causal replication",
+   "RICTOR-perturbation replication",
+   "therapeutic validation",
+   "drug-target validation"
+  ]
+ },
+ "dataset": {
+  "geo": "GSE160097",
+  "pmid": "33296081",
+  "title": "Single-cell transcriptomes and TCR sequences of memory T lymphocytes from PB and SF of JIA patients",
+  "expression_representation": "RAW UMI counts (10x filtered_gene_bc_matrices h5; hg19/GRCh37 reference; gene IDs = Ensembl; CellRanger v2 & v3 mixed, common 32738-gene reference). RAW-COUNT branch (matches the internal JIA method)."
+ },
+ "primary_population": {
+  "definition": "FACS-sorted CD4 memory conventional T cells (Tcon; CD4+CD45RO+CD25-) - the published sorted population and the direct analog of the internal 'activated_memory' CD4 state.",
+  "annotation_source": "GEO sample title / source_name (flow-sorted gate); no clustering required.",
+  "paired_donors": [
+   "JIA patient 1",
+   "JIA patient 2",
+   "JIA patient 4",
+   "JIA patient 5",
+   "JIA patient 6",
+   "JIA patient 7"
+  ],
+  "excluded_donors": {
+   "JIA patient 3": "no PB Tcon sample (pairing incomplete)"
+  },
+  "cell_qc": "include CellRanger-filtered cells with >=200 genes detected; pseudobulk = sum of raw UMI over included cells per (donor,compartment).",
+  "no_posthoc_subset": "No RICTOR-responsive subcluster is defined or searched."
+ },
+ "primary_contrast": "Synovial fluid (SF) minus paired Peripheral blood (PB), within the same JIA donor.",
+ "primary_unit": "Donor pair (n=6).",
+ "disease_vector": {
+  "path_to_write": "outputs/gse160097/gse160097_sf_vs_pb_cd4mem_disease_vector.tsv",
+  "branch": "RAW-COUNT donor-paired pseudobulk.",
+  "per_donor": "logFC_d[gene] = log2(CPM_SF,d + 1) - log2(CPM_PB,d + 1), where CPM_.,d is from summed raw UMI over that donor's sorted Tcon cells in the compartment.",
+  "effect_definition": "effect_SF_minus_PB[gene] = mean over the 6 donor pairs of logFC_d (paired mean).",
+  "uncertainty": "paired between-donor SE = sd(logFC_d)/sqrt(6); paired-t p reported but NOT used as confirmatory (genes correlated). Donor-based uncertainty via paired LODO and paired bootstrap."
+ },
+ "perturbation_vectors": {
+  "primary": {
+   "candidate": "RICTOR",
+   "path": "data/demo/kd_meta_RICTOR.tsv.gz",
+   "md5": "f79797105b0ea7c8d63a45333f366be5",
+   "representation": "responder-DE meta overall KD (Ensembl, 18130)"
+  },
+  "comparators": [
+   {
+    "candidate": "PAK2",
+    "path": "data/demo/kd_meta_PAK2.tsv.gz"
+   },
+   {
+    "candidate": "RIPK1",
+    "path": "data/demo/kd_meta_RIPK1.tsv.gz"
+   }
+  ],
+  "note": "All three use the SAME responder-DE meta representation (identical to the AMP analysis and to the internal JIA scoring)."
+ },
+ "primary_score": {
+  "function": "perturbgate.reversal.reversal (public package; -centered Pearson, min_shared=200, floor=0.10)",
+  "definition": "reversal_score = -centered_Pearson(kd_lfc, disease_effect); also Spearman.",
+  "params": {
+   "min_shared": 200,
+   "floor": 0.1
+  },
+  "sign_convention": "reversal_score > 0  <=>  RICTOR KD opposes the SF-minus-PB (inflamed-joint) program = CONCORDANT with the internal JIA reversal (+0.161)."
+ },
+ "gene_universe": {
+  "definition": "Intersection of the frozen RICTOR Ensembl vector and the GSE160097 Ensembl genes expressed in the pseudobulk. Ensembl IDs native on both sides (version-less); NO symbol mapping required.",
+  "expression_filter": "gene retained if summed UMI > 0 across the SF+PB pseudobulk in >=1 arm.",
+  "fixed_before_scoring": true,
+  "common_intersection_for_comparators": "single common RICTOR-universe intersection reused for all three candidates."
+ },
+ "secondary_sensitivities": [
+  "Treg-only (CD4+CD45RO+CD127lo CD25+; 7 paired donors) - exploratory.",
+  "Tcon+Treg combined memory CD4 (6 balanced donors).",
+  "common gene-universe (single intersection across candidates).",
+  "leading-edge concentration + confound-class decomposition."
+ ],
+ "robustness": [
+  "Leave-one-donor-pair-out (6 folds): rebuild paired disease vector, rescore.",
+  "Paired donor bootstrap: resample the 6 donor PAIRS with replacement (keeps SF-PB pairing intact); seeds 0..999; report 2.5/50/97.5 pct and frac-positive. Reflects 6-pair donor uncertainty only.",
+  "Common gene-universe sensitivity.",
+  "Leading-edge concentration (single-gene / top-K fraction of the Pearson numerator; confound classes)."
+ ],
+ "decision_rules": {
+  "EXTERNAL_SAME_DISEASE_CONCORDANCE_SUPPORTED": "RICTOR reversal > 0 (Pearson AND Spearman); sign stable in ALL 6 leave-one-pair-out folds; paired-bootstrap 2.5th pct > 0; not driven by one donor or a tiny leading edge (stays >0 after removing top-10 leading-edge genes); >=4 pairs.",
+  "EXTERNAL_SAME_DISEASE_CONCORDANCE_BORDERLINE": "Expected positive sign but paired-bootstrap CI includes 0, or |reversal|<0.05, or <=1 LODO fold flips.",
+  "EXTERNAL_SAME_DISEASE_CONCORDANCE_NOT_SUPPORTED": "Near-zero (|reversal|<0.02) or donor analyses inconsistent in sign without a stable negative.",
+  "EXTERNAL_DIRECTION_CONTRADICTED": "Stable NEGATIVE (mimicking): <0 across LODO and paired-bootstrap 97.5th pct < 0.",
+  "TECHNICALLY_INCONCLUSIVE": "<4 usable pairs, CD4 population not reproducibly identified, incomplete pairing, or inadequate gene mapping."
+ },
+ "anti_tuning": "Population, contrast, score, universe, and thresholds are frozen and will not be changed after seeing any score. Null/contradiction preserved and reported.",
+ "uncertainty_rules": "Cells are NOT independent replicates. Ordinary gene-level Pearson p is NOT confirmatory. Donor-pair-based LODO and paired bootstrap are the inferential basis.",
+ "interpretation_guardrail": "A positive result is 'external same-disease directional concordance', never causal replication or drug-target validation.",
+ "cohort_independence": "NO_OVERLAP_DETECTED_BUT_NOT_FULLY_VERIFIABLE (see cohort_independence_audit.tsv; internal atlas + GSE160097 share the Charite/DRFZ Berlin ecosystem, de-identified -> not fully verifiable)."
+}

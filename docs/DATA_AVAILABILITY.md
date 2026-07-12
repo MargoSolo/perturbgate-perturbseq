@@ -47,6 +47,27 @@ curl -L -o data/full/jia_synovial_integrated.h5ad \
 Used here for: the donor-paired synovium-vs-blood disease-direction vector
 (activated-memory CD4, 11 paired donors), committed as per-gene aggregate log2FC.
 
+## 3. GSE160097 — external same-disease concordance cohort
+
+| Field | Value |
+|---|---|
+| Source | DRFZ / Charité Berlin (Maschmeyer, Mashreghi, Radbruch et al.) |
+| Publication | Maschmeyer et al., 2020 (PMID 33296081) |
+| Accession | [GEO GSE160097](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE160097) |
+| Data type | 10x scRNA-seq of FACS-sorted memory CD4 Tcon/Treg (+ CD8), paired synovial fluid & blood |
+| Registration | Not required (public GEO) |
+| License | **Not explicitly stated** (GEO deposit); raw **not** redistributed here |
+
+Per-sample 10x H5 (raw UMI) download route and per-file **sha256** are in
+[EXTERNAL_CONCORDANCE_GSE160097.md](EXTERNAL_CONCORDANCE_GSE160097.md); rebuild with
+`python -m perturbgate.external.gse160097 --download`. Base URL:
+`https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM4859nnn/<GSM>/suppl/<file>`.
+
+Used here for: the external same-disease **synovial-fluid-minus-blood** memory-CD4
+concordance test. Only **derived aggregate summaries** (per-gene disease vector +
+six per-donor-pair log2FC) are committed, under
+[`results/external_validation/gse160097/`](../results/external_validation/gse160097/).
+
 ## Derived data committed in this repository
 
 | File | Derived from | Content | License |

@@ -40,6 +40,25 @@ content are cited, not republished.
   al. for the synovial-tissue layer).
 - **What we redistribute:** derived per-gene aggregate disease-direction log2FC only.
 
+### GSE160097 (external same-disease concordance cohort) — GEO, license not explicitly stated
+
+- **Accession:** GEO GSE160097 (PMID 33296081), used for the external same-disease
+  concordance test (`docs/EXTERNAL_CONCORDANCE_GSE160097.md`).
+- **License:** **not explicitly stated.** GEO makes the data publicly downloadable but
+  does not itself grant a reuse/redistribution license, and the deposit carries no
+  explicit license string. We therefore treat redistribution terms as **unclear** and
+  do **not** infer a license from GEO availability, the publication, or any code
+  repository.
+- **What we redistribute:** **no raw data.** Only **derived aggregate summaries** — the
+  per-gene SF-minus-blood log2FC disease vector and the six per-donor-pair log2FC
+  columns (non-cell-level, non-reconstructable), with attribution to GSE160097. The raw
+  10x H5 files are **not** committed; the official GEO download route and per-file
+  sha256 checksums are provided in `docs/EXTERNAL_CONCORDANCE_GSE160097.md` so any user
+  can rebuild from source (`make external-gse160097 --download`).
+- **Redistribution decision:** per the project principle below — unclear terms ⇒ raw not
+  redistributed, official route provided, only clearly permissible derived summaries and
+  code distributed.
+
 ## Attribution
 
 Attribution for both datasets is given in [`../NOTICE`](../NOTICE),
@@ -50,8 +69,10 @@ Marson.
 
 ## Principle
 
-"Publicly downloadable" is not assumed to mean "redistributable": both licenses above
-were checked for redistribution terms, and only **derived aggregate** (non-cell-level)
-data is committed. Where redistribution terms were unclear (the JIA per-dataset field),
-the uncertainty is stated and the download-and-derive route is provided so that no user
-depends on our committed copy.
+"Publicly downloadable" is not assumed to mean "redistributable": each source above
+was checked for redistribution terms, and only **derived aggregate** (non-cell-level)
+data is committed. Where redistribution terms were unclear — the JIA per-dataset field,
+and **GSE160097** (GEO, no explicit reuse license) — the uncertainty is stated, **no raw
+data is redistributed**, the official download-and-derive route (with checksums) is
+provided, and only clearly permissible derived summaries and code are committed, so that
+no user depends on our committed copy.
