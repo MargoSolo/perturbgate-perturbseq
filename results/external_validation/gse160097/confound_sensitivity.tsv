@@ -1,0 +1,12 @@
+gene_class	n_genes	frac_abs_contribution	reversal_after_removal	delta_vs_base
+egress_quiescence_residency	11	0.0071	0.16365	-0.00127
+inflamed_effector_Tph	19	0.0469	0.14523	-0.01969
+immunoglobulin	0	0.0	0.16492	0.0
+mitochondrial	12	0.0004	0.16518	0.00026
+ribosomal	0	0.0	0.16492	0.0
+stress_heatshock	68	0.0032	0.16493	1e-05
+cell_cycle	19	0.0026	0.16629	0.00137
+__single_gene_max__	1	0.0089		
+__top10_genes__	10	0.0398		
+__top25_genes__	25	0.0737		
+__BASE__	14806	1.0	0.16492	0.0

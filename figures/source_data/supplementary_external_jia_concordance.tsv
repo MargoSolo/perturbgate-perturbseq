@@ -1,0 +1,4 @@
+candidate	external_reversal	internal_reference	rictor_lodo_min	rictor_lodo_max	rictor_bootstrap_median	rictor_bootstrap_ci_low	rictor_bootstrap_ci_high
+RICTOR	0.164921	0.161	0.146512	0.176937	0.15952	0.112759	0.191446
+PAK2	0.00148	0.161	0.146512	0.176937	0.15952	0.112759	0.191446
+RIPK1	-0.006803	0.161	0.146512	0.176937	0.15952	0.112759	0.191446

@@ -1,0 +1,89 @@
+{
+ "analysis": "GSE160097 external same-disease paired-compartment concordance",
+ "dataset": {
+  "geo": "GSE160097",
+  "pmid": "33296081",
+  "design": "paired JIA synovial-fluid vs peripheral-blood memory CD4 T cells",
+  "primary_population": "FACS-sorted conventional memory CD4 T cells (CD4+CD45RO+CD25-)",
+  "primary_input": "raw UMI counts (10x filtered)"
+ },
+ "cohort_independence": "NO_OVERLAP_DETECTED_BUT_NOT_FULLY_VERIFIABLE",
+ "result": {
+  "external_rictor_reversal": 0.165,
+  "internal_reference": 0.161,
+  "n_donor_pairs": 6,
+  "paired_lodo": "6/6 positive, range +0.147..+0.177",
+  "paired_bootstrap": {
+   "median": 0.16,
+   "ci": [
+    0.113,
+    0.191
+   ],
+   "frac_positive": 1.0
+  },
+  "pak2": 0.002,
+  "ripk1": -0.007,
+  "treg_sensitivity": 0.165,
+  "concentration": {
+   "single_gene": 0.009,
+   "top10": 0.04,
+   "top25_removed_leaves": 0.132,
+   "egress_module_pct": 0.007,
+   "egress_removed_leaves": 0.164
+  },
+  "major_drivers": [
+   "CXCR6",
+   "RGS1",
+   "IFNG",
+   "CCR5",
+   "CCR1",
+   "CCR2",
+   "XCL1",
+   "XCL2",
+   "GZMA",
+   "GZMB"
+  ]
+ },
+ "evidence_class": "SAME_DISEASE_PAIRED_COMPARTMENT_CONCORDANCE_SUPPORTED",
+ "biological_classification": "DISEASE_REVERSING_MECHANISM_NODE_WITH_MODALITY_GAP",
+ "translational_readiness": "NOT_ADVANCEABLE_WITH_CURRENT_EVIDENCE_AND_MODALITIES",
+ "claim": {
+  "id": "EXT-GSE160097-01",
+  "status": "SUPPORTED",
+  "scope": "External same-disease paired-compartment transcriptional concordance.",
+  "statement": "The frozen RICTOR-knockdown signature showed external same-disease, paired-compartment transcriptional concordance with the JIA synovial-fluid-minus-blood memory-CD4 direction in GSE160097 (external reversal ~+0.165 vs internal ~+0.161; 6 donor pairs; 6/6 positive leave-one-donor-pair-out; paired bootstrap 95% interval +0.113..+0.191 excluding zero; frozen analysis contract).",
+  "cohort_independence": "NO_OVERLAP_DETECTED_BUT_NOT_FULLY_VERIFIABLE",
+  "limitations": [
+   "observational disease vector (compartment contrast, not disease-vs-healthy)",
+   "six donor pairs",
+   "no external RICTOR perturbation experiment",
+   "no therapeutic validation",
+   "memory-CD4 population defined by published FACS sorting",
+   "internal and external JIA cohorts share the Charite/DRFZ Berlin ecosystem (donor-level independence not fully verifiable)"
+  ]
+ },
+ "not_claimed": [
+  "replicated therapeutic efficacy",
+  "therapeutic replication",
+  "causal replication",
+  "clinical validation",
+  "validated drug target",
+  "independent RICTOR perturbation replication",
+  "proof that RICTOR inhibition treats JIA"
+ ],
+ "reproduce": "make external-gse160097  (offline: rebuild from committed derived aggregates + KD vectors; --download rebuilds from official GEO raw)",
+ "file_sha256": {
+  "analysis_contract.json": "b8dd1bca3471941dff7839b5a99a96d7105a5057df21f99e0b4780e0588f3028",
+  "candidate_external_concordance.tsv": "a2094ae14b5f5dba8b421631d4bce2e58fcd3de5502d426a243f806c321f3386",
+  "cohort_independence_audit.tsv": "8eaa2cc91f9fa2d4dc46d15381199ca7912d5ae3e3645e8563b6e55bc06e2e53",
+  "confound_sensitivity.tsv": "35665f7b40053e2e620cbda53060de8bacaa388f50a1fac52f41263474813dea",
+  "donor_accounting.tsv": "fc2029f228771cdf8a1c65c28696be6b3103a8f0bde8f1133715fb4bbe378d1a",
+  "donor_paired_logfc_tcon.tsv.gz": "905154f5ac5a352a2574a518af898369cffd864bc67bf7a6beee08ef5a634b0a",
+  "egress_sensitivity.tsv": "09a6696cbe68c90c241dc64547301d7fb1d872080fa373576501491aa3ca6ba5",
+  "gene_universe_audit.tsv": "1e90e45f25284085c19f612fa9a6bf17a0e8f15c1664d1b5e23f7b0f743b90a6",
+  "gse160097_sf_vs_pb_cd4mem_disease_vector.tsv": "cb9aeae1b59d1165eac203e7c2184212fb7928f947b6fce23d0b81b7ff1b0935",
+  "leading_edge.tsv": "11e0dd4ccf6d2f7030585eaeabaa5f71b64e1807da40e3f109798ce0fdd0a789",
+  "paired_bootstrap_summary.tsv": "a2d9af01ef1363e1f19a105b8390dcffb3b017d37c5ee72f5f287f5fdb19e7a8",
+  "paired_lodo.tsv": "21f5a7a2cf85db9af33146cb0f89c52176dbebf290b8a3cb354433f7e9a1b970"
+ }
+}

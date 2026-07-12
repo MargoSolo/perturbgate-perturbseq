@@ -17,9 +17,20 @@ retained only as a *mechanism node*, not a validated target.
 2. **Modest effect size.** The primary reversal is +0.161 (r² ≈ 2.6%). It is highly
    robust in direction, but small in magnitude.
 
-3. **Single disease cohort.** All disease-donor statistics come from one JIA atlas
-   (11 paired donors). Leave-one-donor-out is within-cohort robustness, not
-   cross-cohort replication.
+3. **Disease-vector cohorts and the external concordance.** The internal
+   disease-donor statistics come from one JIA atlas (11 paired donors); its
+   leave-one-donor-out is within-cohort robustness. An **external same-disease
+   concordance** test (GSE160097; 6 donor pairs; RICTOR +0.165 vs internal +0.161;
+   6/6 paired leave-one-donor-pair-out; paired bootstrap excluding zero) reproduces
+   the direction in a second JIA cohort — but it is **bounded**: it is an
+   **observational** disease vector (a synovial-fluid-vs-blood *compartment* contrast,
+   not disease-vs-healthy), rests on **six donor pairs**, involves **no external
+   RICTOR perturbation** and **no therapeutic validation**, defines the memory-CD4
+   population by **published FACS sorting**, and is `NO_OVERLAP_DETECTED_BUT_NOT_FULLY_VERIFIABLE`
+   for cohort-independence (the two JIA cohorts share the Charité/DRFZ Berlin
+   ecosystem; reported as *external*, not *independent*). It is external same-disease
+   *concordance*, not cross-cohort *causal/perturbation replication*. See
+   [EXTERNAL_CONCORDANCE_GSE160097.md](EXTERNAL_CONCORDANCE_GSE160097.md).
 
 ## Biological / design
 

@@ -31,6 +31,39 @@ Effect sizes, denominators and uncertainty are reported — never a p-value alon
 - **Artifacts:** `primary_comparison.tsv`, `rictor_guides.tsv`, `rictor_lodo.tsv`,
   `rictor_conditions.tsv`, `matched_null.tsv`, `confound_decomposition.tsv`.
 
+## CLAIM-RICTOR-EXT-01 — external same-disease concordance (supported)
+
+> The frozen RICTOR-knockdown signature showed **external same-disease,
+> paired-compartment transcriptional concordance** with the JIA synovial-fluid-minus-blood
+> memory-CD4 direction in **GSE160097**: external reversal **≈ +0.165** (internal reference
+> ≈ +0.161), across **six donor pairs**, with **6/6** positive leave-one-donor-pair-out and a
+> paired-donor bootstrap 95% interval **+0.113 … +0.191** excluding zero. PAK2 (+0.002) and
+> RIPK1 (−0.007) did not reverse.
+
+- **Type:** external evidence · **Evidence status:** supported · **Scope:** *External same-disease
+  paired-compartment transcriptional concordance.*
+- **Score:** the public `perturbgate.reversal.reversal` (−centered Pearson), against a
+  raw-count donor-paired SF−PB disease vector built under a **frozen analysis contract**
+  (`results/external_validation/gse160097/analysis_contract.json`).
+- **Concentration:** diffuse — no single gene (0.9%) or top-10 (≈4%) dominates; top-25 removed
+  leaves ≈ +0.132; the KLF2/SELL/S1PR1/TCF7 egress module contributes < 1% (removal leaves ≈ +0.164).
+- **Cohort-independence:** `NO_OVERLAP_DETECTED_BUT_NOT_FULLY_VERIFIABLE` — reported as *"an
+  external public JIA cohort with no detected donor overlap"*, not "independent" (shared
+  Charité/DRFZ Berlin ecosystem; de-identified).
+- **Limitations:** observational disease vector (compartment contrast, not disease-vs-healthy);
+  six donor pairs; **no external RICTOR perturbation experiment**; **no therapeutic validation**;
+  memory-CD4 population defined by published FACS sorting.
+- **Not claimed:** replicated therapeutic efficacy, therapeutic/causal replication, clinical
+  validation, validated drug target, independent RICTOR-perturbation replication, or proof that
+  RICTOR inhibition treats JIA.
+- **Machine record + artifacts:** [`results/external_validation/gse160097/result_manifest.json`](../results/external_validation/gse160097/result_manifest.json),
+  `candidate_external_concordance.tsv`, `paired_lodo.tsv`, `paired_bootstrap_summary.tsv`,
+  `confound_sensitivity.tsv`, `egress_sensitivity.tsv`, `gene_universe_audit.tsv`,
+  `cohort_independence_audit.tsv`. Reproduce: `make external-gse160097`. Full write-up:
+  [EXTERNAL_CONCORDANCE_GSE160097.md](EXTERNAL_CONCORDANCE_GSE160097.md).
+- **Does not alter:** the frozen internal +0.161 result or its provenance
+  (`results/frozen/` unchanged).
+
 ## CLAIM-PAK2-01 — negative result (rejected)
 
 > PAK2 is a real, reproducible CD4 T-cell perturbation hit that is **not

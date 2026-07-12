@@ -1,0 +1,4 @@
+candidate	n_draws	median	p2_5	p97_5	frac_positive	note
+RICTOR	1000	0.1595204497691633	0.1127589076850898	0.1914456197117459	1.0	paired-donor bootstrap over 6 pairs; seeds 0..999
+PAK2	1000	0.0022287036273128	-0.0134186833749513	0.0129193643114083	0.617	paired-donor bootstrap over 6 pairs; seeds 0..999
+RIPK1	1000	-0.0068026323532627	-0.0256860338581008	0.0194957792882245	0.305	paired-donor bootstrap over 6 pairs; seeds 0..999
