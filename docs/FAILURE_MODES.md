@@ -1,6 +1,6 @@
 # Failure modes
 
-This document records the analytical failure modes that the TargetGate audit layer
+This document records the analytical failure modes that the PerturbGate audit layer
 **detected and corrected** during target nomination. It is written as a record of
 falsification tests that fired — not as a debugging log — because each of these failure
 modes, left uncorrected, would have converted a real cellular perturbation effect into an
@@ -11,7 +11,7 @@ overclaimed drug-target nomination.
 
 The central premise of the project is that **a real perturbation effect is necessary but
 not sufficient** for target nomination. Every failure mode below is a specific way in which
-a genuine, reproducible effect can be *misread* as therapeutic support. TargetGate's result
+a genuine, reproducible effect can be *misread* as therapeutic support. PerturbGate's result
 is a target-**nomination** decision, not a gene ranking, precisely because these ten checks
 sit between "measurable effect" and "retained hypothesis."
 
@@ -276,7 +276,7 @@ modality), **not** as a validated drug target.
 
 ## What these corrections do and do not license
 
-TargetGate succeeded not because it found a positive hit, but because every retained claim
+PerturbGate succeeded not because it found a positive hit, but because every retained claim
 survived an explicit record of how competing claims failed. The corrections above **do**
 support retaining RICTOR as a disease-reversing mechanism node and rejecting PAK2 as
 therapeutically directional despite PAK2 being a real, reproducible cellular hit. They **do

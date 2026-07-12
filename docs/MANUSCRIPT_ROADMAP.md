@@ -1,6 +1,6 @@
 # Manuscript roadmap
 
-This document separates what the TargetGate hackathon release establishes as
+This document separates what the PerturbGate hackathon release establishes as
 **frozen conclusions** from what a peer-reviewed manuscript would still require.
 It is a planning document, not a results document. Nothing here changes any
 frozen number or label; the authoritative record lives in
@@ -8,7 +8,7 @@ frozen number or label; the authoritative record lives in
 [RESULTS.md](RESULTS.md), [CLAIMS_AND_EVIDENCE.md](CLAIMS_AND_EVIDENCE.md),
 and the [decision trail](DECISION_TRAIL.md).
 
-TargetGate is *TargetGate — Evidence-Gated Pipeline for T-cell Perturb-seq
+PerturbGate is *PerturbGate — Evidence-Gated Pipeline for T-cell Perturb-seq
 Mechanism Hypotheses* (version 1.0.0, frozen hackathon release, 2026-07-13),
 built for *Built with Claude: Life Sciences* (Anthropic x Gladstone Institutes),
 Research track. Its central message is that **a real perturbation effect is

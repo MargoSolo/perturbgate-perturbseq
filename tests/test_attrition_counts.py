@@ -2,8 +2,8 @@
 is honest, and 'not advanced' is kept distinct from 'rejected after validation'."""
 import pandas as pd
 
-from targetgate import attrition
-from targetgate.io import frozen_dir
+from perturbgate import attrition
+from perturbgate.io import frozen_dir
 
 
 def test_funnel_denominators_sum():

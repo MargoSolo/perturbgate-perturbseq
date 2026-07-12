@@ -11,7 +11,7 @@ sys.path.insert(0, str(REPO / "src"))
 
 if __name__ == "__main__":
     runpy.run_path(str(REPO / "scripts" / "build_curated_frozen.py"), run_name="__main__")
-    from targetgate.claim_ledger import load_claims, resolve_claims
+    from perturbgate.claim_ledger import load_claims, resolve_claims
     problems = resolve_claims(load_claims())
     if problems:
         print("\nUNRESOLVED CLAIMS:")

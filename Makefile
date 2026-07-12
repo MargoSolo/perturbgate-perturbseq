@@ -1,4 +1,4 @@
-# TargetGate — Makefile is the primary user interface.
+# PerturbGate — Makefile is the primary user interface.
 # Every target also works as a plain command (shown in docs/REPRODUCIBILITY.md)
 # for users without `make`.
 
@@ -9,7 +9,7 @@ export PYTHONPATH := src
         privacy-audit release-check clean
 
 help:
-	@echo "TargetGate targets:"
+	@echo "PerturbGate targets:"
 	@echo "  make setup          install the package (+ dev tools) in editable mode"
 	@echo "  make demo           Level 1: recompute headline reversal from compact inputs (minutes)"
 	@echo "  make reproduce      Level 2: recompute robustness from public derived matrices"
@@ -34,25 +34,25 @@ curated:
 	$(PYTHON) scripts/build_curated_frozen.py
 
 demo:
-	$(PYTHON) -m targetgate.cli demo
+	$(PYTHON) -m perturbgate.cli demo
 
 reproduce:
-	$(PYTHON) -m targetgate.cli reproduce
+	$(PYTHON) -m perturbgate.cli reproduce
 
 full:
 	$(PYTHON) scripts/run_full_pipeline.py
 
 figures:
-	$(PYTHON) -m targetgate.cli figures
+	$(PYTHON) -m perturbgate.cli figures
 
 manifest:
-	$(PYTHON) -m targetgate.cli manifest
+	$(PYTHON) -m perturbgate.cli manifest
 
 # `make verify` is the composite gate: it regenerates the demo outputs and
 # figures, rewrites the manifest, validates schemas/golden/claims/funnel/
 # superseded labels, runs the tests, and scans for forbidden private terms.
 verify: demo figures manifest
-	$(PYTHON) -m targetgate.cli verify
+	$(PYTHON) -m perturbgate.cli verify
 	pytest -q
 	$(PYTHON) scripts/public_readiness_audit.py
 

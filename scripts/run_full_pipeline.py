@@ -26,7 +26,7 @@ REPO = Path(__file__).resolve().parents[1]
 def main() -> int:
     roots = {k: os.environ.get(k) for k in ("SERVER_RESULTS_ROOT", "SERVER_INPUTS_ROOT", "SERVER_DATA_ROOT")}
     have = all(roots.values()) and all(Path(v).exists() for v in roots.values() if v)
-    print("TargetGate — Level 3 (full open-data reconstruction)\n")
+    print("PerturbGate — Level 3 (full open-data reconstruction)\n")
     if not have:
         print("Level-3 reconstruction inputs are not configured on this machine.\n")
         print("What Level 3 needs (see configs/full.yaml, docs/REPRODUCIBILITY_LEVELS.md):")
@@ -37,14 +37,14 @@ def main() -> int:
         for k in roots:
             print(f"       {k}")
         print("  4. python scripts/build_public_inputs.py   # regenerate frozen artifacts")
-        print("     python -m targetgate.cli verify         # confirm reproduction matches frozen")
+        print("     python -m perturbgate.cli verify         # confirm reproduction matches frozen")
         print("\nLevels 1 (make demo) and 2 (make reproduce) are the honest, laptop-scale")
         print("reproducibility guarantees and do not require any of the above.")
         return 0
     print("Server roots configured — regenerating frozen artifacts from open-data reconstruction ...")
     subprocess.run([sys.executable, str(REPO / "scripts" / "build_public_inputs.py")], check=True, cwd=REPO)
     subprocess.run([sys.executable, str(REPO / "scripts" / "build_curated_frozen.py")], check=True, cwd=REPO)
-    subprocess.run([sys.executable, "-m", "targetgate.cli", "verify"], check=True, cwd=REPO,
+    subprocess.run([sys.executable, "-m", "perturbgate.cli", "verify"], check=True, cwd=REPO,
                    env={**os.environ, "PYTHONPATH": "src"})
     return 0
 

@@ -41,7 +41,7 @@ def _style() -> None:
         "svg.fonttype": "none", "axes.titleweight": "bold",
         # Fixed salt makes SVG element ids deterministic across renders, so
         # `make demo` does not dirty the committed figures.
-        "svg.hashsalt": "targetgate",
+        "svg.hashsalt": "perturbgate",
     })
 
 

@@ -1,4 +1,4 @@
-# TargetGate — Snakemake orchestration (optional; the Makefile is the primary UI).
+# PerturbGate — Snakemake orchestration (optional; the Makefile is the primary UI).
 # Mirrors the reproducibility levels. No compute-environment or cluster name is
 # referenced anywhere; server-scale execution is configured via the generic
 # `profiles/server/` profile and SERVER_* environment variables.
@@ -9,7 +9,7 @@
 
 configfile: "workflow/config/config.yaml"
 
-PY = "python -m targetgate.cli"
+PY = "python -m perturbgate.cli"
 
 
 rule all:

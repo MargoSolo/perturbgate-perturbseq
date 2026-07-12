@@ -13,17 +13,17 @@ import pandas as pd
 def repo_root() -> Path:
     """Repository root (the directory that contains ``results/frozen``).
 
-    Honours ``TARGETGATE_ROOT`` for out-of-tree runs; otherwise walks up from this
+    Honours ``PERTURBGATE_ROOT`` for out-of-tree runs; otherwise walks up from this
     file until it finds the frozen-results marker.
     """
-    env = os.environ.get("TARGETGATE_ROOT")
+    env = os.environ.get("PERTURBGATE_ROOT")
     if env:
         return Path(env).resolve()
     here = Path(__file__).resolve()
     for parent in [here, *here.parents]:
         if (parent / "results" / "frozen").is_dir():
             return parent
-    # Fall back to two levels up (src/targetgate/io.py -> repo).
+    # Fall back to two levels up (src/perturbgate/io.py -> repo).
     return here.parents[2]
 
 

@@ -1,8 +1,8 @@
 """The decision gate must map seven strong criteria to the retained-mechanism
 label, only ever emit controlled-vocabulary labels, and treat the matched-null as
 the weakest criterion."""
-from targetgate import PUBLIC_LABELS
-from targetgate.decision_gate import WEAKEST_CRITERION, evaluate_rictor
+from perturbgate import PUBLIC_LABELS
+from perturbgate.decision_gate import WEAKEST_CRITERION, evaluate_rictor
 
 
 def test_seven_strong_pass_gives_mechanism_node():

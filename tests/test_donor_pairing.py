@@ -2,9 +2,9 @@
 and the conditions must all be positive (criterion 7)."""
 import pandas as pd
 
-from targetgate import GOLDEN
-from targetgate.io import frozen_dir
-from targetgate.robustness import condition_summary, lodo_summary
+from perturbgate import GOLDEN
+from perturbgate.io import frozen_dir
+from perturbgate.robustness import condition_summary, lodo_summary
 
 
 def test_all_11_lodo_folds_positive():

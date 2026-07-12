@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 title: >-
-  TargetGate: Evidence-Gated Pipeline for T-cell Perturb-seq
+  PerturbGate: Evidence-Gated Pipeline for T-cell Perturb-seq
   Mechanism Hypotheses
 message: >-
   If you use this software or its derived results, please cite this repository
@@ -20,7 +20,7 @@ keywords:
   - reproducibility
   - evidence-gating
 abstract: >-
-  TargetGate is an open-data, reproducible pipeline that turns T-cell Perturb-seq
+  PerturbGate is an open-data, reproducible pipeline that turns T-cell Perturb-seq
   hits into evidence-gated mechanism hypotheses. It combines responder-aware
   perturbation effects, guide and donor robustness, donor-paired disease-state
   reversal, matched-perturbation calibration, confound testing, and translational

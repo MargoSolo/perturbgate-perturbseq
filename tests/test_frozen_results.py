@@ -6,8 +6,8 @@ import json
 import pandas as pd
 import pytest
 
-from targetgate import GOLDEN
-from targetgate.io import frozen_dir
+from perturbgate import GOLDEN
+from perturbgate.io import frozen_dir
 
 
 @pytest.fixture(scope="module")
@@ -47,7 +47,7 @@ def test_matched_null_values_exceedances():
 
 
 def test_labels_in_controlled_vocabulary(primary):
-    from targetgate import PUBLIC_LABELS
+    from perturbgate import PUBLIC_LABELS
     for lab in primary["final_public_label"]:
         assert lab in PUBLIC_LABELS
 

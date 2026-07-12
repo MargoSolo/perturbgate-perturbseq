@@ -2,9 +2,9 @@
 assert the headline values reproduce the golden numbers within tolerance. This is
 the test that proves the demo genuinely recomputes +0.161 rather than echoing it."""
 
-from targetgate import GOLDEN
-from targetgate.io import load_disease_vector, load_kd_meta
-from targetgate.reversal import reversal
+from perturbgate import GOLDEN
+from perturbgate.io import load_disease_vector, load_kd_meta
+from perturbgate.reversal import reversal
 
 TOL = 1e-3
 
@@ -38,5 +38,5 @@ def test_rictor_reverses_pak2_does_not():
 
 
 def test_demo_cli_runs_green():
-    from targetgate.cli import main
+    from perturbgate.cli import main
     assert main(["demo"]) == 0

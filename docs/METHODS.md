@@ -1,6 +1,6 @@
 # Methods
 
-TargetGate is an evidence-gated pipeline for generating and stress-testing mechanism
+PerturbGate is an evidence-gated pipeline for generating and stress-testing mechanism
 hypotheses from a T-cell Perturb-seq dataset. It was built for the "Built with Claude:
 Life Sciences" event (Anthropic x Gladstone Institutes), Research track, for the
 challenge *Find new drug targets in a T-cell Perturb-seq dataset from the Marson and
@@ -98,7 +98,7 @@ matched-null calibration; the two substrates are never mixed in a single score (
 
 A perturbation *reverses* a disease direction if its knockdown moves genes opposite to the
 disease direction. The primary statistic
-([`src/targetgate/reversal.py`](../src/targetgate/reversal.py)) is the **negative
+([`src/perturbgate/reversal.py`](../src/perturbgate/reversal.py)) is the **negative
 centered-Pearson correlation** between the KD log2FC vector and the disease log2FC vector
 over shared, finite genes:
 
@@ -177,7 +177,7 @@ Deep validation applies to the candidate-specific branch.
 The screen-level statistic can be inflated by generic effect magnitude, breadth, or
 knockdown quality. To ask whether RICTOR's reversal exceeds what a comparably-behaving
 perturbation would produce, we build a **covariate-matched empirical null**
-([`src/targetgate/calibration.py`](../src/targetgate/calibration.py);
+([`src/perturbgate/calibration.py`](../src/perturbgate/calibration.py);
 [`matched_null.tsv`](../results/frozen/matched_null.tsv),
 [`rictor_matched_null_values.tsv`](../results/frozen/rictor_matched_null_values.tsv)).
 
@@ -243,7 +243,7 @@ not rescue it, because it failed on therapeutic directionality.
 
 Alongside the correlation statistics, a lightweight rank-based directional test asks whether
 disease-UP genes sit at the KD-DOWN end of the ranked KD vector and disease-DOWN genes at the
-KD-UP end (`gsea_reversal` in [`reversal.py`](../src/targetgate/reversal.py)). It returns a
+KD-UP end (`gsea_reversal` in [`reversal.py`](../src/perturbgate/reversal.py)). It returns a
 normalized enrichment score for the disease-UP set (`nes_up`, negative when pushed down by
 KD) and the disease-DOWN set (`nes_down`, positive when pushed up), and their difference; a
 positive difference agrees with the centered-Pearson reversal. RICTOR's `gsea_reversal` is
@@ -363,7 +363,7 @@ null. The seed-stable empirical-p range for RICTOR's matched null is **[0.032, 0
 
 ## 16. Software and versions
 
-Implemented in Python (`>= 3.10`) as the installable `targetgate` package
+Implemented in Python (`>= 3.10`) as the installable `perturbgate` package
 ([`pyproject.toml`](../pyproject.toml); build backend hatchling). Core dependencies:
 **numpy** (>= 1.26, < 3), **pandas** (>= 2.1, < 3), **scipy** (>= 1.11, < 2; Pearson,
 Spearman, rank statistics), **matplotlib** (>= 3.8, < 4; figures), and **pyarrow**

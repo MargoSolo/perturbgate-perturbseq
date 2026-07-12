@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "TargetGate frozen table schemas",
-  "description": "Required columns and controlled vocabularies for the frozen public tables in results/frozen/. Enforced by src/targetgate/schemas.py and tests/test_schemas.py.",
+  "title": "PerturbGate frozen table schemas",
+  "description": "Required columns and controlled vocabularies for the frozen public tables in results/frozen/. Enforced by src/perturbgate/schemas.py and tests/test_schemas.py.",
   "controlled_vocabularies": {
     "evidence_depth": [
       "DEEP",

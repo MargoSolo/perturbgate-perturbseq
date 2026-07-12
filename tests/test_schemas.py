@@ -2,8 +2,8 @@
 import pandas as pd
 import pytest
 
-from targetgate.io import frozen_dir
-from targetgate.schemas import SCHEMAS, SchemaError, TableSchema
+from perturbgate.io import frozen_dir
+from perturbgate.schemas import SCHEMAS, SchemaError, TableSchema
 
 
 @pytest.mark.parametrize("name", list(SCHEMAS))

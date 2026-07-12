@@ -127,7 +127,7 @@ def audit() -> list[str]:
 def main() -> int:
     findings = audit()
     print("=" * 70)
-    print("TargetGate — public-readiness / privacy audit")
+    print("PerturbGate — public-readiness / privacy audit")
     print("=" * 70)
     if not findings:
         print("PASS — no forbidden private, superseded, or unsupported content found.")

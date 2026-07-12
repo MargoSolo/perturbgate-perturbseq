@@ -90,7 +90,7 @@ write_tsv(primary_comparison, "primary_comparison.tsv")
 # =====================================================================
 # 2. candidate_funnel.tsv  (branching decision map, not a linear funnel)
 # =====================================================================
-CMD_SCREEN = "targetgate demo (rescue_screen substrate)"
+CMD_SCREEN = "perturbgate demo (rescue_screen substrate)"
 funnel = [
     dict(stage_id="S0", stage_name="Screen-level reversal scoring", scope="SCREEN_WIDE",
          denominator_definition="all perturbations with a usable genome-scale effect vector",
@@ -125,13 +125,13 @@ funnel = [
          n_entering=1, n_advanced=1, n_not_advanced=0, n_rejected=0, n_unresolved=0,
          principal_reason_categories="RETAINED_MECHANISM_HYPOTHESIS",
          source_artifact="results/frozen/rictor_guides.tsv;rictor_lodo.tsv;rictor_conditions.tsv;matched_null.tsv",
-         generating_command="targetgate demo (RICTOR rescue)"),
+         generating_command="perturbgate demo (RICTOR rescue)"),
     dict(stage_id="C0", stage_name="RIPK1 comparator", scope="CANDIDATE_SPECIFIC",
          denominator_definition="benchmark comparator perturbation",
          n_entering=1, n_advanced=0, n_not_advanced=1, n_rejected=0, n_unresolved=0,
          principal_reason_categories="COMPARATOR_ONLY",
          source_artifact="results/frozen/primary_comparison.tsv",
-         generating_command="targetgate demo (comparator)"),
+         generating_command="perturbgate demo (comparator)"),
 ]
 write_tsv(funnel, "candidate_funnel.tsv")
 
@@ -241,7 +241,7 @@ claims = [
             "mTORC2 scaffold: no selective small-molecule modality (modality gap)",
         ],
         superseded_claims=["SUP-01"],
-        generating_command="targetgate demo && targetgate verify",
+        generating_command="perturbgate demo && perturbgate verify",
         code_version="1.0.0",
         input_checksums=dict(disease_vector_md5=DISEASE_MD5),
     ),
@@ -271,7 +271,7 @@ claims = [
             "JIA surrogate is synovium-vs-blood, not adult RA disease-vs-healthy",
         ],
         superseded_claims=["SUP-02", "SUP-03", "SUP-04", "SUP-05"],
-        generating_command="targetgate demo && targetgate verify",
+        generating_command="perturbgate demo && perturbgate verify",
         code_version="1.0.0",
         input_checksums=dict(disease_vector_md5=DISEASE_MD5),
     ),
@@ -289,14 +289,14 @@ claims = [
         uncertainty="benchmark comparator; not nominated or rejected by this specific test",
         limitations=["known Screen-8 benchmark, not a candidate from this analysis"],
         superseded_claims=[],
-        generating_command="targetgate demo && targetgate verify",
+        generating_command="perturbgate demo && perturbgate verify",
         code_version="1.0.0",
         input_checksums=dict(disease_vector_md5=DISEASE_MD5),
     ),
     dict(
         claim_id="CLAIM-PROCESS-01",
         exact_public_wording=(
-            "TargetGate preserves negative and superseded results: candidate attrition, detected "
+            "PerturbGate preserves negative and superseded results: candidate attrition, detected "
             "confounds, and corrected interpretations are first-class, auditable outputs, not hidden "
             "debugging history."
         ),
@@ -313,7 +313,7 @@ claims = [
         uncertainty="none (process claim)",
         limitations=["counts are traceable to frozen artifacts only; not every perturbation was deep-validated"],
         superseded_claims=[],
-        generating_command="targetgate verify",
+        generating_command="perturbgate verify",
         code_version="1.0.0",
         input_checksums={},
     ),

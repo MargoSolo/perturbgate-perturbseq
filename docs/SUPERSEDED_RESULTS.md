@@ -1,6 +1,6 @@
 # Superseded results
 
-A central design principle of TargetGate is that **superseded interpretations are
+A central design principle of PerturbGate is that **superseded interpretations are
 kept, labelled, and corrected — not deleted.** This document is the human-readable
 companion to [`results/frozen/superseded_claims.json`](../results/frozen/superseded_claims.json).
 None of the old claims below may appear as a current finding anywhere in the public
@@ -87,7 +87,7 @@ authoritative replacement, and the artifact that supports the correction.
 - The frozen [`superseded_claims.json`](../results/frozen/superseded_claims.json)
   marks every entry `may_appear_in_readme: false` and is validated by
   `tests/test_superseded_input_block.py`.
-- `targetgate verify` guards that no frozen table carries the +0.43 RICTOR reversal
+- `perturbgate verify` guards that no frozen table carries the +0.43 RICTOR reversal
   and that no superseded claim is promoted.
 - The privacy / public-readiness audit flags a +0.43 reversal appearing near RICTOR
   outside an explicitly-superseded context.

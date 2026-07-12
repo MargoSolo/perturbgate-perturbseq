@@ -1,9 +1,9 @@
 # Claims and evidence
 
-Every headline claim in TargetGate resolves to a supporting artifact. This document
+Every headline claim in PerturbGate resolves to a supporting artifact. This document
 is the human-readable companion to [`results/frozen/claims.json`](../results/frozen/claims.json);
-`targetgate verify` fails if any claim's `supporting_artifacts` are missing on disk
-(see `src/targetgate/claim_ledger.py`, `tests/test_frozen_results.py`). No public
+`perturbgate verify` fails if any claim's `supporting_artifacts` are missing on disk
+(see `src/perturbgate/claim_ledger.py`, `tests/test_frozen_results.py`). No public
 claim is allowed to exist without an artifact.
 
 Effect sizes, denominators and uncertainty are reported — never a p-value alone.
@@ -63,7 +63,7 @@ Effect sizes, denominators and uncertainty are reported — never a p-value alon
 
 ## CLAIM-PROCESS-01 — the process is the contribution
 
-> TargetGate preserves negative and superseded results: candidate attrition, detected
+> PerturbGate preserves negative and superseded results: candidate attrition, detected
 > confounds, and corrected interpretations are first-class, auditable outputs, not
 > hidden debugging history.
 

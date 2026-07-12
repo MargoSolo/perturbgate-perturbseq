@@ -1,6 +1,6 @@
-"""TargetGate — evidence-gated pipeline for T-cell Perturb-seq mechanism hypotheses.
+"""PerturbGate — evidence-gated pipeline for T-cell Perturb-seq mechanism hypotheses.
 
-TargetGate turns perturbation effects into *evidence-gated mechanism hypotheses*.
+PerturbGate turns perturbation effects into *evidence-gated mechanism hypotheses*.
 A real cellular effect is treated as necessary but not sufficient for target
 nomination: every retained claim must survive an explicit record of how competing
 claims failed.
@@ -29,7 +29,7 @@ PUBLIC_LABELS = {
 }
 
 # --- Frozen headline values (golden). Sources in results/frozen/ ------------
-# Used by tests and `targetgate verify` to guard against silent regression or a
+# Used by tests and `perturbgate verify` to guard against silent regression or a
 # superseded value re-entering the public outputs.
 GOLDEN = {
     "RICTOR_reversal_pearson": 0.1605626914415677,

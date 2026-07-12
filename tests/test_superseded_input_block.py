@@ -4,7 +4,7 @@ import json
 
 import pandas as pd
 
-from targetgate.io import frozen_dir
+from perturbgate.io import frozen_dir
 
 
 def test_all_superseded_claims_blocked_from_readme():

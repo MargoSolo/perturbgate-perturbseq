@@ -36,13 +36,13 @@ jobs:
         run: pytest -q
 
       - name: Demo (Level 1, no server data)
-        run: targetgate demo
+        run: perturbgate demo
 
       - name: Verify (schemas, golden values, claims, funnel, superseded guard)
-        run: targetgate verify
+        run: perturbgate verify
 
       - name: Results manifest
-        run: targetgate manifest
+        run: perturbgate manifest
 
       - name: Public-readiness / privacy audit
         run: python scripts/public_readiness_audit.py

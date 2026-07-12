@@ -3,7 +3,7 @@ disease must give a positive reversal; KD equal to disease must be negative."""
 import numpy as np
 import pandas as pd
 
-from targetgate.reversal import reversal
+from perturbgate.reversal import reversal
 
 
 def _series(vals):

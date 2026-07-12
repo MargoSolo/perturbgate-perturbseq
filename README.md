@@ -1,4 +1,4 @@
-# TargetGate
+# PerturbGate
 
 **Evidence-Gated Pipeline for T-cell Perturb-seq Mechanism Hypotheses**
 
@@ -13,7 +13,7 @@
 
 ---
 
-TargetGate is an open-data, reproducible pipeline for turning **T-cell Perturb-seq
+PerturbGate is an open-data, reproducible pipeline for turning **T-cell Perturb-seq
 hits into evidence-gated mechanism hypotheses**. Built for the challenge to find
 new drug targets in a primary human CD4 T-cell Perturb-seq dataset from the
 **Marson and Pritchard laboratories**, it combines responder-aware perturbation
@@ -25,7 +25,7 @@ modality gates.
 goal is to determine which claims survive explicit attempts to falsify them.**
 
 > **PAK2 passed technical validation but failed therapeutic validation.**
-> TargetGate preserves that distinction: it treats a real perturbation effect as
+> PerturbGate preserves that distinction: it treats a real perturbation effect as
 > *necessary but not sufficient* for target nomination.
 
 ---
@@ -33,7 +33,7 @@ goal is to determine which claims survive explicit attempts to falsify them.**
 ## Why this project exists
 
 Perturb-seq is powerful for identifying real cellular effects — but a real
-cellular effect is not automatically therapeutically useful. TargetGate separates
+cellular effect is not automatically therapeutically useful. PerturbGate separates
 four things that are usually collapsed into one ranking:
 
 1. **technical perturbation validity** (is the knockdown real and on-target?)
@@ -41,13 +41,13 @@ four things that are usually collapsed into one ranking:
 3. **disease directionality** (does it *reverse* a disease state, or mimic it?)
 4. **translational readiness** (safety, essentiality, human genetics, modality)
 
-TargetGate did not succeed because it found a positive hit. It succeeded because
+PerturbGate did not succeed because it found a positive hit. It succeeded because
 **every retained claim survived an explicit record of how competing claims
 failed.**
 
 ## What we built
 
-- a reusable **Python package + CLI** (`targetgate`): disease-reversal scoring,
+- a reusable **Python package + CLI** (`perturbgate`): disease-reversal scoring,
   matched-perturbation null calibration with finite-pool uncertainty, guide /
   donor / condition / LODO robustness, a pre-specified 8-criterion decision gate,
   candidate attrition, a claim ledger, and code-generated figures;
@@ -88,7 +88,7 @@ name the borderline explicitly rather than reporting "8/8 decisive criteria".
 
 ### How candidates were eliminated
 
-TargetGate does not treat ranking as validation. Candidates pass through evidence
+PerturbGate does not treat ranking as validation. Candidates pass through evidence
 gates for measurable perturbation effects, guide and donor reproducibility,
 responder support, disease directionality, matched-perturbation calibration,
 confound resistance, and translational safety and modality. Candidates are
@@ -101,7 +101,7 @@ and [candidate funnel](results/frozen/candidate_funnel.tsv); see
 
 PAK2 was **not** discarded because its perturbation failed. It was discarded
 because the perturbation was real but **not therapeutically directional**. PAK2
-passed technical validation but failed therapeutic validation — and TargetGate
+passed technical validation but failed therapeutic validation — and PerturbGate
 preserves that distinction. Negative results, detected confounds, and superseded
 interpretations are first-class, auditable outputs
 ([SUPERSEDED_RESULTS.md](docs/SUPERSEDED_RESULTS.md),
@@ -162,7 +162,7 @@ independent replication. See [FAILURE_MODES.md](docs/FAILURE_MODES.md).
 
 ```bash
 git clone <PUBLIC_URL>
-cd targetgate-perturbseq
+cd perturbgate-perturbseq
 
 make setup     # install the package (+ dev tools)
 make demo      # Level 1: recompute the headline reversal from compact inputs (< 2 min)
@@ -176,7 +176,7 @@ make reproduce # Level 2: recompute robustness from public derived matrices (< 5
 make full      # Level 3: reconstruct from open raw data (server-scale; see below)
 ```
 
-No `make`? Every target is a plain command, e.g. `python -m targetgate.cli demo`
+No `make`? Every target is a plain command, e.g. `python -m perturbgate.cli demo`
 (see [REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md)).
 
 ## Reproducibility levels (honest)
@@ -250,4 +250,4 @@ Institutes).
 [Superseded results](docs/SUPERSEDED_RESULTS.md) · [Analysis contract](docs/ANALYSIS_CONTRACT.md) ·
 [Technical note](docs/TECHNICAL_NOTE.md) · [Reproducibility](docs/REPRODUCIBILITY.md) ·
 [Translational context](docs/TRANSLATIONAL_CONTEXT.md) · [Hackathon submission](docs/HACKATHON_SUBMISSION.md) ·
-[Explorer](reports/targetgate_explorer.html)
+[Explorer](reports/perturbgate_explorer.html)

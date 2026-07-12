@@ -2,9 +2,9 @@
 and the frozen values must match the golden guide reversals."""
 import pandas as pd
 
-from targetgate import GOLDEN
-from targetgate.io import frozen_dir
-from targetgate.robustness import guide_summary
+from perturbgate import GOLDEN
+from perturbgate.io import frozen_dir
+from perturbgate.robustness import guide_summary
 
 
 def test_both_rictor_guides_positive_and_concordant():

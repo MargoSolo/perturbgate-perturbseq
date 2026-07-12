@@ -47,7 +47,7 @@ Authoritative primary disease-vector checksum (md5):
 - `src/branch_rictor_rescue/{build_disease_vector_rawcount,score_rictor_rescue,finalize_verdict,calibration_audit}.py`
 - `src/branch_disease_reversal/rescue_screen.py` and related screen scripts
 
-The public `src/targetgate/` package re-implements the decision layer (reversal
+The public `src/perturbgate/` package re-implements the decision layer (reversal
 scoring, calibration, robustness, decision gate) so that Levels 1–2 recompute the
 headline values from the committed compact inputs. The recomputed RICTOR substrate
 reversal reproduces the authoritative +0.1314 (7/200 exceed) bit-for-bit, and the

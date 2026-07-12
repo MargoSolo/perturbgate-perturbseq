@@ -1,6 +1,6 @@
 # Results
 
-TargetGate is an evidence-gated pipeline for generating and stress-testing target-nomination
+PerturbGate is an evidence-gated pipeline for generating and stress-testing target-nomination
 hypotheses from a human CD4+ T-cell Perturb-seq dataset. The central result is not a single
 positive hit but a set of retained, rejected, and superseded claims, each accompanied by an
 explicit record of how competing interpretations failed. A real perturbation effect is treated

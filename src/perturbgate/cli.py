@@ -1,4 +1,4 @@
-"""TargetGate command-line interface.
+"""PerturbGate command-line interface.
 
 Subcommands
     demo        recompute the headline reversal from compact frozen inputs,
@@ -34,7 +34,7 @@ def _fail(msg): print(f"  [FAIL] {msg}")
 
 # ---------------------------------------------------------------- demo
 def cmd_demo(_args) -> int:
-    print(f"TargetGate {__version__} - demo (Level 1: artifact reproduction)")
+    print(f"PerturbGate {__version__} - demo (Level 1: artifact reproduction)")
     out = repo_root() / "results" / "demo"
     out.mkdir(parents=True, exist_ok=True)
     disease = load_disease_vector()
@@ -107,7 +107,7 @@ def _check_golden(df: pd.DataFrame, nres) -> list[str]:
 
 # ---------------------------------------------------------------- reproduce
 def cmd_reproduce(_args) -> int:
-    print(f"TargetGate {__version__} - reproduce (Level 2: analytical reproduction)")
+    print(f"PerturbGate {__version__} - reproduce (Level 2: analytical reproduction)")
     repro_in = repo_root() / "data" / "reproduce"
     if not (repro_in / "pseudobulk_counts.parquet").exists():
         _fail("Level-2 inputs missing (data/reproduce/pseudobulk_counts.parquet). "
@@ -145,7 +145,7 @@ def cmd_figures(_args) -> int:
 
 # ---------------------------------------------------------------- verify
 def cmd_verify(_args) -> int:
-    print(f"TargetGate {__version__} - verify")
+    print(f"PerturbGate {__version__} - verify")
     problems: list[str] = []
 
     # 1. Schemas
@@ -242,8 +242,8 @@ def cmd_contract(_args) -> int:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    p = argparse.ArgumentParser(prog="targetgate", description="Evidence-gated Perturb-seq mechanism pipeline")
-    p.add_argument("--version", action="version", version=f"targetgate {__version__}")
+    p = argparse.ArgumentParser(prog="perturbgate", description="Evidence-gated Perturb-seq mechanism pipeline")
+    p.add_argument("--version", action="version", version=f"perturbgate {__version__}")
     sub = p.add_subparsers(dest="command", required=True)
     for name, fn in [("demo", cmd_demo), ("reproduce", cmd_reproduce), ("figures", cmd_figures),
                      ("verify", cmd_verify), ("manifest", cmd_manifest), ("contract", cmd_contract)]:

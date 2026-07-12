@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate reports/targetgate_explorer.html — a self-contained, no-backend page
+"""Generate reports/perturbgate_explorer.html — a self-contained, no-backend page
 that lets a reviewer search the 924-perturbation authoritative reversal table by
 gene, filter by evidence depth / decision, sort by any column, and read the primary
 non-advancement reason. All data is embedded inline; the page needs no server and no
@@ -33,7 +33,7 @@ def main() -> None:
     n = len(records)
 
     page = _TEMPLATE.replace("__DATA__", data_json).replace("__DEEP__", deep_json).replace("__N__", str(n))
-    out = REPO / "reports" / "targetgate_explorer.html"
+    out = REPO / "reports" / "perturbgate_explorer.html"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(page, encoding="utf-8")
     print(f"wrote {out.relative_to(REPO)} ({out.stat().st_size/1024:.0f} KB, {n} perturbations)")
@@ -44,7 +44,7 @@ _TEMPLATE = r"""<!doctype html>
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TargetGate Explorer</title>
+<title>PerturbGate Explorer</title>
 <style>
 :root {
   --bg:#ffffff; --fg:#1a1d21; --muted:#5b6570; --card:#f6f8fa; --line:#e3e8ee;
@@ -88,7 +88,7 @@ a { color:var(--accent); }
 </head>
 <body>
 <div class="wrap">
-  <h1>TargetGate Explorer</h1>
+  <h1>PerturbGate Explorer</h1>
   <p class="sub">Evidence-gated screen of __N__ CD4 T-cell perturbations — search, filter, and read why each was or was not advanced.</p>
   <div class="msg"><strong>Ranking is not validation.</strong> A high reversal score is necessary but not
   sufficient for target nomination. Reversal here is the screen-substrate score; the authoritative deep

@@ -3,7 +3,7 @@ score below the minimum shared-gene count (never a silent zero)."""
 import numpy as np
 import pandas as pd
 
-from targetgate.reversal import reversal
+from perturbgate.reversal import reversal
 
 
 def test_alignment_on_shared_genes_only():

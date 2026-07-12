@@ -1,6 +1,6 @@
 # Decision trail
 
-This document reconstructs how TargetGate moved from a genome-scale T-cell
+This document reconstructs how PerturbGate moved from a genome-scale T-cell
 Perturb-seq screen to three final, explicitly-labelled mechanism claims. It is
 deliberately drawn as a **branching decision map, not a linear funnel**. Two
 things follow from that framing and should be read before the tables below.
@@ -9,7 +9,7 @@ things follow from that framing and should be read before the tables below.
    produces a real, reproducible transcriptional effect has cleared a
    *necessary* bar, not a *sufficient* one. Every stage below asks a different
    falsification question, and a candidate can clear one and fail the next.
-   TargetGate's result is not that it found a positive hit; it is that every
+   PerturbGate's result is not that it found a positive hit; it is that every
    retained claim carries an explicit record of how competing claims failed.
 
 2. **Not all 924 perturbations were deep-validated.** The screen-wide stages
@@ -293,7 +293,7 @@ within the all-cell substrate. See
   claim that all 924 perturbations underwent deep validation.
 - Nominal matched-null significance is **not** definitive.
 
-The central message is that TargetGate succeeded by keeping the record of failure
+The central message is that PerturbGate succeeded by keeping the record of failure
 explicit: a real perturbation effect was treated as necessary but not sufficient,
 and the strongest surviving claim (RICTOR) is retained as a bounded mechanism
 hypothesis with a stated modality gap rather than promoted to a target

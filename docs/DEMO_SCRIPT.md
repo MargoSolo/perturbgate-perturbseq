@@ -1,6 +1,6 @@
 # Demo video script
 
-**Project:** TargetGate — Evidence-Gated Pipeline for T-cell Perturb-seq Mechanism Hypotheses
+**Project:** PerturbGate — Evidence-Gated Pipeline for T-cell Perturb-seq Mechanism Hypotheses
 **Version:** 1.0.0 (frozen hackathon release, 2026-07-13)
 **Event:** Built with Claude: Life Sciences (Anthropic x Gladstone Institutes), Research track
 **Target length:** up to 3:00 (hard cap 3:00)
@@ -24,7 +24,7 @@ controlled labels. Nothing on screen may show a compute-cluster name, hostname, 
 path, or job id — refer only to a "server" or "compute server".
 
 **Central message to land:** a real perturbation effect is necessary but not sufficient for a
-target nomination. TargetGate records not only which hypothesis survived, but why the competing
+target nomination. PerturbGate records not only which hypothesis survived, but why the competing
 claims failed.
 
 ### Timing map
@@ -59,7 +59,7 @@ claims failed.
 > direction at all. The hard part is not finding an effect. It is deciding which effect deserves
 > to be nominated.
 
-**Screen:** Title card — "TargetGate: an evidence-gated pipeline for T-cell Perturb-seq mechanism
+**Screen:** Title card — "PerturbGate: an evidence-gated pipeline for T-cell Perturb-seq mechanism
 hypotheses." Subtitle: "A Perturb-seq hit is not automatically a drug target."
 
 **Commands:** none (static title card).
@@ -197,7 +197,7 @@ column -t -s $'\t' results/frozen/matched_null.tsv
 > This is where we stop, on purpose. RICTOR is a disease-reversing mechanism node with a modality
 > gap. It is not a validated drug target. Systemic RICTOR inhibition is not shown to be safe, no
 > selective small-molecule modality exists, and synovium-versus-blood is not disease-versus-
-> healthy. The point of TargetGate is to hand a downstream biologist a hypothesis with its
+> healthy. The point of PerturbGate is to hand a downstream biologist a hypothesis with its
 > boundary already drawn — the mechanism, the caveats, and the specific evidence that is still
 > missing.
 
@@ -241,7 +241,7 @@ make verify
 ## 2:55–3:00 — Closing line
 
 **Voiceover:**
-> TargetGate does not just report which hypothesis survived. It records why the competing claims
+> PerturbGate does not just report which hypothesis survived. It records why the competing claims
 > failed.
 
 **Screen:** return to the title card; fade the closing line in over it.
@@ -249,7 +249,7 @@ make verify
 **Commands:** none.
 
 **Caption:**
-`TargetGate does not just report which hypothesis survived. It records why the competing claims failed.`
+`PerturbGate does not just report which hypothesis survived. It records why the competing claims failed.`
 
 ---
 
@@ -292,7 +292,7 @@ For a version cut with no audio, these captions in sequence carry the story:
 7. Matched null: 96.5th percentile, but 7/200 controls exceed RICTOR (empirical p~0.040). Seven strong checks + a nominal null exceedance — boundary reported.
 8. RICTOR is a disease-reversing mechanism node with a modality gap — not a validated drug target.
 9. Reproducible: make demo (laptop, minutes) and make verify (composite gate + private-content audit).
-10. TargetGate does not just report which hypothesis survived. It records why the competing claims failed.
+10. PerturbGate does not just report which hypothesis survived. It records why the competing claims failed.
 
 ---
 

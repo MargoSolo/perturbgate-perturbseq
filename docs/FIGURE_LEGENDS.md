@@ -1,7 +1,7 @@
 # Figure legends
 
-Detailed legends for every figure in the TargetGate v1.0.0 frozen hackathon release
-(TargetGate — Evidence-Gated Pipeline for T-cell Perturb-seq Mechanism Hypotheses).
+Detailed legends for every figure in the PerturbGate v1.0.0 frozen hackathon release
+(PerturbGate — Evidence-Gated Pipeline for T-cell Perturb-seq Mechanism Hypotheses).
 Each legend states what is shown, the exact denominators, the effect sizes and their
 uncertainty, the source-data table under `figures/source_data/`, and any caveats where a
 panel is descriptive rather than independently validated.

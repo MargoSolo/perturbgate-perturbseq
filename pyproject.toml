@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "targetgate"
+name = "perturbgate"
 version = "1.0.0"
 description = "Evidence-gated pipeline for T-cell Perturb-seq mechanism hypotheses"
 readme = "README.md"
@@ -33,14 +33,14 @@ dev = [
 ]
 
 [project.scripts]
-targetgate = "targetgate.cli:main"
+perturbgate = "perturbgate.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/OWNER/targetgate-perturbseq"
-Documentation = "https://github.com/OWNER/targetgate-perturbseq/tree/main/docs"
+Homepage = "https://github.com/OWNER/perturbgate-perturbseq"
+Documentation = "https://github.com/OWNER/perturbgate-perturbseq/tree/main/docs"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/targetgate"]
+packages = ["src/perturbgate"]
 
 [tool.ruff]
 line-length = 110

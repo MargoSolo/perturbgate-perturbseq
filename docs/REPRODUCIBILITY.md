@@ -1,7 +1,7 @@
 # Reproducibility
 
 This document is the operational guide to re-deriving every public result in
-**TargetGate — Evidence-Gated Pipeline for T-cell Perturb-seq Mechanism
+**PerturbGate — Evidence-Gated Pipeline for T-cell Perturb-seq Mechanism
 Hypotheses** (version 1.0.0, frozen hackathon release, 2026-07-13). It gives the
 exact commands (both the `make` targets and their plain-`python` equivalents),
 the measured resource envelope for each level, the golden-value tolerances that
@@ -44,7 +44,7 @@ composite release gate and is what a reviewer should run to certify a checkout.
 The `Makefile` is the primary user interface. Every target is a thin wrapper
 around a plain command so the pipeline is fully usable without `make`. The
 `Makefile` exports `PYTHONPATH=src`; after `make setup` (an editable install)
-the `targetgate` package is importable directly, so the plain commands below
+the `perturbgate` package is importable directly, so the plain commands below
 work from the repository root. If you run from a source checkout **without**
 installing, prefix each plain command with `PYTHONPATH=src` (POSIX) or set
 `$env:PYTHONPATH="src"` (Windows PowerShell) first.
@@ -52,11 +52,11 @@ installing, prefix each plain command with `PYTHONPATH=src` (POSIX) or set
 | Target | `make` command | Plain equivalent | What it does |
 | --- | --- | --- | --- |
 | Setup | `make setup` | `python -m pip install -e ".[dev]"` | Editable install with dev tools (ruff, pytest). |
-| Demo | `make demo` | `python -m targetgate.cli demo` | Level 1: recompute reversal from `data/demo/*.tsv.gz`, regenerate figures, validate golden values. |
-| Reproduce | `make reproduce` | `python -m targetgate.cli reproduce` | Level 2: recompute guide + LODO robustness from `data/reproduce/`, compare to frozen at 5e-3. |
+| Demo | `make demo` | `python -m perturbgate.cli demo` | Level 1: recompute reversal from `data/demo/*.tsv.gz`, regenerate figures, validate golden values. |
+| Reproduce | `make reproduce` | `python -m perturbgate.cli reproduce` | Level 2: recompute guide + LODO robustness from `data/reproduce/`, compare to frozen at 5e-3. |
 | Full | `make full` | `python scripts/run_full_pipeline.py` | Level 3: rebuild from open raw data (server-scale). |
-| Figures | `make figures` | `python -m targetgate.cli figures` | Regenerate all figures (`.png` + `.svg`) and their source-data TSVs. |
-| Manifest | `make manifest` | `python -m targetgate.cli manifest` | Rewrite `results/frozen/results_manifest.json` (sha256 checksums). |
+| Figures | `make figures` | `python -m perturbgate.cli figures` | Regenerate all figures (`.png` + `.svg`) and their source-data TSVs. |
+| Manifest | `make manifest` | `python -m perturbgate.cli manifest` | Rewrite `results/frozen/results_manifest.json` (sha256 checksums). |
 | Verify | `make verify` | see composite below | Schemas + golden + claims + funnel + superseded guard + tests + audit. |
 | Test | `make test` | `pytest` | Run the test suite. |
 | Lint | `make lint` | `ruff check src scripts tests` | Static checks. |
@@ -66,10 +66,10 @@ installing, prefix each plain command with `PYTHONPATH=src` (POSIX) or set
 `make verify` runs, in order:
 
 ```bash
-python -m targetgate.cli demo        # regenerate demo outputs (also runs golden checks)
-python -m targetgate.cli figures     # regenerate all figures + source data
-python -m targetgate.cli manifest    # rewrite the checksum manifest
-python -m targetgate.cli verify      # schemas + golden + claims + funnel + superseded guard
+python -m perturbgate.cli demo        # regenerate demo outputs (also runs golden checks)
+python -m perturbgate.cli figures     # regenerate all figures + source data
+python -m perturbgate.cli manifest    # rewrite the checksum manifest
+python -m perturbgate.cli verify      # schemas + golden + claims + funnel + superseded guard
 pytest -q                            # test suite
 python scripts/public_readiness_audit.py   # scan for private/superseded/forbidden content
 ```
@@ -163,7 +163,7 @@ and figures. This is server-scale and may take hours.
 
 ## 4. Golden values and tolerances
 
-The frozen headline values ("golden values") are held in `src/targetgate` and
+The frozen headline values ("golden values") are held in `src/perturbgate` and
 sourced from `results/frozen/`. `make demo` and `make verify` recompute each
 value from the compact committed inputs and require the recomputed number to
 fall within the level tolerance of the golden value. A mismatch fails the run.
@@ -220,7 +220,7 @@ disease-donor LODO folds (band +0.154..+0.167). The per-condition values
 ## 5. Provenance and the results manifest
 
 `results/frozen/results_manifest.json` is the checksum index for the frozen
-release. It is rewritten by `make manifest` (or `python -m targetgate.cli
+release. It is rewritten by `make manifest` (or `python -m perturbgate.cli
 manifest`) and records:
 
 - **`version`** — the release version (`1.0.0`).
@@ -237,7 +237,7 @@ three coordinated artifacts:
 - **sha256** of artifacts and demo inputs → `results/frozen/results_manifest.json`.
 - **Generating command** and **input checksums** per scientific claim →
   `results/frozen/claims.json`. Every claim carries its
-  `generating_command` (e.g. `targetgate demo && targetgate verify`), its
+  `generating_command` (e.g. `perturbgate demo && perturbgate verify`), its
   `code_version` (`1.0.0`), and the `input_checksums` it depends on — notably
   the disease-vector md5 `2b18d92684db1f70b637e1f098374c7e`.
 - **Upstream source**, license and retrieval command per dataset →
@@ -295,7 +295,7 @@ superseded content before public approval.
 
 ## 7. Figures
 
-`make figures` (or `python -m targetgate.cli figures`) regenerates the full
+`make figures` (or `python -m perturbgate.cli figures`) regenerates the full
 figure set as both `.png` and `.svg`, each with a committed source-data TSV under
 `figures/source_data/`:
 

@@ -41,7 +41,7 @@
     "superseded_claims": [
       "SUP-01"
     ],
-    "generating_command": "targetgate demo && targetgate verify",
+    "generating_command": "perturbgate demo && perturbgate verify",
     "code_version": "1.0.0",
     "input_checksums": {
       "disease_vector_md5": "2b18d92684db1f70b637e1f098374c7e"
@@ -79,7 +79,7 @@
       "SUP-04",
       "SUP-05"
     ],
-    "generating_command": "targetgate demo && targetgate verify",
+    "generating_command": "perturbgate demo && perturbgate verify",
     "code_version": "1.0.0",
     "input_checksums": {
       "disease_vector_md5": "2b18d92684db1f70b637e1f098374c7e"
@@ -107,7 +107,7 @@
       "known Screen-8 benchmark, not a candidate from this analysis"
     ],
     "superseded_claims": [],
-    "generating_command": "targetgate demo && targetgate verify",
+    "generating_command": "perturbgate demo && perturbgate verify",
     "code_version": "1.0.0",
     "input_checksums": {
       "disease_vector_md5": "2b18d92684db1f70b637e1f098374c7e"
@@ -115,7 +115,7 @@
   },
   {
     "claim_id": "CLAIM-PROCESS-01",
-    "exact_public_wording": "TargetGate preserves negative and superseded results: candidate attrition, detected confounds, and corrected interpretations are first-class, auditable outputs, not hidden debugging history.",
+    "exact_public_wording": "PerturbGate preserves negative and superseded results: candidate attrition, detected confounds, and corrected interpretations are first-class, auditable outputs, not hidden debugging history.",
     "entity": "pipeline",
     "claim_type": "process",
     "evidence_status": "supported",
@@ -137,7 +137,7 @@
       "counts are traceable to frozen artifacts only; not every perturbation was deep-validated"
     ],
     "superseded_claims": [],
-    "generating_command": "targetgate verify",
+    "generating_command": "perturbgate verify",
     "code_version": "1.0.0",
     "input_checksums": {}
   }

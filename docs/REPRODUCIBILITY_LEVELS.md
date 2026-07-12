@@ -1,6 +1,6 @@
 # Reproducibility levels
 
-TargetGate ships three nested, honestly-scoped reproduction paths. Each is a
+PerturbGate ships three nested, honestly-scoped reproduction paths. Each is a
 different contract: a different set of inputs, a different amount of compute, and
 a different subset of results that is actually recomputed rather than read from
 the frozen release. We keep them separate on purpose. A claim that a laptop
@@ -8,7 +8,7 @@ reproduces the entire genome-scale pipeline would be false; a claim that nothing
 is reproducible without a server would be equally false. The three levels state
 exactly where the boundary is.
 
-This matters because the central result of TargetGate is not a single positive
+This matters because the central result of PerturbGate is not a single positive
 hit — it is an auditable record of *how competing claims failed*. A real
 perturbation effect is necessary but not sufficient for target nomination, so the
 value of the release is that every retained and every rejected claim resolves to a
@@ -29,7 +29,7 @@ schemas and forbidden-term audits are enforced by `make verify`.
 
 ## Level 1 — demo (artifact reproducibility)
 
-**Command:** `make demo` (equivalently `python -m targetgate.cli demo`).
+**Command:** `make demo` (equivalently `python -m perturbgate.cli demo`).
 **Config:** [`configs/demo.yaml`](../configs/demo.yaml).
 
 **What it recomputes.** Level 1 recomputes the headline disease-state reversal for
@@ -75,7 +75,7 @@ leave-one-donor-out robustness are the subject of Level 2.
 
 ## Level 2 — analytical reproduction
 
-**Command:** `make reproduce` (equivalently `python -m targetgate.cli reproduce`).
+**Command:** `make reproduce` (equivalently `python -m perturbgate.cli reproduce`).
 **Config:** [`configs/reproduce.yaml`](../configs/reproduce.yaml).
 
 **What it recomputes.** Level 2 goes one layer deeper than the demo: it recomputes

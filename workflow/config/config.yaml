@@ -1,4 +1,4 @@
-# Snakemake config for TargetGate.
+# Snakemake config for PerturbGate.
 # Levels 1-2 need nothing here. Level 3 reads open data via the SERVER_* env vars
 # documented in configs/full.yaml; no path or cluster name is hardcoded.
 seed: 0

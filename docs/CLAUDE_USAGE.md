@@ -1,6 +1,6 @@
 # Claude usage
 
-This document records **how Claude was used** in building TargetGate — an
+This document records **how Claude was used** in building PerturbGate — an
 evidence-gated pipeline for T-cell Perturb-seq mechanism hypotheses, built for
 *Built with Claude: Life Sciences* (Anthropic × Gladstone Institutes), Research
 track. It is written for reviewers who want to understand the division of labour
@@ -21,7 +21,7 @@ everything below:
 
 ## Central message: Claude mattered most when the hypothesis failed
 
-TargetGate's contribution is not that it found a positive hit. It is that every
+PerturbGate's contribution is not that it found a positive hit. It is that every
 retained claim survives an explicit, auditable record of how competing claims
 failed. Framed correctly, this is **target nomination, not gene ranking**: a real
 perturbation effect is *necessary but not sufficient* for target nomination.

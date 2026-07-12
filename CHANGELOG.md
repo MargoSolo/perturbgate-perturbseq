@@ -10,7 +10,7 @@ First public, open-data release, built for *Built with Claude: Life Sciences*
 (Research track).
 
 ### Added
-- Reusable `targetgate` Python package: disease-state reversal scoring,
+- Reusable `perturbgate` Python package: disease-state reversal scoring,
   matched-perturbation null calibration with finite-pool uncertainty, guide /
   donor / condition / LODO robustness, the pre-specified 8-criterion decision
   gate, candidate attrition, claim ledger and code-generated figures.

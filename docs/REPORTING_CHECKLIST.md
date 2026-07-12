@@ -1,11 +1,11 @@
 # Reporting checklist
 
-This checklist confirms, item by item, that the public claims in **TargetGate — Evidence-Gated
+This checklist confirms, item by item, that the public claims in **PerturbGate — Evidence-Gated
 Pipeline for T-cell Perturb-seq Mechanism Hypotheses** (v1.0.0, frozen hackathon release) meet
 publication-grade reporting standards. Each item names the concrete artifact that supports it, so a
 reviewer can verify the claim directly rather than trusting the prose.
 
-TargetGate frames its output as **target nomination, not gene ranking**. A real perturbation effect is
+PerturbGate frames its output as **target nomination, not gene ranking**. A real perturbation effect is
 necessary but not sufficient for a target nomination; every retained claim survived an explicit record
 of how competing claims failed. This checklist is the reporting-hygiene face of that stance.
 

@@ -1,6 +1,6 @@
 # Open-data statement
 
-TargetGate depends only on **open data**. No proprietary dataset, hidden API,
+PerturbGate depends only on **open data**. No proprietary dataset, hidden API,
 private connector, or credential is a required dependency of the demo, the
 analytical reproduction, continuous integration, or the central public figures.
 

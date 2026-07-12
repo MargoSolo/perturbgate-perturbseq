@@ -1,4 +1,4 @@
-# Hackathon submission — TargetGate
+# Hackathon submission — PerturbGate
 
 *Built with Claude: Life Sciences (Anthropic × Gladstone Institutes) — Research track.*
 *Challenge: find new drug targets in a primary human CD4 T-cell Perturb-seq dataset
@@ -8,7 +8,7 @@ from the Marson and Pritchard laboratories.*
 
 ## Project description — what we built or investigated, what we found, and why it matters
 
-TargetGate is an open-data, reproducible pipeline for converting T-cell Perturb-seq
+PerturbGate is an open-data, reproducible pipeline for converting T-cell Perturb-seq
 hits into **evidence-gated mechanism hypotheses**. Built for the challenge to
 identify new drug-target opportunities in a primary human CD4 T-cell Perturb-seq
 dataset from the Marson and Pritchard laboratories, the project combines
@@ -35,7 +35,7 @@ We therefore retain RICTOR as a **mechanism hypothesis, not a validated drug
 target**. Selective pharmacology, safety, human-genetic direction, and independent
 disease-tissue replication remain unresolved.
 
-TargetGate matters because Perturb-seq workflows often stop at ranking cellular
+PerturbGate matters because Perturb-seq workflows often stop at ranking cellular
 hits. This project makes candidate attrition, negative results, superseded claims,
 and claim-to-evidence provenance **explicit, reproducible, and auditable** — and it
 demonstrates a pipeline that can tell a technically valid hit apart from a
@@ -45,14 +45,14 @@ therapeutically relevant one.
 
 ## One-sentence version
 
-TargetGate turns a 924-perturbation human CD4 T-cell Perturb-seq screen into
+PerturbGate turns a 924-perturbation human CD4 T-cell Perturb-seq screen into
 auditable, evidence-gated mechanism hypotheses — rejecting a real-but-not-directional
 hit (PAK2) and retaining a modest disease-reversing mechanism node with an explicit
 modality gap (RICTOR), never a validated drug target.
 
 ## 50-word version
 
-TargetGate converts T-cell Perturb-seq hits into evidence-gated mechanism
+PerturbGate converts T-cell Perturb-seq hits into evidence-gated mechanism
 hypotheses. PAK2 passed technical but failed therapeutic validation (rejected).
 RICTOR survived a pre-specified 8-criterion rescue as a modest disease-reversing
 mechanism node with a modality gap — not a validated target. The contribution is an
@@ -60,7 +60,7 @@ auditable decision process that preserves negative and superseded results.
 
 ## 100-word version
 
-TargetGate is an open-data, reproducible pipeline that turns primary human CD4
+PerturbGate is an open-data, reproducible pipeline that turns primary human CD4
 T-cell Perturb-seq hits into evidence-gated mechanism hypotheses. It combines
 responder-aware effects, guide/donor robustness, donor-paired disease-state reversal,
 matched-perturbation calibration, confound testing, and translational gates. PAK2 —
@@ -75,7 +75,7 @@ resolves to an artifact.
 
 Modern gene screens can knock out thousands of genes in immune cells and measure
 what changes. It is tempting to call the biggest change a "drug target" — but a real
-change is not the same as a useful one. TargetGate is software that puts each
+change is not the same as a useful one. PerturbGate is software that puts each
 candidate through a series of honest checks: is the effect real and repeatable? Does
 it actually push the cell *away* from a disease state, or just look busy? Is it safe,
 and can a drug even reach it? One popular candidate, PAK2, passed the "is it real"
@@ -87,7 +87,7 @@ ones we rejected, is written down and can be reproduced.
 
 ## Technical reviewer version
 
-TargetGate scores disease-state reversal as `−centered_Pearson(KD_log2FC,
+PerturbGate scores disease-state reversal as `−centered_Pearson(KD_log2FC,
 disease_log2FC)` of a responder-DE donor random-effects meta knockdown vector against
 a donor-paired raw-count pseudobulk JIA synovium-vs-blood activated-memory CD4
 direction (11 paired donors, 12,071 genes, residency not regressed;

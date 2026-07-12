@@ -2,8 +2,8 @@
 and match the frozen RICTOR calibration (7 of 200 exceed, p ~ 0.0398)."""
 import numpy as np
 
-from targetgate import GOLDEN
-from targetgate.calibration import empirical_p, wilson_interval
+from perturbgate import GOLDEN
+from perturbgate.calibration import empirical_p, wilson_interval
 
 
 def test_empirical_p_add_one_estimator():

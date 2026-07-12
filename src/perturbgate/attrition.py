@@ -1,7 +1,7 @@
 """Candidate attrition: reconcile the funnel and the rejection ledger against the
 authoritative all-perturbation table.
 
-The scientific point of TargetGate is that *ranking is not validation*. The funnel
+The scientific point of PerturbGate is that *ranking is not validation*. The funnel
 records how many perturbations entered each gate, how many advanced, and how many
 were not advanced / rejected / left unresolved — with a source artifact for every
 count. This module checks the funnel's denominators are internally consistent and

@@ -1,6 +1,6 @@
 # Limitations
 
-TargetGate is a hackathon-scale, single-cohort analysis. Its conclusions are
+PerturbGate is a hackathon-scale, single-cohort analysis. Its conclusions are
 deliberately bounded. The principal limitations below are the reason RICTOR is
 retained only as a *mechanism node*, not a validated target.
 

@@ -1,6 +1,6 @@
 # Translational context
 
-This document places the TargetGate result in its biological, pharmacological,
+This document places the PerturbGate result in its biological, pharmacological,
 and safety context. Its scope is deliberately narrow. It is written for the one
 retained hypothesis — **RICTOR** — with a short companion card explaining why the
 external literature is consistent with the **PAK2** rejection.
@@ -45,7 +45,7 @@ of mTORC1 and mTORC2 (Delgoffe et al., *Immunity* 2009; Delgoffe et al., *Nat
 Immunol* 2011), and rictor-dependent mTORC2 signalling regulates T-helper subset
 differentiation (Lee et al., *Immunity* 2010). That published role — mTORC2 as a
 node biasing T cells toward inflammatory effector programmes — is the biological
-backdrop against which the TargetGate directional signal should be read.
+backdrop against which the PerturbGate directional signal should be read.
 
 ## 2. Directional coherence (why this is a mechanism node, not noise)
 
@@ -148,7 +148,7 @@ that requires a selectivity/tissue-restriction strategy that does not yet exist
 
 ## 5. Disease surrogate: synovium-vs-blood is not disease-vs-healthy
 
-The disease direction used throughout TargetGate is a **compartment contrast, not
+The disease direction used throughout PerturbGate is a **compartment contrast, not
 a disease-state contrast.** It is a JIA **synovium (tissue + fluid) versus
 peripheral blood** signature in activated-memory CD4 T cells — raw-count,
 donor-paired pseudobulk across 11 paired donors — derived from the JIA synovial

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "TargetGate demo input schemas",
+  "title": "PerturbGate demo input schemas",
   "tables": {
     "disease_vector_activated_memory": {
       "file": "data/demo/disease_vector_activated_memory.tsv.gz",

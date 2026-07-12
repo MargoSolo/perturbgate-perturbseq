@@ -1,7 +1,7 @@
 """IO helpers locate the repo and load compact inputs as gene-indexed series."""
 import pandas as pd
 
-from targetgate.io import demo_dir, frozen_dir, load_disease_vector, load_kd_meta, repo_root
+from perturbgate.io import demo_dir, frozen_dir, load_disease_vector, load_kd_meta, repo_root
 
 
 def test_repo_root_has_frozen_dir():

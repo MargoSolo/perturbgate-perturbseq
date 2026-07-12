@@ -3,11 +3,11 @@
 This document is the human-readable mirror of
 [`results/frozen/analysis_contract.json`](../results/frozen/analysis_contract.json).
 It records what was pre-specified, what was measured, and what may and may not be
-claimed for the frozen TargetGate v1.0.0 release. Where a number appears here it is
+claimed for the frozen PerturbGate v1.0.0 release. Where a number appears here it is
 copied from a frozen artifact under [`results/frozen/`](../results/frozen/); no value
 in this document is estimated or rounded beyond the precision of its source table.
 
-TargetGate is an evidence-gated pipeline for T-cell Perturb-seq mechanism
+PerturbGate is an evidence-gated pipeline for T-cell Perturb-seq mechanism
 hypotheses. Its central premise is that a real perturbation effect is **necessary
 but not sufficient** for target nomination. The contract below exists so that every
 retained claim can be traced to an explicit record of how competing claims failed.
