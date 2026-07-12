@@ -36,8 +36,8 @@ dev = [
 perturbgate = "perturbgate.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/OWNER/perturbgate-perturbseq"
-Documentation = "https://github.com/OWNER/perturbgate-perturbseq/tree/main/docs"
+Homepage = "https://github.com/MargoSolo/perturbgate-perturbseq"
+Documentation = "https://github.com/MargoSolo/perturbgate-perturbseq/tree/main/docs"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/perturbgate"]

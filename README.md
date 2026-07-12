@@ -13,7 +13,7 @@ RICTOR survived a stricter validation workflow as a modest disease-reversing
 mechanism hypothesis, but not yet as a validated drug target.
 
 <!-- Badges go live once the repository is pushed and CI runs. -->
-![CI](https://img.shields.io/badge/CI-GitHub_Actions-informational)
+[![CI](https://github.com/MargoSolo/perturbgate-perturbseq/actions/workflows/ci.yml/badge.svg)](https://github.com/MargoSolo/perturbgate-perturbseq/actions/workflows/ci.yml)
 ![python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
 ![license](https://img.shields.io/badge/code_license-MIT-green)
 ![data](https://img.shields.io/badge/data-open%20(MIT%20%2B%20CC--BY--4.0)-brightgreen)
@@ -141,7 +141,7 @@ first-class, auditable outputs
 ## 5. Reproducibility
 
 ```bash
-git clone <PUBLIC_URL>          # placeholder until the repository is created
+git clone https://github.com/MargoSolo/perturbgate-perturbseq.git
 cd perturbgate-perturbseq
 
 make setup     # install the package (+ dev tools)

@@ -35,7 +35,7 @@ cross-platform Python — no shell scripts, no PowerShell, no Windows-only paths
 ## Environment setup
 
 ```bash
-git clone <PUBLIC_URL>          # placeholder until the repository is created
+git clone https://github.com/MargoSolo/perturbgate-perturbseq.git
 cd perturbgate-perturbseq
 
 python3.11 -m venv .venv
