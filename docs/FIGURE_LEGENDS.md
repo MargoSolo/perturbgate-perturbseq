@@ -111,11 +111,14 @@ uncertainty (not a p-value alone).*
 perturbations in the **primary responder-resolved donor-RE meta KD substrate**, on the
 x-axis `reversal = −centered Pearson(KD, disease)`.
 
-**Effect sizes, denominators, uncertainty.**
-- **RICTOR +0.161** (centered-Pearson; Pearson p = 1.8e-63; Spearman +0.100), on
-  **10,832 aligned genes**, r² ≈ 2.6%.
-- **PAK2 +0.010** (p = 0.297; not significant), same responder-resolved metric.
-- **RIPK1 +0.038** (p = 8.7e-05; weak/incoherent), same responder-resolved metric.
+**Effect sizes, denominators, uncertainty.** (The Pearson p-values below are
+**descriptive gene-wise correlation p-values, not donor-level inference** — genes are
+correlated, not independent replicates; donor-level uncertainty comes from the
+leave-one-donor-out and matched-null analyses, not from these p-values.)
+- **RICTOR +0.161** (centered-Pearson; Spearman +0.100; descriptive gene-wise p = 1.8e-63),
+  on **10,832 aligned genes**, r² ≈ 2.6%.
+- **PAK2 +0.010** (not directional; descriptive gene-wise p = 0.297), same responder-resolved metric.
+- **RIPK1 +0.038** (weak/incoherent; descriptive gene-wise p = 8.7e-05), same responder-resolved metric.
 
 The panel demonstrates that only RICTOR carries a meaningful positive reversal; PAK2 is
 effectively null and RIPK1 is weak. p-values appear as annotations but are always paired
@@ -187,14 +190,15 @@ disease-vs-healthy contrast (the disease vector is synovium-vs-blood).
 
 ## Figure 3 — `figure_3_gate_matrix`
 
-**Title on figure:** *Gate matrix — two axes: RICTOR is RETAIN biologically but STOP
-translationally (symbols + text, not colour alone).*
+**Title on figure:** *Gate matrix — three axes: RICTOR is RETAIN biologically, external
+same-disease concordance PASS, but STOP translationally (symbols + text, not colour alone).*
 
-**What is shown.** A two-axis evidence-gate matrix. **Rows** are the three named candidates
-plus two aggregate row-classes. **Columns** are grouped into three blocks separated by heavy
-dividers: **Biological evidence** (8 gates), **Translational readiness** (4 gates), and
-**Decision** (biological + translational). Each cell carries a redundant glyph or short text
-so status is legible without colour.
+**What is shown.** A three-axis evidence-gate matrix. **Rows** are the three named candidates
+plus two aggregate row-classes. **Columns** are grouped into four blocks separated by heavy
+dividers: **Biological evidence** (8 gates), **External** (1 gate: external same-disease
+concordance, GSE160097), **Translational readiness** (4 gates), and **Decision** (biological +
+translational). Each cell carries a redundant glyph or short text so status is legible without
+colour.
 
 **Rows.** RICTOR, PAK2, RIPK1, *broad / essential hubs (aggregate)* (e.g. GNAS, STAT3,
 SMARCB1, TET2), *immune-directional TFs, no modality (aggregate)* (e.g. KLF13, IRF9, ELF4).
@@ -202,6 +206,11 @@ SMARCB1, TET2), *immune-directional TFs, no modality (aggregate)* (e.g. KLF13, I
 **Biological-evidence gates.** measurable cellular effect · responder support · guide
 concordance · perturbation-donor robustness · disease directionality · disease-donor LODO ·
 matched-null support · confound resistance.
+
+**External gate.** external same-disease concordance (GSE160097): **RICTOR PASS (`✓`)**;
+PAK2 and RIPK1 **NOT_ESTABLISHED (`?`)** (near-zero external reversal); aggregates **NOT_EVALUATED
+(`–`)**. This is external same-disease, paired-compartment *concordance* — not causal/perturbation
+or therapeutic validation — and does **not** move the translational decision.
 
 **Translational-readiness gates.** systemic safety · human-genetic efficacy · loss
 constraint · selective modality.
@@ -225,11 +234,11 @@ constraint · selective modality.
 conflict (in addition to `✓` pass, `✗` fail, `~` borderline, `?` not established, `–` not
 evaluated, `△` translational gap).
 
-**Interpretation.** The two axes are independent: RICTOR can be **RETAIN** on biological
-evidence and **STOP** on translational readiness simultaneously. `–` means a gate was **not
-evaluated** for that row (the translational block is evaluated only for the deep RICTOR
-audit), not that it was failed. RICTOR passing the biological gates is **not** a
-validated-drug-target claim.
+**Interpretation.** The three axes are independent: RICTOR can be **RETAIN** on biological
+evidence and **PASS** external same-disease concordance yet **STOP** on translational readiness
+simultaneously. `–` means a gate was **not evaluated** for that row (the translational block is
+evaluated only for the deep RICTOR audit), not that it was failed. RICTOR passing the biological
+and external gates is **not** a validated-drug-target claim.
 
 **Source data:** `figures/source_data/figure_3_gate_matrix.tsv`
 (mirrors `results/frozen/gate_matrix.tsv`). Translational cells are sourced from the

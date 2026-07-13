@@ -1,6 +1,6 @@
 dimension	internal_disease_cohort	gse160097_external_cohort	status
 accession	CELLxGENE dataset 612b7bff (collection 10eb236d); GEO GSE278962/278968/278969	GEO GSE160097	DISJOINT
-publication	Knight et al. 2026 (DOI 10.64898/2026.05.01.716870)	Maschmeyer et al. 2020 (PMID 33296081)	DISJOINT
+publication	Knight et al. 2026 (DOI 10.64898/2026.05.01.716870)	Maschmeyer et al. Eur J Immunol 2021 (PMID 33296081)	DISJOINT
 lab_group	Romagnani group (Charite, Berlin)	Mashreghi/Radbruch (DRFZ, Berlin)	DIFFERENT_GROUPS
 institution_ecosystem	Charite / Berlin	DRFZ / Charite / Berlin	SHARED_ECOSYSTEM_RISK
 donor_id_namespace	2518-xxx / 2519-xxx (14 donors)	'JIA patient 1..7' (7 donors)	DISJOINT_NAMESPACE

@@ -16,11 +16,12 @@ confound, and matched-null checks as a disease-reversing mechanism hypothesis.
 
 We then tested the frozen RICTOR signature in GSE160097, an external paired JIA
 synovial-fluid-versus-blood memory-CD4 cohort. The external reversal score was
-+0.165, closely matching the internal +0.161 estimate. All six
-leave-one-donor-pair-out analyses remained positive, and paired-bootstrap
-uncertainty excluded zero. PAK2 and RIPK1 remained near zero. The signal was
-driven by an inflammatory effector programme rather than a generic
-egress-associated module.
++0.165, similar in magnitude to the internal +0.161 result under the same frozen
+scoring function. The numerical similarity is descriptive and is not interpreted
+as calibrated effect-size replication. All six leave-one-donor-pair-out analyses
+remained positive, and paired-bootstrap uncertainty excluded zero. PAK2 and RIPK1
+remained near zero. The signal was driven by an inflammatory effector programme
+rather than a generic egress-associated module.
 
 RICTOR nevertheless remains a mechanism node, not a validated drug target:
 selective pharmacology, human-genetic efficacy support, systemic safety, and

@@ -42,13 +42,33 @@ Used for   : the donor-paired synovium-vs-blood disease-direction vector
              (activated-memory CD4), redistributed as per-gene aggregate log2FC.
 
 
-3. SOFTWARE DEPENDENCIES
+3. EXTERNAL CONCORDANCE DATASET — GSE160097 (JIA memory CD4, SF vs blood)
+--------------------------------------------------------------------------------
+Source     : DRFZ / Charité Berlin (P. Maschmeyer, M.-F. Mashreghi, A. Radbruch
+             and colleagues), deposited in NCBI GEO.
+Publication: Maschmeyer P, Heinz GA, Skopnik CM, et al. "Antigen-driven PD-1+
+             TOX+ BHLHE40+ and PD-1+ TOX+ EOMES+ T lymphocytes regulate juvenile
+             idiopathic arthritis in situ." European Journal of Immunology,
+             2021;51(4):915-929. PMID 33296081. DOI 10.1002/eji.202048797.
+Accession  : GEO GSE160097 (10x scRNA-seq of FACS-sorted memory CD4 Tcon/Treg and
+             CD8 T cells from paired synovial fluid and peripheral blood).
+License    : Not explicitly stated (public GEO deposit; no explicit reuse license).
+             Raw data are therefore NOT redistributed here; only derived per-gene
+             aggregate statistics (SF-minus-blood log2FC and per-donor-pair log2FC)
+             are committed, and the official GEO download route + per-file sha256
+             are documented in docs/EXTERNAL_CONCORDANCE_GSE160097.md.
+Used for   : the external same-disease, paired-compartment concordance test of the
+             frozen RICTOR/PAK2/RIPK1 knockdown signatures (no detected donor
+             overlap with the internal atlas; reported as external, not independent).
+
+
+4. SOFTWARE DEPENDENCIES
 --------------------------------------------------------------------------------
 NumPy (BSD-3-Clause), pandas (BSD-3-Clause), SciPy (BSD-3-Clause),
 Matplotlib (PSF/Matplotlib license), PyArrow (Apache-2.0).
 
 
-4. HACKATHON
+5. HACKATHON
 --------------------------------------------------------------------------------
 Built for "Built with Claude: Life Sciences" (Anthropic x Gladstone Institutes),
 Research track, using Claude Code and Claude Science.

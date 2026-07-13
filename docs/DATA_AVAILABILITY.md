@@ -52,7 +52,7 @@ Used here for: the donor-paired synovium-vs-blood disease-direction vector
 | Field | Value |
 |---|---|
 | Source | DRFZ / Charité Berlin (Maschmeyer, Mashreghi, Radbruch et al.) |
-| Publication | Maschmeyer et al., 2020 (PMID 33296081) |
+| Publication | Maschmeyer et al., *Eur J Immunol* 2021;51(4):915-929 (PMID 33296081; DOI 10.1002/eji.202048797) |
 | Accession | [GEO GSE160097](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE160097) |
 | Data type | 10x scRNA-seq of FACS-sorted memory CD4 Tcon/Treg (+ CD8), paired synovial fluid & blood |
 | Registration | Not required (public GEO) |

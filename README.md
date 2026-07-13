@@ -70,9 +70,15 @@ disease-state direction built from an independent juvenile idiopathic arthritis
 
 | Target | Public label | Reversal | Robustness | Decision |
 |---|---|---|---|---|
-| **RICTOR** | `DISEASE_REVERSING_MECHANISM_NODE_WITH_MODALITY_GAP` | **+0.161** (p=1.8e-63) | both guides +; **11/11** disease-donor LODO +; all 3 conditions +; matched percentile 96.5 | **Retained** mechanism hypothesis — *not* a validated target |
-| **PAK2** | `REPRODUCIBLE_CELLULAR_HIT_NOT_THERAPEUTICALLY_DIRECTIONAL` | +0.010 (p=0.297, n.s.) | technically real & reproducible, but external JIA enrichment activation-confounded | **Rejected** |
+| **RICTOR** | `DISEASE_REVERSING_MECHANISM_NODE_WITH_MODALITY_GAP` | **+0.161** | both guides +; **11/11** disease-donor LODO +; all 3 conditions +; matched percentile 96.5 | **Retained** mechanism hypothesis — *not* a validated target |
+| **PAK2** | `REPRODUCIBLE_CELLULAR_HIT_NOT_THERAPEUTICALLY_DIRECTIONAL` | +0.010 (not directional) | technically real & reproducible, but external JIA enrichment activation-confounded | **Rejected** |
 | **RIPK1** | `COMPARATOR_NOT_DIRECTIONALLY_SUPPORTED_IN_THIS_ANALYSIS` | +0.038 (incoherent) | comparator only | Not supported by this test |
+
+> Reversal is an **effect size** (−centered Pearson over shared genes), not a p-value.
+> Any gene-wise correlation p-values reported elsewhere are **descriptive gene-wise
+> correlation p-values, not donor-level inference**; donor-level uncertainty comes
+> from the leave-one-donor-out and matched-null / bootstrap analyses. Full numeric
+> values: [`results/frozen/primary_comparison.tsv`](results/frozen/primary_comparison.tsv).
 
 - **PAK2** was a real cellular hit but failed therapeutic validation.
 - **RICTOR** was retained as `DISEASE_REVERSING_MECHANISM_NODE_WITH_MODALITY_GAP`.
@@ -122,7 +128,9 @@ validation, or evidence that RICTOR is already an advanceable drug target.
 > is *an external public JIA cohort with no detected donor overlap* — reported as
 > "external", not "independent", because it shares the Charité/DRFZ Berlin
 > institutional ecosystem with the internal atlas and both datasets are
-> de-identified. Reproduce with `make external-gse160097`; full audit and the
+> de-identified. `make external-gse160097` **recomputes from committed donor-pair
+> aggregate inputs** (offline, seconds); the **full raw-data reconstruction** uses
+> the documented official GEO download route (`--download` mode). Full audit and the
 > official-download route in
 > [docs/EXTERNAL_CONCORDANCE_GSE160097.md](docs/EXTERNAL_CONCORDANCE_GSE160097.md)
 > ([evidence summary](docs/EXTERNAL_EVIDENCE_SUMMARY.md) ·
@@ -239,9 +247,13 @@ Silicon notes and how to serve the Explorer with `python -m http.server`).
 | **3 Full open-data** | `make full` | open raw data, high-memory server | hours | rebuilds the disease vector + genome-scale effect vectors and reruns everything |
 
 Level 1 is **artifact reproducibility**, not end-to-end raw-data reproduction —
-see [REPRODUCIBILITY_LEVELS.md](docs/REPRODUCIBILITY_LEVELS.md). Both datasets are
-open; only derived per-gene aggregate vectors are redistributed here, with
-attribution ([Open-data statement](docs/OPEN_DATA_STATEMENT.md) ·
+see [REPRODUCIBILITY_LEVELS.md](docs/REPRODUCIBILITY_LEVELS.md). All three public
+data resources are open — the **Primary Human CD4+ T Cell Perturb-seq** screen
+(Marson/Pritchard; MIT), the **internal JIA disease-reference atlas** (CZ CELLxGENE;
+CC-BY-4.0), and **GSE160097** (external JIA memory-CD4 concordance cohort; GEO,
+license not explicitly stated) — and only derived per-gene aggregate vectors are
+redistributed here (no raw GSE160097 data), with attribution
+([Open-data statement](docs/OPEN_DATA_STATEMENT.md) ·
 [Data availability](docs/DATA_AVAILABILITY.md) ·
 [Data licenses](docs/DATA_LICENSES.md) ·
 [manifest](data/public_data_manifest.tsv)).
@@ -256,8 +268,8 @@ attribution ([Open-data statement](docs/OPEN_DATA_STATEMENT.md) ·
   authoritative reversal table, candidate funnel, rejection ledger, gate matrix,
   gate ablation, matched-null values, claim registry, superseded-claim registry,
   analysis contract, denominator audit, results manifest;
-- 53 tests, continuous integration, and an automated privacy / public-readiness
-  audit; three reproducibility levels; four main figures + two supplementary.
+- 60 tests, continuous integration, and an automated privacy / public-readiness
+  audit; three reproducibility levels; four main figures + three supplementary.
 
 ## Scope and intended use
 
@@ -368,9 +380,12 @@ the file under `reports/` (e.g. `reports/perturbgate_demo.mp4`) before submissio
 
 ## Citation and acknowledgements
 
-Please cite this repository ([CITATION.cff](CITATION.cff)) and the two upstream
-datasets ([NOTICE](NOTICE)). We thank the **Marson and Pritchard laboratories**
-and the CZI Virtual Cells Platform for the Perturb-seq data; the **Knight et al.**
+Please cite this repository ([CITATION.cff](CITATION.cff)) and the three upstream
+data resources ([NOTICE](NOTICE)). We thank the **Marson and Pritchard laboratories**
+and the CZI Virtual Cells Platform for the Perturb-seq data; the **Maschmeyer,
+Mashreghi and Radbruch teams (DRFZ / Charité Berlin)** for the external JIA
+memory-CD4 dataset **GSE160097** (Maschmeyer et al., *Eur J Immunol* 2021, PMID
+33296081); the **Knight et al.**
 and **Bolton/Mahony et al.** teams and CZ CELLxGENE for the JIA synovial atlas;
 the maintainers of NumPy, pandas, SciPy, Matplotlib and PyArrow; and the
 organizers of *Built with Claude: Life Sciences* (Anthropic × Gladstone
