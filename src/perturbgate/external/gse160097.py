@@ -125,7 +125,7 @@ def run(download: bool = False, write: bool = True) -> dict:
         pd.DataFrame([dict(dropped=d, reversal=v) for d, v in lodo.items()]).to_csv(
             out / "paired_lodo.tsv", sep="\t", index=False)
         write_json(result, out / "recomputed_summary.json")
-        _make_figure(prim, lodo_vals, boot)
+        _make_figure(prim, lodo, boot)
     return result
 
 
@@ -155,51 +155,79 @@ def validate(result: dict) -> list[str]:
     return problems
 
 
-def _make_figure(prim: dict, lodo_vals: np.ndarray, boot: np.ndarray) -> list[Path]:
+def _write_tsv_lf(df: pd.DataFrame, path: Path) -> None:
+    """Write a TSV byte-identically across Linux/macOS/Windows: explicit LF, no index."""
+    text = df.to_csv(sep="\t", index=False, lineterminator="\n")
+    path.write_bytes(text.encode("utf-8"))  # bytes -> no OS newline translation
+
+
+def _make_figure(prim: dict, lodo: dict, boot: np.ndarray) -> list[Path]:
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
 
     from .. import figures as _figs
     _figs._style()  # deterministic rcParams (svg.hashsalt) shared with the main figures
-    fig, ax = plt.subplots(figsize=(6.6, 4.3))
+
     order = ["RICTOR", "PAK2", "RIPK1"]
     vals = [prim[t]["reversal"] for t in order]
+    lodo_donors = list(lodo.keys())            # stable donor order (patients 1,2,4,5,6,7)
+    lodo_vals = np.array([lodo[d] for d in lodo_donors])
+    b_med = float(np.median(boot)); b_lo = float(np.percentile(boot, 2.5)); b_hi = float(np.percentile(boot, 97.5))
+    frac_pos = float((boot > 0).mean())
+
+    fig, ax = plt.subplots(figsize=(7.0, 4.6))
     xs = np.arange(3)
     colors = ["#1BA7FF", "#9aa0a6", "#c4c8cc"]
-    ax.bar(xs, vals, color=colors, width=0.6, edgecolor="black", lw=0.6, zorder=3)
-    ax.errorbar(0, prim["RICTOR"]["reversal"],
-                yerr=[[prim["RICTOR"]["reversal"] - lodo_vals.min()], [lodo_vals.max() - prim["RICTOR"]["reversal"]]],
-                fmt="none", ecolor="black", capsize=5, lw=1.2, zorder=4, label="leave-one-pair-out range")
+    ax.bar(xs, vals, color=colors, width=0.52, edgecolor="black", lw=0.6, zorder=2)
     ax.axhline(0, color="black", lw=0.8)
-    ax.axhline(GOLDEN["internal_reference"], color="#DA2828", ls="--", lw=1.3,
-               label=f"internal RICTOR reversal (+{GOLDEN['internal_reference']:.3f})")
-    for i in range(len(order)):
-        ax.text(i, vals[i] + (0.006 if vals[i] >= 0 else -0.012), f"{vals[i]:+.3f}",
-                ha="center", va="bottom" if vals[i] >= 0 else "top", fontsize=9)
+    ax.axhline(GOLDEN["internal_reference"], color="#DA2828", ls="--", lw=1.3, zorder=1,
+               label=f"internal reversal (+{GOLDEN['internal_reference']:.3f})")
+
+    # RICTOR: paired-bootstrap 95% CI (left offset) + six individual LODO points (right offset) — no overlap
+    x_ci, x_lodo = -0.20, 0.20
+    ax.errorbar([x_ci], [b_med], yerr=[[b_med - b_lo], [b_hi - b_med]], fmt="o", ms=4,
+                color="#08306B", ecolor="#08306B", capsize=4, lw=1.4, zorder=4,
+                label="bootstrap median + 95% CI")
+    # deterministic tiny horizontal spread so the six points do not stack
+    xj = x_lodo + np.linspace(-0.06, 0.06, len(lodo_vals))
+    ax.scatter(xj, lodo_vals, s=26, color="#1BA7FF", edgecolor="black", lw=0.5, zorder=5,
+               label="6 leave-one-pair-out")
+    # value labels: RICTOR lifted clear above the CI/points; comparators next to their bars
+    ax.text(xs[0], b_hi + 0.016, f"{vals[0]:+.3f}", ha="center", va="bottom", fontsize=9, zorder=6)
+    ax.text(xs[1], vals[1] + 0.010, f"{vals[1]:+.3f}", ha="center", va="bottom", fontsize=9, zorder=6)
+    ax.text(xs[2], vals[2] - 0.014, f"{vals[2]:+.3f}", ha="center", va="top", fontsize=9, zorder=6)
+
     ax.set_xticks(xs); ax.set_xticklabels(order)
     ax.set_ylabel("reversal score (-centered Pearson)")
-    ax.set_ylim(min(-0.02, min(vals) - 0.02), max(lodo_vals.max(), GOLDEN["internal_reference"]) + 0.03)
+    ax.set_ylim(min(-0.03, min(vals) - 0.03), max(lodo_vals.max(), b_hi, GOLDEN["internal_reference"]) + 0.055)
     ax.set_title("External paired JIA compartment concordance (GSE160097)\n"
                  "synovial-fluid - blood memory CD4; + = knockdown opposes the joint programme", fontsize=9.5)
-    ax.text(0.5, -0.19, f"n=6 donor pairs; paired bootstrap median {np.median(boot):+.3f}, "
-            f"95% CI [{np.percentile(boot,2.5):+.3f}, {np.percentile(boot,97.5):+.3f}], 100% positive. "
+    ax.text(0.5, -0.185,
+            f"n=6 donor pairs; leave-one-pair-out 6/6 positive; paired bootstrap median {b_med:+.3f}, "
+            f"95% CI [{b_lo:+.3f}, {b_hi:+.3f}], {frac_pos*100:.0f}% of bootstrap draws positive. "
             "Observational concordance; not causal/therapeutic validation.",
             transform=ax.transAxes, ha="center", va="top", fontsize=7, color="#444")
-    ax.legend(fontsize=8, loc="upper right")
+    ax.legend(fontsize=7.5, loc="center right", framealpha=0.95)
     plt.tight_layout()
     figdir = repo_root() / "figures"
     sdir = figdir / "source_data"; sdir.mkdir(parents=True, exist_ok=True)
     paths = _figs._save(fig, "supplementary_external_jia_concordance")  # deterministic PNG+SVG
     plt.close(fig)
-    pd.DataFrame(dict(
-        candidate=order, external_reversal=vals,
-        internal_reference=[GOLDEN["internal_reference"]] * 3,
-        rictor_lodo_min=[float(lodo_vals.min())] * 3, rictor_lodo_max=[float(lodo_vals.max())] * 3,
-        rictor_bootstrap_median=[float(np.median(boot))] * 3,
-        rictor_bootstrap_ci_low=[float(np.percentile(boot, 2.5))] * 3,
-        rictor_bootstrap_ci_high=[float(np.percentile(boot, 97.5))] * 3,
-    )).to_csv(sdir / "supplementary_external_jia_concordance.tsv", sep="\t", index=False)
+
+    # Source data: tidy key/value, ALL values rounded to fixed precision + explicit LF, so the
+    # file is byte-identical on Linux/macOS/Windows (guards the CI byte-stability check).
+    def r6(x):
+        return round(float(x), 6)
+    rows = [("external_reversal_RICTOR", r6(prim["RICTOR"]["reversal"])),
+            ("external_reversal_PAK2", r6(prim["PAK2"]["reversal"])),
+            ("external_reversal_RIPK1", r6(prim["RIPK1"]["reversal"])),
+            ("internal_reference", r6(GOLDEN["internal_reference"]))]
+    rows += [(f"lodo_RICTOR_drop_{d.replace(' ', '_')}", r6(lodo[d])) for d in lodo_donors]
+    rows += [("bootstrap_RICTOR_median", r6(b_med)), ("bootstrap_RICTOR_ci_low", r6(b_lo)),
+             ("bootstrap_RICTOR_ci_high", r6(b_hi)), ("bootstrap_RICTOR_frac_positive", r6(frac_pos))]
+    _write_tsv_lf(pd.DataFrame(rows, columns=["metric", "value"]),
+                  sdir / "supplementary_external_jia_concordance.tsv")
     return paths
 
 

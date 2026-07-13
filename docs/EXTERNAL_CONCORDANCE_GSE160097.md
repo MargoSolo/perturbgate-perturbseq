@@ -7,9 +7,9 @@
 
 ## Dataset
 
-- **GEO:** [GSE160097](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE160097) · **PMID:** 33296081 (Maschmeyer et al., 2020).
+- **GEO:** [GSE160097](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE160097) · **PMID:** 33296081 (Maschmeyer et al., *Eur J Immunol* 2021;51(4):915-929; DOI 10.1002/eji.202048797).
 - **Design:** 10x scRNA-seq (+ TCR) of **FACS-sorted memory T cells** from **paired synovial fluid (SF) and peripheral blood (PB)** of patients with juvenile idiopathic arthritis (JIA).
-- **Primary population:** conventional memory CD4 T cells **Tcon (CD4⁺CD45RO⁺CD25⁻)** — the published sort and the direct analog of the internal *activated-memory* CD4 state. (Treg = CD4⁺CD45RO⁺CD127ˡᵒCD25⁺ used only as a sensitivity.)
+- **Primary population:** conventional memory CD4 T cells **Tcon (CD4⁺CD45RO⁺CD25⁻)** — the published sort and the closest pre-specified external memory-CD4 population available in GSE160097 for the internal *activated-memory* CD4 state. (Treg = CD4⁺CD45RO⁺CD127ˡᵒCD25⁺ used only as a sensitivity.)
 - **Primary input:** **raw UMI counts** (10x `filtered_gene_bc_matrices` / `filtered_feature_bc_matrix`; hg19/GRCh37 reference; gene IDs are Ensembl — aligned natively to the KD vectors, no symbol mapping).
 
 ## Contract and method (frozen before scoring)

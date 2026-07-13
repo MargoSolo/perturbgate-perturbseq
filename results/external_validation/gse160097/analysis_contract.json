@@ -19,7 +19,7 @@
   "expression_representation": "RAW UMI counts (10x filtered_gene_bc_matrices h5; hg19/GRCh37 reference; gene IDs = Ensembl; CellRanger v2 & v3 mixed, common 32738-gene reference). RAW-COUNT branch (matches the internal JIA method)."
  },
  "primary_population": {
-  "definition": "FACS-sorted CD4 memory conventional T cells (Tcon; CD4+CD45RO+CD25-) - the published sorted population and the direct analog of the internal 'activated_memory' CD4 state.",
+  "definition": "FACS-sorted CD4 memory conventional T cells (Tcon; CD4+CD45RO+CD25-) - the published sorted population and the closest pre-specified external memory-CD4 population available in GSE160097 for the internal 'activated_memory' CD4 state.",
   "annotation_source": "GEO sample title / source_name (flow-sorted gate); no clustering required.",
   "paired_donors": [
    "JIA patient 1",

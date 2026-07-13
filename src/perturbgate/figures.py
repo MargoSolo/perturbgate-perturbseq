@@ -226,9 +226,11 @@ def figure_3_gate_matrix() -> list[Path]:
     decision_color = {"RETAIN": OI["green"], "STOP": OI["vermillion"], "REJECT": OI["vermillion"],
                       "COMPARATOR": OI["grey"], "SAFETY_CONSTRAINED": OI["orange"],
                       "EXPLORATORY_NO_MODALITY": OI["grey"], "NOT_EVALUATED": OI["light"]}
-    # group boundaries: biological gates | translational-readiness gates | decisions
-    n_bio, n_trans = 8, 12  # cols[0:8] biological, cols[8:12] translational, cols[12:] decisions
-    fig, ax = plt.subplots(figsize=(15.5, 5.2))
+    # group boundaries: biological gates | external evidence | translational gates | decisions
+    # cols[0:8] biological, cols[8:9] external same-disease concordance,
+    # cols[9:13] translational readiness, cols[13:] decisions
+    n_bio, n_ext, n_trans = 8, 9, 13
+    fig, ax = plt.subplots(figsize=(16.5, 5.2))
     ax.set_xlim(0, len(cols)); ax.set_ylim(0, len(rows))
     ax.set_xticks(np.arange(len(cols)) + 0.5)
     ax.set_xticklabels(col_labels, rotation=40, ha="right", fontsize=8.0)
@@ -249,15 +251,17 @@ def figure_3_gate_matrix() -> list[Path]:
                 ax.text(j + 0.5, yy + 0.5, sym, ha="center", va="center", fontsize=11,
                         color="black", fontweight="bold")
     # group dividers + headers
-    for x in (n_bio, n_trans):
+    for x in (n_bio, n_ext, n_trans):
         ax.axvline(x, color=OI["black"], linewidth=2.2)
     for x0, x1, label in [(0, n_bio, "Biological evidence"),
-                          (n_bio, n_trans, "Translational readiness"),
+                          (n_bio, n_ext, "External"),
+                          (n_ext, n_trans, "Translational readiness"),
                           (n_trans, len(cols), "Decision")]:
         ax.text((x0 + x1) / 2, len(rows) + 0.15, label, ha="center", va="bottom",
                 fontsize=9.5, fontweight="bold", color=OI["black"])
-    ax.set_title("Gate matrix — two axes: RICTOR is RETAIN biologically but STOP translationally "
-                 "(symbols + text, not colour alone)", loc="left", pad=22)
+    ax.set_title("Gate matrix — three axes: RICTOR is RETAIN biologically, external same-disease "
+                 "concordance PASS, but STOP translationally (symbols + text, not colour alone)",
+                 loc="left", pad=22)
     handles = [plt.Line2D([0], [0], marker="s", color="w", markerfacecolor=col, markersize=12,
                           label=f"{sym} {k.replace('_', ' ').lower()}") for k, (sym, col) in STATUS.items()]
     ax.legend(handles=handles, loc="upper left", bbox_to_anchor=(1.005, 1.0), fontsize=7.5, frameon=False)
