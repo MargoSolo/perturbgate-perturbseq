@@ -109,15 +109,15 @@ def figure_1_target_attrition() -> list[Path]:
         arrow(2.0, y, 2.0, y - 0.8)
     arrow(2.0, 2.0, 2.0, 1.4)
 
-    ax.text(6.0, 9.55, "Candidate-specific deep validation (branches)", fontsize=10.5,
+    ax.text(6.0, 9.55, "Direct disease-rescue nominations → deep validation (branches)", fontsize=10.5,
             fontweight="bold", ha="left", color=OI["black"])
     # PAK2 branch
-    box(4.5, 7.7, 3.3, 1.5, "PAK2 (lead)\ntechnical validation PASS\ntherapeutic direction FAIL", OI["vermillion"], "white")
+    box(4.5, 7.7, 3.3, 1.5, "PAK2 (de novo nomination)\ntechnical validation PASS\ntherapeutic direction FAIL", OI["vermillion"], "white")
     box(8.2, 7.7, 3.4, 1.5, "REJECTED\nreproducible cellular hit,\nnot therapeutically directional", OI["light"])
     arrow(7.8, 8.45, 8.2, 8.45)
     # RICTOR branch
-    box(4.5, 5.4, 3.3, 1.5, "RICTOR (bounded rescue)\n7 strong criteria PASS\n+ borderline matched-null", OI["green"], "white")
-    box(8.2, 5.4, 3.4, 1.5, "RETAINED mechanism node\nwith modality gap\n(+0.161; 11/11 LODO)", OI["light"])
+    box(4.5, 5.4, 3.3, 1.5, "RICTOR (de novo nomination)\n6/6 donors + both guides + 6 ablations\n7 strong criteria + borderline null", OI["green"], "white")
+    box(8.2, 5.4, 3.4, 1.5, "RETAINED mechanism node\nwith modality gap\n(+0.161 internal; +0.165 external)", OI["light"])
     arrow(7.8, 6.15, 8.2, 6.15)
     # RIPK1 branch
     box(4.5, 3.1, 3.3, 1.4, "RIPK1 (comparator)\nweak / incoherent reversal", OI["grey"], "white")
