@@ -128,6 +128,15 @@ RICTOR_ROBUSTNESS_TRACKS = TableSchema(
     min_rows=11,
 )
 
+RICTOR_SERVER_SCALE_SENSITIVITIES = TableSchema(
+    name="rictor_server_scale_sensitivities",
+    required_columns=("track", "reversal", "source_artifact", "source_artifact_sha256",
+                      "source_run_commit", "analysis_scope", "reproducibility_level"),
+    non_null=("track", "reversal", "source_artifact", "source_artifact_sha256",
+              "source_run_commit", "analysis_scope", "reproducibility_level"),
+    min_rows=2,
+)
+
 SCHEMAS = {
     "primary_comparison": PRIMARY_COMPARISON,
     "all_perturbations_authoritative_reversal": ALL_PERTURBATIONS,
@@ -136,4 +145,5 @@ SCHEMAS = {
     "gate_matrix": GATE_MATRIX,
     "matched_null": MATCHED_NULL,
     "rictor_robustness_tracks": RICTOR_ROBUSTNESS_TRACKS,
+    "rictor_server_scale_sensitivities": RICTOR_SERVER_SCALE_SENSITIVITIES,
 }

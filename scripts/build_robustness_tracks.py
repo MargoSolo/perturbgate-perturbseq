@@ -3,10 +3,12 @@
 artifact behind the RICTOR robustness figure.
 
 Nine tracks are DERIVED from committed frozen tables (recomputable at Level 1 and
-guarded by tests/test_figure_source_provenance.py). Two tracks are SERVER-SCALE
-NARRATIVE ANCHORS (adjusted-vector sensitivity, responder-only mean) that come from
-the full Level-3 run and are not recomputed at Level 1; each is labelled as such in
-the `source_artifact` column so every number in the figure resolves to an artifact.
+guarded by tests/test_figure_source_provenance.py). The two server-scale sensitivity
+values (adjusted-vector sensitivity, responder-only mean) are READ from the frozen
+export results/frozen/rictor_server_scale_sensitivities.tsv — which was extracted
+from the actual Level-3 artifacts and carries their sha256 + source run commit. No
+numeric literal for these two values appears in this builder; every figure value
+resolves to a committed artifact.
 """
 from __future__ import annotations
 
@@ -31,15 +33,22 @@ def build() -> pd.DataFrame:
     conf = pd.read_csv(F / "confound_decomposition.tsv", sep="\t")
     cr = float(conf[conf.removed == "cellcycle+activation+broaddown"]["reversal_pearson"].iloc[0])
 
-    ANCHOR = ("server-scale (make full / Level 3) run; same-cohort narrative anchor, "
-              "not recomputed at Level 1; see docs/REPRODUCIBILITY_LEVELS.md")
+    # The two server-scale anchors are read from the frozen sensitivity export
+    # (extracted from the actual Level-3 artifacts, with sha256 + run commit). No
+    # numeric literal for these values appears in this builder.
+    sens = pd.read_csv(F / "rictor_server_scale_sensitivities.tsv", sep="\t").set_index("track")
+    adj = r6(sens.loc["adjusted-vector sensitivity", "reversal"])
+    rmean = r6(sens.loc["responder-only mean", "reversal"])
+    ANCHOR = ("rictor_server_scale_sensitivities.tsv:{track}; same-cohort Level-3 sensitivity, "
+              "not independent validation; narrative anchor, not recomputed at Level 1")
+
     rows = [
         ("primary raw-count vector", r6(r["primary_reversal"]), "", "", "primary_comparison.tsv:RICTOR:primary_reversal"),
-        ("adjusted-vector sensitivity", 0.147, "", "", "covariate-adjusted disease-vector sensitivity — " + ANCHOR),
+        ("adjusted-vector sensitivity", adj, "", "", ANCHOR.format(track="adjusted-vector sensitivity")),
         ("RICTOR guide 1", r6(r["guide_1_reversal"]), "", "", "primary_comparison.tsv:RICTOR:guide_1_reversal"),
         ("RICTOR guide 2", r6(r["guide_2_reversal"]), "", "", "primary_comparison.tsv:RICTOR:guide_2_reversal"),
         ("disease-donor LODO (11)", r6(folds.mean()), r6(folds.min()), r6(folds.max()), "rictor_lodo.tsv:11_folds(mean;min;max)"),
-        ("responder-only mean", 0.054, "", "", "responder-only strata mean — " + ANCHOR),
+        ("responder-only mean", rmean, "", "", ANCHOR.format(track="responder-only mean")),
         ("condition: Rest", r6(r["condition_rest"]), "", "", "primary_comparison.tsv:RICTOR:condition_rest"),
         ("condition: Stim8hr", r6(r["condition_stim8"]), "", "", "primary_comparison.tsv:RICTOR:condition_stim8"),
         ("condition: Stim48hr", r6(r["condition_stim48"]), "", "", "primary_comparison.tsv:RICTOR:condition_stim48"),

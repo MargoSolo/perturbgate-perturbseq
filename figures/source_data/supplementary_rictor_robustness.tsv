@@ -1,10 +1,10 @@
 track	reversal	range_low	range_high	source_artifact
 primary raw-count vector	0.1606			primary_comparison.tsv:RICTOR:primary_reversal
-adjusted-vector sensitivity	0.147			covariate-adjusted disease-vector sensitivity — server-scale (make full / Level 3) run; same-cohort narrative anchor, not recomputed at Level 1; see docs/REPRODUCIBILITY_LEVELS.md
+adjusted-vector sensitivity	0.146713			rictor_server_scale_sensitivities.tsv:adjusted-vector sensitivity; same-cohort Level-3 sensitivity, not independent validation; narrative anchor, not recomputed at Level 1
 RICTOR guide 1	0.141			primary_comparison.tsv:RICTOR:guide_1_reversal
 RICTOR guide 2	0.1781			primary_comparison.tsv:RICTOR:guide_2_reversal
 disease-donor LODO (11)	0.159128	0.153809	0.167058	rictor_lodo.tsv:11_folds(mean;min;max)
-responder-only mean	0.054			responder-only strata mean — server-scale (make full / Level 3) run; same-cohort narrative anchor, not recomputed at Level 1; see docs/REPRODUCIBILITY_LEVELS.md
+responder-only mean	0.054211			rictor_server_scale_sensitivities.tsv:responder-only mean; same-cohort Level-3 sensitivity, not independent validation; narrative anchor, not recomputed at Level 1
 condition: Rest	0.1532			primary_comparison.tsv:RICTOR:condition_rest
 condition: Stim8hr	0.0916			primary_comparison.tsv:RICTOR:condition_stim8
 condition: Stim48hr	0.0422			primary_comparison.tsv:RICTOR:condition_stim48

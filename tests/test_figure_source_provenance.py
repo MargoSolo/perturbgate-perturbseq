@@ -49,6 +49,35 @@ def test_server_scale_anchors_are_labelled(tracks):
     assert anchors["source_artifact"].str.contains("not recomputed at Level 1").all()
 
 
+@pytest.fixture(scope="module")
+def sensitivities():
+    return pd.read_csv(frozen_dir() / "rictor_server_scale_sensitivities.tsv", sep="\t")
+
+
+def test_anchor_values_match_server_scale_export(tracks, sensitivities):
+    """The two anchor values in the tracks table must equal the frozen server-scale
+    sensitivity export — the same verify-against-source guarantee as the nine derived tracks."""
+    sens = sensitivities.set_index("track")
+    for track in ["adjusted-vector sensitivity", "responder-only mean"]:
+        tv = float(tracks.loc[tracks.track == track, "reversal"].iloc[0])
+        sv = round(float(sens.loc[track, "reversal"]), 6)
+        assert abs(tv - sv) < 1e-6, f"{track}: tracks {tv} != export {sv}"
+
+
+def test_server_scale_export_carries_full_provenance(sensitivities):
+    assert set(sensitivities.track) == {"adjusted-vector sensitivity", "responder-only mean"}
+    for col in ["source_artifact", "source_artifact_sha256", "source_run_commit",
+                "analysis_scope", "reproducibility_level"]:
+        assert sensitivities[col].astype(str).str.strip().ne("").all(), f"empty {col}"
+    # sha256 is a real 64-hex digest; run commit is a 40-hex git sha
+    assert sensitivities["source_artifact_sha256"].str.fullmatch(r"[0-9a-f]{64}").all()
+    assert sensitivities["source_run_commit"].str.fullmatch(r"[0-9a-f]{40}").all()
+    # wording preserved: same-cohort Level-3 sensitivity, not independent validation, not Level-1
+    assert sensitivities["reproducibility_level"].str.contains("Level 3").all()
+    assert sensitivities["reproducibility_level"].str.contains("not recomputed at Level 1").all()
+    assert sensitivities["analysis_scope"].str.contains("not independent validation").all()
+
+
 def test_derived_tracks_match_their_frozen_sources(tracks):
     """The nine non-anchor tracks must equal the values in their cited frozen tables."""
     def val(track):
