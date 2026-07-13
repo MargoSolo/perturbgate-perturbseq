@@ -13,6 +13,12 @@ RICTOR survived the internal evidence gates and showed the same directional
 reversal in an external paired JIA synovial-fluid-versus-blood memory-CD4 cohort,
 while remaining a mechanism hypothesis and **not** a validated drug target.
 
+> **Headline result.** RICTOR-knockdown reverses the JIA joint-vs-blood CD4
+> disease direction: internal **+0.161**, external **+0.165** (GSE160097; 6/6
+> paired leave-one-donor-out). PAK2 was a real, reproducible hit that **failed**
+> therapeutic directionality (rejected). Every reported number resolves to a
+> committed artifact. Full table → [§2 Main finding](#2-main-finding).
+
 [![CI](https://github.com/MargoSolo/perturbgate-perturbseq/actions/workflows/ci.yml/badge.svg)](https://github.com/MargoSolo/perturbgate-perturbseq/actions/workflows/ci.yml)
 ![python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
 ![license](https://img.shields.io/badge/code_license-MIT-green)
@@ -268,7 +274,7 @@ redistributed here (no raw GSE160097 data), with attribution
   authoritative reversal table, candidate funnel, rejection ledger, gate matrix,
   gate ablation, matched-null values, claim registry, superseded-claim registry,
   analysis contract, denominator audit, results manifest;
-- 60 tests, continuous integration, and an automated privacy / public-readiness
+- 66 tests, continuous integration, and an automated privacy / public-readiness
   audit; three reproducibility levels; four main figures + three supplementary.
 
 ## Scope and intended use

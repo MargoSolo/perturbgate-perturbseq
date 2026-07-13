@@ -317,6 +317,22 @@ the reversal to **+0.093** — but those genes **include** the pathogenic diseas
 (CXCR6, CCL4, IFNG), so that step removes real signal, not a confound. The combined
 cell-cycle + activation + broad-downregulation removal (817 genes) gives **+0.097**.
 
+**Provenance (every track resolves to an artifact).** All 11 tracks are read from the frozen
+table [`results/frozen/rictor_robustness_tracks.tsv`](../results/frozen/rictor_robustness_tracks.tsv),
+which carries a `source_artifact` column for each value (built by
+`scripts/build_robustness_tracks.py`; guarded by `tests/test_figure_source_provenance.py`,
+which also asserts the figure source-data mirrors this table). Nine tracks derive from other
+committed frozen tables (`primary_comparison.tsv`, `rictor_lodo.tsv`, `confound_decomposition.tsv`).
+**Two tracks — adjusted-vector sensitivity (+0.147) and responder-only mean (+0.054) — are
+server-scale (`make full` / Level 3) sensitivities that are not recomputed at Level 1.** They
+are **not** hard-coded: their values are read from the frozen export
+[`results/frozen/rictor_server_scale_sensitivities.tsv`](../results/frozen/rictor_server_scale_sensitivities.tsv),
+which was **extracted from the actual Level-3 artifacts** and records, per value, the source
+artifact, its **sha256**, the **server-scale run commit**, the analysis scope (same-cohort
+sensitivity, **not independent validation**) and the reproducibility level. The provenance test
+verifies the two anchors against this export exactly as the nine derived tracks are verified
+against theirs.
+
 **Caveats.**
 - The **adjusted-vector sensitivity (+0.147)** is a **same-cohort sensitivity analysis, not
   independent biological replication** (same donors, same cohort).

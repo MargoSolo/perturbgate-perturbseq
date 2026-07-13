@@ -259,9 +259,9 @@ def figure_3_gate_matrix() -> list[Path]:
                           (n_trans, len(cols), "Decision")]:
         ax.text((x0 + x1) / 2, len(rows) + 0.15, label, ha="center", va="bottom",
                 fontsize=9.5, fontweight="bold", color=OI["black"])
-    ax.set_title("Gate matrix — three axes: RICTOR is RETAIN biologically, external same-disease "
-                 "concordance PASS, but STOP translationally (symbols + text, not colour alone)",
-                 loc="left", pad=22)
+    ax.set_title("Gate matrix — three axes (symbols + text, not colour alone)\n"
+                 "RICTOR: RETAIN biologically · external same-disease concordance PASS · STOP translationally",
+                 loc="left", pad=18, fontsize=11)
     handles = [plt.Line2D([0], [0], marker="s", color="w", markerfacecolor=col, markersize=12,
                           label=f"{sym} {k.replace('_', ' ').lower()}") for k, (sym, col) in STATUS.items()]
     ax.legend(handles=handles, loc="upper left", bbox_to_anchor=(1.005, 1.0), fontsize=7.5, frameon=False)
@@ -319,26 +319,17 @@ def figure_4_pak2_rejection() -> list[Path]:
 # =====================================================================
 def supplementary_rictor_robustness() -> list[Path]:
     _style()
-    pc = pd.read_csv(frozen_dir() / "primary_comparison.tsv", sep="\t")
-    lodo = pd.read_csv(frozen_dir() / "rictor_lodo.tsv", sep="\t")
-    conf = pd.read_csv(frozen_dir() / "confound_decomposition.tsv", sep="\t")
-    r = pc[pc.target == "RICTOR"].iloc[0]
-    folds = lodo[lodo["fold"] != "ALL"]["reversal_pearson"].astype(float)
-    conf_removed = conf[conf["removed"] == "cellcycle+activation+broaddown"]["reversal_pearson"].astype(float).iloc[0]
-    rows = [
-        ("primary raw-count vector", float(r["primary_reversal"]), None),
-        ("adjusted-vector sensitivity", 0.147, None),
-        ("RICTOR guide 1", float(r["guide_1_reversal"]), None),
-        ("RICTOR guide 2", float(r["guide_2_reversal"]), None),
-        ("disease-donor LODO (11)", float(folds.mean()), (folds.min(), folds.max())),
-        ("responder-only mean", 0.054, None),
-        ("condition: Rest", float(r["condition_rest"]), None),
-        ("condition: Stim8hr", float(r["condition_stim8"]), None),
-        ("condition: Stim48hr", float(r["condition_stim48"]), None),
-        ("confound-removed (cc+act+broad)", float(conf_removed), None),
-        ("matched-null substrate", float(r["matched_substrate_reversal"]), None),
-    ]
-    _source(pd.DataFrame(rows, columns=["track", "reversal", "range"]), "supplementary_rictor_robustness")
+    # Every track (incl. the two server-scale narrative anchors) resolves to an artifact:
+    # results/frozen/rictor_robustness_tracks.tsv carries the value + a source_artifact column
+    # (built by scripts/build_robustness_tracks.py; provenance guarded by
+    # tests/test_figure_source_provenance.py). No value is hard-coded in this figure.
+    tr = pd.read_csv(frozen_dir() / "rictor_robustness_tracks.tsv", sep="\t")
+    _source(tr, "supplementary_rictor_robustness")
+    rows = []
+    for _, t in tr.iterrows():
+        lo, hi = t["range_low"], t["range_high"]
+        rng = (float(lo), float(hi)) if pd.notna(lo) and str(lo).strip() != "" else None
+        rows.append((str(t["track"]), float(t["reversal"]), rng))
     fig, ax = plt.subplots(figsize=(9.5, 6.4))
     y = np.arange(len(rows))
     for i, (_lab, v, rng) in enumerate(rows):
