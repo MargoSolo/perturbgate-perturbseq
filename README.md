@@ -437,17 +437,22 @@ the file under `reports/` (e.g. `reports/perturbgate_demo.mp4`) before submissio
 
 ## Author
 
-**Margarita Soloshenko** — physician-scientist and genomic data scientist working at
-the intersection of genomics, single-cell biology and reproducible computational
-analysis. PerturbGate was built **solo** for *Built with Claude: Life Sciences*
-(Anthropic × Gladstone Institutes), Research track, using Claude Code and Claude Science.
+**Margarita Soloshenko** — **Pediatric Rheumatologist & Physician-Scientist** ·
+Computational Genomics · Bioinformatics.
 
-The guiding idea: treat **rejection, negative results and honest limitations as
+Ten years as a clinician in **pediatric rheumatology** — the exact disease area this
+project targets, **juvenile idiopathic arthritis (JIA)** — and, most recently, a
+completed **MSc in applied genomics**. That combination is the point of PerturbGate:
+a physician who has treated JIA at the bedside, now reading the same disease from
+genome-scale single-cell data and holding computational target hypotheses to a
+clinician's standard of proof.
+
+PerturbGate was built **solo** for *Built with Claude: Life Sciences* (Anthropic ×
+Gladstone Institutes), Research track, using Claude Code and Claude Science. The
+guiding idea: treat **rejection, negative results and honest limitations as
 first-class outputs** of target discovery — so a downstream biologist receives a
 hypothesis with its boundary already drawn, not an opaque score. Cite via
 [CITATION.cff](CITATION.cff).
-
-<!-- Margarita: personalise this bio / add affiliation, links or a photo as you like. -->
 
 ## Citation and acknowledgements
 
