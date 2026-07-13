@@ -438,7 +438,8 @@ the file under `reports/` (e.g. `reports/perturbgate_demo.mp4`) before submissio
 ## Author
 
 **Margarita Soloshenko** — **Pediatric Rheumatologist & Physician-Scientist** ·
-Computational Genomics · Bioinformatics.
+Computational Genomics · Bioinformatics ·
+[LinkedIn](https://www.linkedin.com/in/margarita-soloshenko/).
 
 Ten years as a clinician in **pediatric rheumatology** — the exact disease area this
 project targets, **juvenile idiopathic arthritis (JIA)** — and, most recently, a
