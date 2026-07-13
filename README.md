@@ -74,37 +74,47 @@ disease-state direction built from an independent juvenile idiopathic arthritis
 
 ## 2. Main finding
 
-| Target | Public label | Reversal | Robustness | Decision |
+**How the candidates were found — two stages** (so it is clear *what came from where*):
+
+1. **Nomination — direct disease-rescue analysis** (the "Screen 8" competitive gene-set
+   specificity + hard identity/toxicity/donor/direction filters + disease-reversal
+   projection, over the same 924-perturbation substrate). **PAK2 and RICTOR were
+   nominated *de novo*** (`prior_class = none` — not from literature or an effect-blind
+   prior, not manual), each **beating the MALT1 specificity fallback**. **RIPK1** entered
+   only as a known, clinically-druggable **comparator/anchor**.
+2. **Deep evaluation** of those nominations on the corrected raw-count JIA disease vector
+   (guide / donor / condition / confound / matched-null), then **external same-disease
+   concordance** (GSE160097) and a **translational red-team**.
+
+| Candidate | Origin / role | Nomination evidence (Screen 8) | Deep-evaluation reversal | Decision |
 |---|---|---|---|---|
-| **RICTOR** | `DISEASE_REVERSING_MECHANISM_NODE_WITH_MODALITY_GAP` | **+0.161** | both guides +; **11/11** disease-donor LODO +; all 3 conditions +; matched percentile 96.5 | **Retained** mechanism hypothesis — *not* a validated target |
-| **PAK2** | `REPRODUCIBLE_CELLULAR_HIT_NOT_THERAPEUTICALLY_DIRECTIONAL` | +0.010 (not directional) | technically real & reproducible, but external JIA enrichment activation-confounded | **Rejected** |
-| **RIPK1** | `COMPARATOR_NOT_DIRECTIONALLY_SUPPORTED_IN_THIS_ANALYSIS` | +0.038 (incoherent) | comparator only | Not supported by this test |
+| **RICTOR** | **de novo nomination** | spec_t **2.21**; disease-reversal **0.673** (broadest, > MALT1); 6/6 donors, both guides, 6/6 ablations | **+0.161** internal · **+0.165** external; both guides +; **11/11** disease-donor LODO +; all 3 conditions +; matched pct 96.5 | **RETAINED** mechanism node — *not a validated target* |
+| **PAK2** | **de novo nomination** | spec_t **4.75** (most specific node) | +0.010 (not directional; external JIA enrichment activation-confounded) | **REJECTED** (real cellular hit, not therapeutic) |
+| **RIPK1** | comparator / known anchor | `prior_class = canonical_activator` (not a de novo nomination) | +0.038 (incoherent) | **COMPARATOR ONLY** |
+| **MALT1** | specificity fallback | spec_t **1.39** (broad / non-specific) | — (triangulation baseline) | **Fallback** — beaten on specificity by PAK2 & RICTOR |
 
-> Reversal is an **effect size** (−centered Pearson over shared genes), not a p-value.
-> Any gene-wise correlation p-values reported elsewhere are **descriptive gene-wise
-> correlation p-values, not donor-level inference**; donor-level uncertainty comes
-> from the leave-one-donor-out and matched-null / bootstrap analyses. Full numeric
-> values: [`results/frozen/primary_comparison.tsv`](results/frozen/primary_comparison.tsv).
+**Controlled public labels:** RICTOR = `DISEASE_REVERSING_MECHANISM_NODE_WITH_MODALITY_GAP` ·
+PAK2 = `REPRODUCIBLE_CELLULAR_HIT_NOT_THERAPEUTICALLY_DIRECTIONAL` ·
+RIPK1 = `COMPARATOR_NOT_DIRECTIONALLY_SUPPORTED_IN_THIS_ANALYSIS`.
 
-- **PAK2** was a real cellular hit but failed therapeutic validation.
-- **RICTOR** was retained as `DISEASE_REVERSING_MECHANISM_NODE_WITH_MODALITY_GAP`.
-- **RIPK1** was not directionally supported in this analysis.
+> **Reversal is an effect size** (−centered Pearson over shared genes), not a p-value; the two
+> Screen-8 columns (specificity-t, disease-reversal projection) and the deep-eval reversal are
+> **different metrics** on a **consistent biological direction** (KD suppresses the pathogenic
+> programme), *not* directly comparable numbers. Any gene-wise correlation p-values elsewhere are
+> **descriptive, not donor-level inference**. Full values:
+> [`primary_comparison.tsv`](results/frozen/primary_comparison.tsv) ·
+> [`results/rictor_provenance/`](results/rictor_provenance/).
+
+**So RICTOR is not a post-hoc pick** and did **not** appear after the screen-wide "0 advanceable
+targets": it was a de novo Screen-8 nomination, independently recomputed (6/6 donors @ Stim48hr,
+min comp-t 1.59; both guides; six ablations), and only *then* carried into the +0.161 / +0.165
+reversal and translational stop. Evidence-graded provenance:
+[RICTOR_ORIGIN_AND_DECISION_PATH.md](docs/RICTOR_ORIGIN_AND_DECISION_PATH.md).
 
 RICTOR's matched-null evidence is **nominal but statistically marginal**: only 200
 matched controls exist, 7 of which exceed RICTOR (empirical p ≈ 0.040; finite-pool
 95% CI extends to ≈ 0.07). We therefore report *seven strong convergence checks
 plus a borderline matched null* — never "8/8 decisive criteria".
-
-**Where RICTOR came from.** RICTOR is **not** a post-hoc pick and did **not** appear
-after the screen-wide "0 advanceable targets". It was **nominated de novo by the
-direct disease-rescue analysis** (`prior_class = none`; competitive specificity-t
-2.205; broadest disease-reversal projection 0.673; ranked above the MALT1 fallback),
-**independently recomputed** from donor/guide source artifacts (6/6 donor pairs at the
-driving Stim48hr, min comp-t 1.59; both guides; six ablation methods), and only then
-carried into the internal reversal (+0.161), external concordance (+0.165) and
-translational red-team. Full evidence-graded provenance:
-[RICTOR_ORIGIN_AND_DECISION_PATH.md](docs/RICTOR_ORIGIN_AND_DECISION_PATH.md) ·
-[`results/rictor_provenance/`](results/rictor_provenance/).
 
 **Novelty boundary.** We do **not** claim that RICTOR/mTORC2 regulation of T-cell
 differentiation, Tfh, Treg, or autoimmunity is novel. The narrow claim is: *RICTOR-
