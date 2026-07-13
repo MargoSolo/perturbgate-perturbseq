@@ -121,6 +121,13 @@ MATCHED_NULL = TableSchema(
     min_rows=3,
 )
 
+RICTOR_ROBUSTNESS_TRACKS = TableSchema(
+    name="rictor_robustness_tracks",
+    required_columns=("track", "reversal", "range_low", "range_high", "source_artifact"),
+    non_null=("track", "reversal", "source_artifact"),
+    min_rows=11,
+)
+
 SCHEMAS = {
     "primary_comparison": PRIMARY_COMPARISON,
     "all_perturbations_authoritative_reversal": ALL_PERTURBATIONS,
@@ -128,4 +135,5 @@ SCHEMAS = {
     "rejection_ledger": REJECTION_LEDGER,
     "gate_matrix": GATE_MATRIX,
     "matched_null": MATCHED_NULL,
+    "rictor_robustness_tracks": RICTOR_ROBUSTNESS_TRACKS,
 }
