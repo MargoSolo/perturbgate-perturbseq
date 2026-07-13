@@ -68,8 +68,7 @@ there, de novo — it is not a post-hoc pick and did not appear after the screen
 *Built with Claude: Life Sciences — Research track. Everything below runs on a
 laptop with no private data.*
 
-1. **Watch the 3-minute demo** —  
-   script; see [Video assets] (https://drive.google.com/file/d/1QVZjKWSkjHtPjq03FXxN32L6DgIl_A4c/view?usp=drivesdk).*
+1. **Watch the 3-minute demo** — [Video assets](https://drive.google.com/file/d/1QVZjKWSkjHtPjq03FXxN32L6DgIl_A4c/view?usp=drivesdk) *(3-min walkthrough + script).*
 2. **Open PerturbGate Explorer** — [reports/perturbgate_explorer.html](reports/perturbgate_explorer.html)
    (self-contained; search all 924 perturbations by gene and read why each was or
    was not advanced).
