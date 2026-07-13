@@ -6,18 +6,48 @@ A reproducible analysis of a genome-scale primary human CD4 T-cell Perturb-seq
 screen, designed to distinguish real perturbation effects from defensible
 mechanism hypotheses.
 
-Our first lead, PAK2, was technically reproducible but failed therapeutic
-directionality and was rejected.
+**RICTOR is our lead candidate drug target.** It was nominated *de novo* by our
+disease-rescue analysis of the screen, survived the internal evidence gates, and
+reproduced the same directional reversal in an **external JIA patient cohort**. It is
+a promising, evidence-backed target **hypothesis** — the step from here to an
+advanceable drug is a RICTOR-selective molecule plus experimental validation. Our
+first lead, **PAK2**, was technically reproducible but **failed the disease-direction
+test** and was rejected.
 
-RICTOR survived the internal evidence gates and showed the same directional
-reversal in an external paired JIA synovial-fluid-versus-blood memory-CD4 cohort,
-while remaining a mechanism hypothesis and **not** a validated drug target.
+## TL;DR
 
-> **Headline result.** RICTOR-knockdown reverses the JIA joint-vs-blood CD4
-> disease direction: internal **+0.161**, external **+0.165** (GSE160097; 6/6
-> paired leave-one-donor-out). PAK2 was a real, reproducible hit that **failed**
-> therapeutic directionality (rejected). Every reported number resolves to a
-> committed artifact. Full table → [§2 Main finding](#2-main-finding).
+- **What we built** — an open, reproducible pipeline that turns a genome-scale human
+  CD4 T-cell Perturb-seq screen into **auditable drug-target hypotheses**, not just a
+  ranked hit list. Every number resolves to a committed artifact.
+- **What we found** — **RICTOR**: knocking it down moves inflamed-joint (JIA) CD4
+  T cells *against* the disease programme (internal reversal **+0.161**), and this
+  **reproduces in an external patient cohort** (**+0.165**, GSE160097; 6/6 paired
+  leave-one-donor-out). PAK2 looked good technically but was **rejected** on the
+  disease-direction test.
+- **Why it matters** — most Perturb-seq studies stop at *"which knockdown changes the
+  cell most."* We show *which effects survive the evidence required to nominate a
+  target* — and we state, honestly, what is still missing before RICTOR is a drug.
+
+### How we got RICTOR (and what "Screen 8" is)
+
+```mermaid
+flowchart TB
+  S["Genome-scale CD4 T-cell Perturb-seq<br/>924 gene knockdowns (real patient-derived data)"]
+  S --> W["Screen-wide drug-target hunt<br/>924 → 208 → 21 → 0 ready-to-advance drugs<br/>(every lead hit a safety / modality wall)"]
+  S --> R0["Screen 8 = direct disease-rescue analysis<br/>'which knockdown moves T cells AGAINST the disease?'<br/>competitive specificity + disease-reversal (not raw effect size)"]
+  R0 --> N["RICTOR nominated de novo<br/>specificity 2.21 · disease-reversal 0.67 · beats the MALT1 baseline"]
+  N --> V["Independent validation<br/>6/6 donors · both guides · 6 ablation methods"]
+  V --> I["Internal disease reversal +0.161"]
+  I --> E["External patient cohort +0.165<br/>(GSE160097, same disease)"]
+  E --> T["LEAD CANDIDATE TARGET<br/>needs a selective modality + wet-lab to advance"]
+```
+
+**"Screen 8" is our direct disease-rescue analysis** — instead of ranking the biggest
+perturbations, it asks *which knockdown pushes T cells against the disease programme*
+(using competitive specificity and disease-reversal projection). **RICTOR was nominated
+there, de novo — it is not a post-hoc pick and did not appear after the screen-wide
+"0".** Full evidence-graded provenance:
+[docs/RICTOR_ORIGIN_AND_DECISION_PATH.md](docs/RICTOR_ORIGIN_AND_DECISION_PATH.md).
 
 [![CI](https://github.com/MargoSolo/perturbgate-perturbseq/actions/workflows/ci.yml/badge.svg)](https://github.com/MargoSolo/perturbgate-perturbseq/actions/workflows/ci.yml)
 ![python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
@@ -88,7 +118,7 @@ disease-state direction built from an independent juvenile idiopathic arthritis
 
 | Candidate | Origin / role | Nomination evidence (Screen 8) | Deep-evaluation reversal | Decision |
 |---|---|---|---|---|
-| **RICTOR** | **de novo nomination** | spec_t **2.21**; disease-reversal **0.673** (broadest, > MALT1); 6/6 donors, both guides, 6/6 ablations | **+0.161** internal · **+0.165** external; both guides +; **11/11** disease-donor LODO +; all 3 conditions +; matched pct 96.5 | **RETAINED** mechanism node — *not a validated target* |
+| **RICTOR** | **de novo nomination** | spec_t **2.21**; disease-reversal **0.673** (broadest, > MALT1); 6/6 donors, both guides, 6/6 ablations | **+0.161** internal · **+0.165** external; both guides +; **11/11** disease-donor LODO +; all 3 conditions +; matched pct 96.5 | **LEAD CANDIDATE TARGET** — evidence-backed hypothesis (needs selective modality + wet-lab) |
 | **PAK2** | **de novo nomination** | spec_t **4.75** (most specific node) | +0.010 (not directional; external JIA enrichment activation-confounded) | **REJECTED** (real cellular hit, not therapeutic) |
 | **RIPK1** | comparator / known anchor | `prior_class = canonical_activator` (not a de novo nomination) | +0.038 (incoherent) | **COMPARATOR ONLY** |
 | **MALT1** | specificity fallback | spec_t **1.39** (broad / non-specific) | — (triangulation baseline) | **Fallback** — beaten on specificity by PAK2 & RICTOR |
@@ -404,6 +434,26 @@ No recorded video is committed yet. The 3-minute demo is fully scripted
 (timestamps, voiceover, shot list, commands, and a fallback) in
 [docs/DEMO_SCRIPT.md](docs/DEMO_SCRIPT.md); record against that script and place
 the file under `reports/` (e.g. `reports/perturbgate_demo.mp4`) before submission.
+
+## Author
+
+**Margarita Soloshenko** — **Pediatric Rheumatologist & Physician-Scientist** ·
+Computational Genomics · Bioinformatics ·
+[LinkedIn](https://www.linkedin.com/in/margarita-soloshenko/).
+
+Ten years as a clinician in **pediatric rheumatology** — the exact disease area this
+project targets, **juvenile idiopathic arthritis (JIA)** — and, most recently, a
+completed **MSc in applied genomics**. That combination is the point of PerturbGate:
+a physician who has treated JIA at the bedside, now reading the same disease from
+genome-scale single-cell data and holding computational target hypotheses to a
+clinician's standard of proof.
+
+PerturbGate was built **solo** for *Built with Claude: Life Sciences* (Anthropic ×
+Gladstone Institutes), Research track, using Claude Code and Claude Science. The
+guiding idea: treat **rejection, negative results and honest limitations as
+first-class outputs** of target discovery — so a downstream biologist receives a
+hypothesis with its boundary already drawn, not an opaque score. Cite via
+[CITATION.cff](CITATION.cff).
 
 ## Citation and acknowledgements
 
