@@ -295,7 +295,7 @@ redistributed here (no raw GSE160097 data), with attribution
   authoritative reversal table, candidate funnel, rejection ledger, gate matrix,
   gate ablation, matched-null values, claim registry, superseded-claim registry,
   analysis contract, denominator audit, results manifest;
-- 66 tests, continuous integration, and an automated privacy / public-readiness
+- 69 tests, continuous integration, and an automated privacy / public-readiness
   audit; three reproducibility levels; four main figures + three supplementary.
 
 ## Scope and intended use
