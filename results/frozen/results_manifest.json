@@ -3,7 +3,7 @@
   "frozen": {
     "all_perturbations_authoritative_reversal.tsv": "71ffb71c3e37d2015322d9ce84d1ab0c7f08796b3fa3a7953cd278918208169b",
     "analysis_contract.json": "13412169301963e3e94abd8ce7a88eb547e3a9543fd7cd20abe9954aac968669",
-    "candidate_funnel.tsv": "5f6971c17ca779550bb705c83c0bf7c48b8ef8e528ceebbbd82d5fb363dfb17b",
+    "candidate_funnel.tsv": "30530402c5636f5eb0b610f5068deec7c39c3481f281ddc159092c9ac47d9abd",
     "claims.json": "6f9144c0eb2224fa11eef89649b5f7ba513dc1d9b241c9bf702e7011a5c1be18",
     "confound_decomposition.tsv": "cc6e1132317cdd2cb495af1c122a41645ac44aec48054433e90c42b8e69d1843",
     "denominator_audit.tsv": "80fad6eff0c75af31a42e6a18b6df28a232de6c403cb909b89eb750de477a5b1",

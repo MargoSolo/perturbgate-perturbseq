@@ -95,6 +95,17 @@ matched controls exist, 7 of which exceed RICTOR (empirical p ≈ 0.040; finite-
 95% CI extends to ≈ 0.07). We therefore report *seven strong convergence checks
 plus a borderline matched null* — never "8/8 decisive criteria".
 
+**Where RICTOR came from.** RICTOR is **not** a post-hoc pick and did **not** appear
+after the screen-wide "0 advanceable targets". It was **nominated de novo by the
+direct disease-rescue analysis** (`prior_class = none`; competitive specificity-t
+2.205; broadest disease-reversal projection 0.673; ranked above the MALT1 fallback),
+**independently recomputed** from donor/guide source artifacts (6/6 donor pairs at the
+driving Stim48hr, min comp-t 1.59; both guides; six ablation methods), and only then
+carried into the internal reversal (+0.161), external concordance (+0.165) and
+translational red-team. Full evidence-graded provenance:
+[RICTOR_ORIGIN_AND_DECISION_PATH.md](docs/RICTOR_ORIGIN_AND_DECISION_PATH.md) ·
+[`results/rictor_provenance/`](results/rictor_provenance/).
+
 **Novelty boundary.** We do **not** claim that RICTOR/mTORC2 regulation of T-cell
 differentiation, Tfh, Treg, or autoimmunity is novel. The narrow claim is: *RICTOR-
 specific perturbation in primary human CD4 T cells directionally reverses a
@@ -401,7 +412,7 @@ Institutes).
 
 *Documentation index:* [Hackathon summary](docs/HACKATHON_SUBMISSION.md) ·
 [Methods](docs/METHODS.md) · [Results](docs/RESULTS.md) ·
-[Decision trail](docs/DECISION_TRAIL.md) · [Failure modes](docs/FAILURE_MODES.md) ·
+[Decision trail](docs/DECISION_TRAIL.md) · [RICTOR origin & decision path](docs/RICTOR_ORIGIN_AND_DECISION_PATH.md) · [Failure modes](docs/FAILURE_MODES.md) ·
 [Claims & evidence](docs/CLAIMS_AND_EVIDENCE.md) ·
 [External concordance (GSE160097)](docs/EXTERNAL_CONCORDANCE_GSE160097.md) ·
 [External evidence summary](docs/EXTERNAL_EVIDENCE_SUMMARY.md) ·

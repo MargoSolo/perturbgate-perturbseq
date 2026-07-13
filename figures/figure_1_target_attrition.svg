@@ -262,10 +262,10 @@ z
     <text style="font-size: 9.2px; font-family: 'DejaVu Sans'" transform="translate(52.100625 378.213091)">NO_ROBUST_CANDIDATE</text>
    </g>
    <g id="text_6">
-    <text style="font-weight: 700; font-size: 10.5px; font-family: 'DejaVu Sans'; text-anchor: start" x="314.1" y="52.31493" transform="rotate(-0 314.1 52.31493)">Candidate-specific deep validation (branches)</text>
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'DejaVu Sans'; text-anchor: start" x="314.1" y="52.31493" transform="rotate(-0 314.1 52.31493)">Direct disease-rescue nominations → deep validation (branches)</text>
    </g>
    <g id="text_7">
-    <text style="font-size: 9.2px; font-family: 'DejaVu Sans'; fill: #ffffff" transform="translate(295.303094 84.801007)">PAK2 (lead)</text>
+    <text style="font-size: 9.2px; font-family: 'DejaVu Sans'; fill: #ffffff" transform="translate(259.175125 84.801007)">PAK2 (de novo nomination)</text>
     <text style="font-size: 9.2px; font-family: 'DejaVu Sans'; fill: #ffffff" transform="translate(263.8355 95.102995)">technical validation PASS</text>
     <text style="font-size: 9.2px; font-family: 'DejaVu Sans'; fill: #ffffff" transform="translate(262.86375 105.404982)">therapeutic direction FAIL</text>
    </g>
@@ -275,14 +275,14 @@ z
     <text style="font-size: 9.2px; font-family: 'DejaVu Sans'" transform="translate(444.241438 105.404982)">not therapeutically directional</text>
    </g>
    <g id="text_9">
-    <text style="font-size: 9.2px; font-family: 'DejaVu Sans'; fill: #ffffff" transform="translate(262.341219 168.958927)">RICTOR (bounded rescue)</text>
-    <text style="font-size: 9.2px; font-family: 'DejaVu Sans'; fill: #ffffff" transform="translate(272.035 179.260915)">7 strong criteria PASS</text>
-    <text style="font-size: 9.2px; font-family: 'DejaVu Sans'; fill: #ffffff" transform="translate(261.161031 189.562902)">+ borderline matched-null</text>
+    <text style="font-size: 9.2px; font-family: 'DejaVu Sans'; fill: #ffffff" transform="translate(253.35325 168.958927)">RICTOR (de novo nomination)</text>
+    <text style="font-size: 9.2px; font-family: 'DejaVu Sans'; fill: #ffffff" transform="translate(230.990063 179.260915)">6/6 donors + both guides + 6 ablations</text>
+    <text style="font-size: 9.2px; font-family: 'DejaVu Sans'; fill: #ffffff" transform="translate(244.849 189.562902)">7 strong criteria + borderline null</text>
    </g>
    <g id="text_10">
     <text style="font-size: 9.2px; font-family: 'DejaVu Sans'" transform="translate(449.586063 168.958927)">RETAINED mechanism node</text>
     <text style="font-size: 9.2px; font-family: 'DejaVu Sans'" transform="translate(472.126781 179.260915)">with modality gap</text>
-    <text style="font-size: 9.2px; font-family: 'DejaVu Sans'" transform="translate(462.061406 189.562902)">(+0.161; 11/11 LODO)</text>
+    <text style="font-size: 9.2px; font-family: 'DejaVu Sans'" transform="translate(433.434313 189.562902)">(+0.161 internal; +0.165 external)</text>
    </g>
    <g id="text_11">
     <text style="font-size: 9.2px; font-family: 'DejaVu Sans'; fill: #ffffff" transform="translate(276.668063 260.097361)">RIPK1 (comparator)</text>

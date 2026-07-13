@@ -1,0 +1,25 @@
+commit	subject
+3d7bfba	GSE160097 external SAME-DISEASE concordance (gse160097-jia-concordance-v1)
+e77b372	AMP RA Phase 1 external directional-concordance (amp-phase1-concordance-v1)
+adf5b23	RICTOR rescue: terminal calibration audit (no rule changes) + freeze package
+6c0515d	RICTOR rescue: de novo disease-reversal on corrected raw-count JIA vector -> DISEASE_REVERSING_MECHANISM_NODE_WITH_MODALITY_GAP
+fa76791	Finalize disease-reversal branch: FDR/effector-egress/adjusted-ranking/checksums + RICTOR label
+ea09170	PAK2 therapeutic-direction branch: signed JIA disease vectors + directionality test в†’ PAK2_ORTHOGONAL_MECHANISM_NODE
+4119201	DECISION_GATE accounting corrected (per reviewer): 2 FAILED (#1,#2) / 1 NOT SUPPORTED (#4) / 1 NOT ESTABLISHED (#3) вЂ” NOT 'all four failed'; pockets=tractability not crit#4; RAC-actin -> CONDITION_SPECIFIC_RAC_ACTIN_PROGRAMME_WITHOUT_INFLAMMATORY_RESCUE (I2=95%, overall null); softened one-liner
+2179edf	RAC-actin reconciliation (per reviewer): donor-level meta shows condition-dependent, heterogeneous (I2=95%) RAC-actin shift, overall donor-level null (p=0.84, RE p=0.53) -> DROP RAC_ACTIN_ONLY label. Primary verdict NO_INFLAMMATORY_RESCUE robust (NFkB overall p=0.37)
+f0728a5	Mixscape decision-gate #1 DONE: PAK2 responder-frac 76.5% (not diluted), RAC_ACTIN_ONLY_NO_INFLAMMATORY_RESCUE вЂ” NFkB delta ~0 even in responders. AF2 cross-check: rac1 0.737/cdc42 0.747 = AF3 (validates pipeline), tpi1 0.26 negative
+f5ee9f1	Pockets DONE ([container]): PAK2 druggability inconsistent (0.88/0.49/0.40) < PAK1 (0.99/0.92 consistent); RICTOR high-drugg=scaffold artifact (703 pockets, score 0.22). Structural tractability does not differentiate PAK2/RICTOR вЂ” aligns with mechanism-node gate
+daaabbb	Rename therapeutic-window -> benefit-risk signature matrix + rigor (audit corrections)
+38b4a08	P0 branches: therapeutic-window component matrix + raw-cell extraction launched
+0ea97f1	WIP audit-v2: repeated cross-fit sensitivity + AF3 full-retention rerun (not final)
+d543a0e	AF3 inference COMPLETE (8/8) вЂ” remediation done, acceptance 8/8 PASS
+e4efecc	Audit remediation: true donor/LODO, redesigned matched-null, real server DAG
+2cccc90	Audit remediation: true donor/LODO, redesigned matched-null, real server DAG
+f5429ca	Add reproducible PAK2 and RICTOR server validation sprint
+806363d	Add IL18R1/IL18RAP Screen 8 pair audit
+75e3f20	Add Screen 8 project summary
+d51f587	Prior validation + candidate audit + lead arbitration + independent RICTOR hardening
+16d4f9a	Final hackathon submission: 12-slide deck + SUBMISSION.md (Case B, three-layer story)
+5530456	Screen 9: PAK2-axis therapeutic escape вЂ” DOCK2 parked as escape candidate (Case B)
+362fe4d	Screen 8 final hardening: independent donor/guide validation from server; PAK2 = validated discovery (not a drug), RIPK1 anchor, MALT1 beaten
+a4b810d	Screen 8: original-data direct target rescue вЂ” PAK2 + RIPK1 beat MALT1

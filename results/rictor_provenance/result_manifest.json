@@ -1,0 +1,19 @@
+{
+ "analysis": "RICTOR Screen 8 provenance (curated, anonymized)",
+ "source_workspace": "private research workspace (48h_target_validation / outputs/screen8 / server-results)",
+ "source_run_commit_project_summary": "806363dad08eae9d4614e21c211aa7ead8f0940f",
+ "source_run_commit_rictor_rescue": "6c0515d30613f6ccf52d4cf5b9e39c3a61236e09",
+ "note": "Values extracted from the genuine artifacts; donor-pair IDs anonymized to pair_N; no raw H5MU or private paths redistributed.",
+ "source_artifact_sha256": {
+  "table_screen8A_all_candidates.csv": "9f6924000e45d36042ac2330cfaaf37dbc53d6cfcc80e3d261acb91a8e3d2d5a",
+  "table_screen8B_disease_projection_all.csv": "1452b4ecb602c07b0e8207a12cf7472200af0dac72244bdf108d175a721d683d",
+  "rictor_donorpair_validation.csv": "516a15192b9e1aeb9c3fe76763e7bf6250a693e0812c867ae42cf03b7344d95e",
+  "rictor_guide_validation.csv": "a15c4d45072d1c1083940d33da1503fe191064e700ef0f544f1d51bc4567047d",
+  "rictor_ablation_robustness.csv": "e55becd615b2f8149ddefb44bb0828825861a14ea172c751c9948dc8e85173f9",
+  "rictor_8d_hardening.csv": "0b99222d324e3d48d7ec92b230bec62482a9e87228703d7d5e9a1b880531beda",
+  "screen8_project_summary.md": "8cd463da30e4222108cb9aa168187a0bb5daa59b1e427cef0d20da4d68f41dc0",
+  "verdict_screen8.md": "c16e25354f76e34ce0fecd8230e64bd219107e77b3be8f2bbac3c4f7d550b615",
+  "table_screen8D_malt1_comparison.csv": "23d023a14a4f4ce8f123156f6670f425c23dd71d69f91cd25b2d26b0e0db372a",
+  "rictor_statistical_verdict.md": "9f0d7850da702d6a24f0ce06ac4c1ee50748c4cf1069ebeb18a441fd55268a5e"
+ }
+}

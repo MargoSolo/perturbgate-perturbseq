@@ -1,0 +1,7 @@
+guide	program	condition	n_program_genes	comp_t
+guide_1	Th1_IFNG	Rest	8	0.951
+guide_1	Th1_IFNG	Stim8hr	8	1.429
+guide_1	Th1_IFNG	Stim48hr	8	1.45
+guide_2	Th1_IFNG	Rest	8	0.97
+guide_2	Th1_IFNG	Stim8hr	8	1.432
+guide_2	Th1_IFNG	Stim48hr	8	2.742

@@ -1,0 +1,7 @@
+donor_pair	condition	program	n_program_genes	comp_t	supports_suppression
+pair_1	Stim48hr	Th1_IFNG	8	1.743	True
+pair_2	Stim48hr	Th1_IFNG	8	3.731	True
+pair_3	Stim48hr	Th1_IFNG	8	1.586	True
+pair_4	Stim48hr	Th1_IFNG	8	3.861	True
+pair_5	Stim48hr	Th1_IFNG	8	2.562	True
+pair_6	Stim48hr	Th1_IFNG	8	3.97	True

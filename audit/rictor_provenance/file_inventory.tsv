@@ -1,0 +1,13 @@
+artifact_path	workspace	git_commit	type	screen8_stage	primary_or_narrative	public_suitable	privacy_concern
+outputs/screen8/tables/table_screen8A_all_candidates.csv	private/Hackaton	806363d	csv	8A nomination	primary	yes(derived summary only)	donor codes present->anonymize	9f6924000e45d360
+outputs/screen8/tables/table_screen8B_disease_projection_all.csv	private/Hackaton	806363d	csv	8B disease-reversal	primary	yes(derived summary)	none	1452b4ecb602c07b
+outputs/screen8/tables/table_screen8D_malt1_comparison.csv	private/Hackaton	806363d	csv	8D MALT1 triangulation	primary	yes(derived)	none	23d023a14a4f4ce8
+outputs/screen8/rictor_8d_hardening.csv	private/Hackaton	806363d	csv	8D hardening	primary	yes(derived)	external-lit labels	0b99222d324e3d48
+outputs/screen8/rictor_ablation_robustness.csv	private/Hackaton	806363d	csv	ablation	primary	yes(derived)	none	e55becd615b2f814
+server-validation/rictor_donorpair_validation.csv	private/Hackaton	tracked	csv	server donor recompute	primary	yes(anonymized)	donor-pair IDs->pair_N	516a15192b9e1aeb
+server-validation/rictor_guide_validation.csv	private/Hackaton	tracked	csv	server guide recompute	primary	yes(anonymized)	none	a15c4d45072d1c10
+src/screen8/extract_rictor_donor_guide.py (server-side)	private/Hackaton	tracked	py	server extraction script	code(provenance)	reference-only	opens H5MU (not redistributed)	f25e460387dcc231
+48h_target_validation/results/stats/rictor_statistical_verdict.md	private/Hackaton	6c0515d	md	statistical verdict	primary+narrative	quote-only	none	9f0d7850da702d6a
+outputs/screen8/screen8_project_summary.md	private/Hackaton	806363d	md	authoritative Screen 8 summary	narrative(authoritative)	quote-only	none	8cd463da30e42221
+outputs/screen8/verdict_screen8.md	private/Hackaton	806363d	md	intermediate verdict	narrative	quote-only	DISCREPANCY: omits RICTOR from final roles	c16e25354f76e34c
+GWCD4i.DE_stats.by_donors.h5mu / by_guide.h5mu	private/Hackaton (server)	-	h5mu	raw donor/guide DE	primary(raw)	NO — do not redistribute	raw data / large	NA

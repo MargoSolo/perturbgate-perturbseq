@@ -1,0 +1,7 @@
+method	score	percentile	rank	n_ranked
+A_raw_logFC_DiD	0.176	0.757	225	920
+B_robustz_DiD	0.778	0.846	143	920
+C_robustz_competitive_PRIMARY	2.205	0.908	86	920
+D_primary_drop_cytokines	2.205	0.908	86	920
+E_primary_state_not_DiD	0.982	0.924	71	920
+F_primary_nonhub_only	2.205	0.907	78	832

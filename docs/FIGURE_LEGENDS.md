@@ -73,11 +73,15 @@ sufficient for target nomination."
   robust shortlist; **0** advanceable from the single-state screen; **21**
   safety/modality-constrained → outcome **NO_ROBUST_CANDIDATE**.
 
-**Exact denominators (candidate-specific branches, each n = 1 perturbation).**
-- **D0 — PAK2 (lead):** technical validation PASS, therapeutic direction FAIL → **REJECTED**
+**Exact denominators (candidate-specific branches, each n = 1 perturbation).** The right-hand
+branches are **direct disease-rescue nominations** (internal "Screen 8"), re-evaluated here — they
+are not post-hoc picks. Origin evidence: [RICTOR_ORIGIN_AND_DECISION_PATH.md](RICTOR_ORIGIN_AND_DECISION_PATH.md).
+- **D0 — PAK2 (de novo nomination):** technical validation PASS, therapeutic direction FAIL → **REJECTED**
   (reproducible cellular hit, not therapeutically directional).
-- **R0 — RICTOR (bounded rescue):** seven strong criteria PASS plus a borderline
-  matched-null → **RETAINED** mechanism node with modality gap (+0.161; 11/11 disease-donor
+- **R0 — RICTOR (de novo nomination):** nominated de novo by the direct disease-rescue analysis
+  (spec_t 2.205, disease-reversal 0.673, above MALT1; 6/6 donors + both guides + six ablations), then a
+  bounded pre-specified re-evaluation — seven strong criteria PASS plus a borderline matched-null →
+  **RETAINED** mechanism node with modality gap (+0.161 internal; **+0.165 external**; 11/11 disease-donor
   LODO folds positive).
 - **C0 — RIPK1 (comparator):** weak/incoherent reversal → **COMPARATOR ONLY**, not
   directionally supported in this analysis.

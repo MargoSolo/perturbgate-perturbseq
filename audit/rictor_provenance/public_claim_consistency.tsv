@@ -1,0 +1,13 @@
+public_claim	appears_in	source_artifact	status
+RICTOR nominated de novo by direct disease-rescue (Screen 8)	docs/RICTOR_ORIGIN_AND_DECISION_PATH.md; DECISION_TRAIL.md; README.md	results/rictor_provenance/screen8_nomination.tsv (prior_class=none)	VERIFIED
+RICTOR spec_t 2.205 / disease-reversal 0.673 / rank 307, above MALT1	docs/RICTOR_ORIGIN...; results/rictor_provenance/README.md	results/rictor_provenance/screen8_nomination.tsv	VERIFIED
+6/6 donor pairs @ Stim48hr, min comp-t 1.59	README.md; DECISION_TRAIL.md; docs/RICTOR_ORIGIN...	results/rictor_provenance/donor_validation.tsv	VERIFIED
+both guides suppress	docs/RICTOR_ORIGIN...	results/rictor_provenance/guide_validation.tsv	VERIFIED
+survives six ablation methods	docs/RICTOR_ORIGIN...	results/rictor_provenance/ablation_validation.tsv	VERIFIED
+internal reversal +0.161	README.md; primary_comparison.tsv	results/frozen/primary_comparison.tsv	VERIFIED
+external concordance +0.165 (GSE160097)	README.md; EXTERNAL_CONCORDANCE_GSE160097.md	results/external_validation/gse160097/	VERIFIED
+matched-null borderline (fragile)	README.md; docs/RICTOR_ORIGIN...	results/frozen/matched_null.tsv; rictor_statistical_verdict.md	VERIFIED
+translational STOP / not advanceable	README.md; TRANSLATIONAL_AUDIT_UPDATE.md	results/translational/RICTOR_TRANSLATIONAL_VERDICT.md	VERIFIED
+RICTOR -0.350 / MALT1 -0.202 / FDR 0.005 / FDR 0.019	(NOT USED PUBLICLY)	(no artifact)	CONTRADICTED - excluded from all public docs
+cohort-independence = external, not independent	EXTERNAL_CONCORDANCE_GSE160097.md	results/external_validation/gse160097/cohort_independence_audit.tsv	VERIFIED
+AMP Phase 1 absent from public release	(consistency scan)	(none present)	VERIFIED - not added

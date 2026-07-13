@@ -1,0 +1,5 @@
+gene	best_program	driving_condition	spec_t_competitive	disease_reversal_mean	rank_of_920	prior_class	identity_preserved	passes_hard_filters	surprise_score
+RICTOR	Th1_IFNG	Stim48hr	2.205	0.673	307	none	True	True	1.605
+PAK2	NFkB_TNF	Stim48hr	4.745	0.671	15	none	False	True	4.145
+RIPK1	NFkB_TNF	Stim8hr	4.963	0.3	8	canonical_activator	True	True	1.463
+MALT1	Tfh_Bhelp	Stim48hr	1.389	0.544	563	none	True	False	0.789

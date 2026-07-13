@@ -41,18 +41,35 @@ detail and the disease-vector definition are documented in
        (716 not advanced)             (187 not advanced)          (21 safety/modality constrained)
                                                                         └─► NO_ROBUST_CANDIDATE
 
-  Track B — deep candidate branches (carried leads, evaluated on the corrected raw-count disease vector)
-  D0  PAK2  ──► REJECTED after deep validation   (technical pass, therapeutic fail)
-  R0  RICTOR ──► RETAINED as mechanism hypothesis (bounded pre-specified rescue, modality gap)
-  C0  RIPK1 ──► COMPARATOR only                   (benchmark, not nominated by this test)
+  Track B — deep candidate branches (PAK2 & RICTOR nominated de novo by the direct
+            disease-rescue analysis "Screen 8"; re-evaluated on the corrected raw-count disease vector)
+  D0  PAK2  ──► REJECTED after deep validation   (Screen 8 nomination; technical pass, therapeutic fail)
+  R0  RICTOR ──► RETAINED as mechanism hypothesis (Screen 8 de novo nomination; +0.161; modality gap)
+  C0  RIPK1 ──► COMPARATOR only                   (benchmark anchor, not nominated by this test)
 ```
 
 The two tracks do not share a denominator. Track A is an exploratory
-single-state screen that terminated with **no advanceable candidate**. Track B
-evaluates a small set of leads (PAK2 carried from the prior robustness spine,
-RICTOR as a separate bounded pre-specified rescue, RIPK1 as an external
-benchmark comparator) against the JIA synovium-vs-blood corrected raw-count
-disease vector.
+single-state screen that terminated with **no advanceable *drug* candidate**
+("0" = zero candidates that passed translational readiness, **not** zero
+biologically-supported hypotheses). Track B evaluates a small set of leads
+against the JIA synovium-vs-blood corrected raw-count disease vector.
+
+**Where the Track-B leads came from (provenance).** These leads were **not**
+manually chosen, carried from literature, or invented after Track A's zero.
+**PAK2 and RICTOR were nominated de novo by the direct disease-rescue analysis**
+(the competitive gene-set specificity + hard-filter + disease-reversal-projection
+pipeline over the same genome-scale substrate — internal "Screen 8"). **RICTOR
+emerged as a de novo candidate** (`prior_class = none`; competitive specificity-t
+**2.205** at Th1/IFN-γ Stim48hr; disease-reversal projection **0.673**, the
+broadest in the panel; rank **307 of 920**; identity preserved; **above the MALT1
+fallback**), was then **independently recomputed from donor- and guide-resolved
+source artifacts** (**6/6 donor pairs @ Stim48hr, min comp-t 1.59**; both guides;
+survives **all six ablation methods**), and only afterwards re-evaluated here on
+the corrected raw-count disease vector (stage **R0**, +0.161). RIPK1 is a known
+clinically-druggable **benchmark comparator**, not a nomination by this test. Full
+evidence-graded reconstruction:
+[RICTOR_ORIGIN_AND_DECISION_PATH.md](RICTOR_ORIGIN_AND_DECISION_PATH.md) ·
+[`results/rictor_provenance/`](../results/rictor_provenance/).
 
 ---
 
@@ -63,8 +80,8 @@ disease vector.
 | **S0** Screen-level reversal scoring | SCREEN_WIDE | all perturbations with a usable genome-scale effect vector | 924 | 208 | 716 | 0 | 0 | `NO_MEASURABLE_EFFECT`; `NOT_ADVANCED_FROM_SCREEN` | `all_perturbations_authoritative_reversal.tsv` |
 | **S1** Biological robustness (donor-consistent subvector + bootstrap + jackknife) | SCREEN_WIDE | convergent (Pearson & Spearman & GSEA) and FDR<0.10 screen hits | 208 | 21 | 187 | 0 | 0 | `BROAD_TRANSCRIPTIONAL_EFFECT`; `DONOR_UNSTABLE` | `rejection_ledger.tsv` |
 | **S2** Safety / essentiality / tractability / modality | SCREEN_WIDE | biologically robust screen shortlist | 21 | 0 | 0 | 21 | 0 | `ESSENTIALITY_OR_SAFETY_LIABILITY`; `NO_CREDIBLE_MODALITY`; `BROAD_TRANSCRIPTIONAL_EFFECT` | `rejection_ledger.tsv` |
-| **D0** PAK2 deep candidate validation | CANDIDATE_SPECIFIC | lead candidate carried from the prior robustness spine | 1 | 0 | 0 | 1 | 0 | `NOT_THERAPEUTICALLY_DIRECTIONAL`; `GENERIC_ACTIVATION_SUPPRESSION`; `PARTIAL_INHIBITION_NOT_ESTABLISHED` | `primary_comparison.tsv` |
-| **R0** RICTOR bounded pre-specified rescue (8 criteria) | CANDIDATE_SPECIFIC | separate bounded rescue on the corrected raw-count disease vector | 1 | 1 | 0 | 0 | 0 | `RETAINED_MECHANISM_HYPOTHESIS` | `rictor_guides.tsv`; `rictor_lodo.tsv`; `rictor_conditions.tsv`; `matched_null.tsv` |
+| **D0** PAK2 deep candidate validation | CANDIDATE_SPECIFIC | PAK2 (nominated de novo by the direct disease-rescue analysis); deep candidate validation | 1 | 0 | 0 | 1 | 0 | `NOT_THERAPEUTICALLY_DIRECTIONAL`; `GENERIC_ACTIVATION_SUPPRESSION`; `PARTIAL_INHIBITION_NOT_ESTABLISHED` | `primary_comparison.tsv` |
+| **R0** RICTOR bounded pre-specified rescue (8 criteria) | CANDIDATE_SPECIFIC | RICTOR (nominated de novo by the direct disease-rescue analysis); bounded pre-specified re-evaluation on the corrected raw-count disease vector | 1 | 1 | 0 | 0 | 0 | `RETAINED_MECHANISM_HYPOTHESIS` | `rictor_guides.tsv`; `rictor_lodo.tsv`; `rictor_conditions.tsv`; `matched_null.tsv` |
 | **C0** RIPK1 comparator | CANDIDATE_SPECIFIC | benchmark comparator perturbation | 1 | 0 | 1 | 0 | 0 | `COMPARATOR_ONLY` | `primary_comparison.tsv` |
 
 The stage rows, denominators and counts above are reproduced verbatim from
