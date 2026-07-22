@@ -116,10 +116,10 @@ disease-state direction built from an independent juvenile idiopathic arthritis
 
 | Candidate | Origin / role | Nomination evidence (Screen 8) | Deep-evaluation reversal | Decision |
 |---|---|---|---|---|
-| **RICTOR** | **de novo nomination** | spec_t **2.21**; disease-reversal **0.673** (broadest, > MALT1); 6/6 donors, both guides, 6/6 ablations | **+0.161** internal · **+0.165** external; both guides +; **11/11** disease-donor LODO +; all 3 conditions +; matched pct 96.5 | **LEAD CANDIDATE TARGET** — evidence-backed hypothesis (needs selective modality + wet-lab) |
-| **PAK2** | **de novo nomination** | spec_t **4.75** (most specific node) | +0.010 (not directional; external JIA enrichment activation-confounded) | **REJECTED** (real cellular hit, not therapeutic) |
+| **RICTOR** | **de novo nomination** | spec_t **2.21**; disease-reversal **0.673** (broadest, > MALT1); 6/6 donors, both guides, 6/6 ablations | **+0.161** internal · **+0.165** external; both positive | **RETAINED** |
+| **PAK2** | **de novo nomination** | spec_t **4.75** (most specific node) | +0.010 (not directional; external JIA enrichment activation-confounded) | **REJECTED** (real cellular hit, not therapeutically directional) |
 | **RIPK1** | comparator / known anchor | `prior_class = canonical_activator` (not a de novo nomination) | +0.038 (incoherent) | **COMPARATOR ONLY** |
-| **MALT1** | specificity fallback | spec_t **1.39** (broad / non-specific) | — (triangulation baseline) | **Fallback** — beaten on specificity by PAK2 & RICTOR |
+| **MALT1** | specificity fallback | spec_t **1.39** (broad / non-specific) | — (triangulation baseline) | **FALLBACK** — beaten on specificity by PAK2 & RICTOR |
 
 **Controlled public labels:** RICTOR = `DISEASE_REVERSING_MECHANISM_NODE_WITH_MODALITY_GAP` ·
 PAK2 = `REPRODUCIBLE_CELLULAR_HIT_NOT_THERAPEUTICALLY_DIRECTIONAL` ·
@@ -298,7 +298,7 @@ Silicon notes and how to serve the Explorer with `python -m http.server`).
 | Level | Command | Needs | Time | What it proves |
 |---|---|---|---|---|
 | **1 Demo** | `make demo` | laptop, committed compact inputs | < 2 min | recomputes RICTOR **+0.161** (and PAK2/RIPK1) from per-gene vectors; regenerates tables + figures; validates golden values |
-| **2 Analytical** | `make reproduce` | committed pseudobulk matrices | < 5 min | recomputes guide + disease-donor LODO robustness; compares to frozen |
+| **2 Analytical** | `make reproduce` | committed pseudobulk matrices | < 5 min | recomputes guide + leave-one-disease-donor-out robustness; compares to frozen |
 | **3 Full open-data** | `make full` | open raw data, high-memory server | hours | rebuilds the disease vector + genome-scale effect vectors and reruns everything |
 
 Level 1 is **artifact reproducibility**, not end-to-end raw-data reproduction —
